@@ -1,0 +1,7 @@
+pandas
+numpy
+google-cloud-bigquery
+dbt-bigquery
+python-dotenv
+pytest
+pyarrow

@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Environment variables and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+service-account*.json
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data processing
+data/external/*
+!data/external/.gitkeep
+
+# Generated logs
+*.log
+logs/
+
+# dbt
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+dbt/profiles.yml
+
+# Tableau temporary and cache files
+*.hyper
+*.tmp
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Python build files
+build/
+dist/
+
+# Coverage
+.coverage
+htmlcov/
