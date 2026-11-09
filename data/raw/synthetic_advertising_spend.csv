@@ -1,0 +1,737 @@
+campaign_id,campaign_name,campaign_date,source,medium,channel,campaign_type,impressions,clicks,simulated_conversions,ad_spend,currency,data_origin
+CMP001,Google Search - Brand,2020-11-01,google,cpc,Paid Search,paid,4705,200,8,200.48,USD,synthetic
+CMP001,Google Search - Brand,2020-11-02,google,cpc,Paid Search,paid,11853,759,46,729.39,USD,synthetic
+CMP001,Google Search - Brand,2020-11-03,google,cpc,Paid Search,paid,9253,574,32,523.0,USD,synthetic
+CMP001,Google Search - Brand,2020-11-04,google,cpc,Paid Search,paid,8022,379,27,251.89,USD,synthetic
+CMP001,Google Search - Brand,2020-11-05,google,cpc,Paid Search,paid,6069,238,20,249.91,USD,synthetic
+CMP001,Google Search - Brand,2020-11-06,google,cpc,Paid Search,paid,11702,384,7,320.97,USD,synthetic
+CMP001,Google Search - Brand,2020-11-07,google,cpc,Paid Search,paid,10174,557,21,584.12,USD,synthetic
+CMP001,Google Search - Brand,2020-11-08,google,cpc,Paid Search,paid,9670,423,13,303.72,USD,synthetic
+CMP001,Google Search - Brand,2020-11-09,google,cpc,Paid Search,paid,7637,396,29,326.02,USD,synthetic
+CMP001,Google Search - Brand,2020-11-10,google,cpc,Paid Search,paid,6655,250,15,247.8,USD,synthetic
+CMP001,Google Search - Brand,2020-11-11,google,cpc,Paid Search,paid,13032,682,13,475.28,USD,synthetic
+CMP001,Google Search - Brand,2020-11-12,google,cpc,Paid Search,paid,7239,409,28,376.31,USD,synthetic
+CMP001,Google Search - Brand,2020-11-13,google,cpc,Paid Search,paid,9779,467,16,325.46,USD,synthetic
+CMP001,Google Search - Brand,2020-11-14,google,cpc,Paid Search,paid,7796,342,23,300.18,USD,synthetic
+CMP001,Google Search - Brand,2020-11-15,google,cpc,Paid Search,paid,8686,411,10,315.1,USD,synthetic
+CMP001,Google Search - Brand,2020-11-16,google,cpc,Paid Search,paid,9759,328,19,266.05,USD,synthetic
+CMP001,Google Search - Brand,2020-11-17,google,cpc,Paid Search,paid,12306,446,26,339.98,USD,synthetic
+CMP001,Google Search - Brand,2020-11-18,google,cpc,Paid Search,paid,5053,285,16,262.15,USD,synthetic
+CMP001,Google Search - Brand,2020-11-19,google,cpc,Paid Search,paid,7551,196,12,132.45,USD,synthetic
+CMP001,Google Search - Brand,2020-11-20,google,cpc,Paid Search,paid,6086,191,7,162.43,USD,synthetic
+CMP001,Google Search - Brand,2020-11-21,google,cpc,Paid Search,paid,8103,326,17,249.6,USD,synthetic
+CMP001,Google Search - Brand,2020-11-22,google,cpc,Paid Search,paid,7689,219,21,150.6,USD,synthetic
+CMP001,Google Search - Brand,2020-11-23,google,cpc,Paid Search,paid,9203,328,23,344.2,USD,synthetic
+CMP001,Google Search - Brand,2020-11-24,google,cpc,Paid Search,paid,11147,479,19,360.78,USD,synthetic
+CMP001,Google Search - Brand,2020-11-25,google,cpc,Paid Search,paid,5712,189,7,145.06,USD,synthetic
+CMP001,Google Search - Brand,2020-11-26,google,cpc,Paid Search,paid,8830,523,30,502.01,USD,synthetic
+CMP001,Google Search - Brand,2020-11-27,google,cpc,Paid Search,paid,11976,536,12,416.84,USD,synthetic
+CMP001,Google Search - Brand,2020-11-28,google,cpc,Paid Search,paid,4307,209,16,148.39,USD,synthetic
+CMP001,Google Search - Brand,2020-11-29,google,cpc,Paid Search,paid,7697,374,27,242.05,USD,synthetic
+CMP001,Google Search - Brand,2020-11-30,google,cpc,Paid Search,paid,7795,439,21,295.3,USD,synthetic
+CMP001,Google Search - Brand,2020-12-01,google,cpc,Paid Search,paid,8691,416,14,348.91,USD,synthetic
+CMP001,Google Search - Brand,2020-12-02,google,cpc,Paid Search,paid,13410,615,20,506.78,USD,synthetic
+CMP001,Google Search - Brand,2020-12-03,google,cpc,Paid Search,paid,4594,141,5,123.09,USD,synthetic
+CMP001,Google Search - Brand,2020-12-04,google,cpc,Paid Search,paid,13014,472,33,433.18,USD,synthetic
+CMP001,Google Search - Brand,2020-12-05,google,cpc,Paid Search,paid,6640,409,11,300.75,USD,synthetic
+CMP001,Google Search - Brand,2020-12-06,google,cpc,Paid Search,paid,4860,194,11,192.09,USD,synthetic
+CMP001,Google Search - Brand,2020-12-07,google,cpc,Paid Search,paid,6426,235,14,201.25,USD,synthetic
+CMP001,Google Search - Brand,2020-12-08,google,cpc,Paid Search,paid,13553,428,31,281.02,USD,synthetic
+CMP001,Google Search - Brand,2020-12-09,google,cpc,Paid Search,paid,5939,326,23,331.24,USD,synthetic
+CMP001,Google Search - Brand,2020-12-10,google,cpc,Paid Search,paid,12971,488,27,471.22,USD,synthetic
+CMP001,Google Search - Brand,2020-12-11,google,cpc,Paid Search,paid,12920,709,55,531.07,USD,synthetic
+CMP001,Google Search - Brand,2020-12-12,google,cpc,Paid Search,paid,4749,277,10,194.63,USD,synthetic
+CMP001,Google Search - Brand,2020-12-13,google,cpc,Paid Search,paid,9979,328,30,252.36,USD,synthetic
+CMP001,Google Search - Brand,2020-12-14,google,cpc,Paid Search,paid,12809,577,12,403.12,USD,synthetic
+CMP001,Google Search - Brand,2020-12-15,google,cpc,Paid Search,paid,7153,373,21,257.1,USD,synthetic
+CMP001,Google Search - Brand,2020-12-16,google,cpc,Paid Search,paid,5752,278,20,200.83,USD,synthetic
+CMP001,Google Search - Brand,2020-12-17,google,cpc,Paid Search,paid,5301,160,10,110.42,USD,synthetic
+CMP001,Google Search - Brand,2020-12-18,google,cpc,Paid Search,paid,11521,427,33,360.88,USD,synthetic
+CMP001,Google Search - Brand,2020-12-19,google,cpc,Paid Search,paid,8316,516,29,334.4,USD,synthetic
+CMP001,Google Search - Brand,2020-12-20,google,cpc,Paid Search,paid,6354,186,14,129.67,USD,synthetic
+CMP001,Google Search - Brand,2020-12-21,google,cpc,Paid Search,paid,6076,379,22,371.17,USD,synthetic
+CMP001,Google Search - Brand,2020-12-22,google,cpc,Paid Search,paid,10163,261,21,178.49,USD,synthetic
+CMP001,Google Search - Brand,2020-12-23,google,cpc,Paid Search,paid,8899,411,29,367.87,USD,synthetic
+CMP001,Google Search - Brand,2020-12-24,google,cpc,Paid Search,paid,6710,278,14,221.43,USD,synthetic
+CMP001,Google Search - Brand,2020-12-25,google,cpc,Paid Search,paid,13645,589,25,437.53,USD,synthetic
+CMP001,Google Search - Brand,2020-12-26,google,cpc,Paid Search,paid,11212,647,19,441.41,USD,synthetic
+CMP001,Google Search - Brand,2020-12-27,google,cpc,Paid Search,paid,6952,403,18,310.07,USD,synthetic
+CMP001,Google Search - Brand,2020-12-28,google,cpc,Paid Search,paid,5888,186,3,141.08,USD,synthetic
+CMP001,Google Search - Brand,2020-12-29,google,cpc,Paid Search,paid,9633,262,8,186.47,USD,synthetic
+CMP001,Google Search - Brand,2020-12-30,google,cpc,Paid Search,paid,4700,245,10,197.17,USD,synthetic
+CMP001,Google Search - Brand,2020-12-31,google,cpc,Paid Search,paid,11492,679,20,445.41,USD,synthetic
+CMP001,Google Search - Brand,2021-01-01,google,cpc,Paid Search,paid,12813,448,13,394.36,USD,synthetic
+CMP001,Google Search - Brand,2021-01-02,google,cpc,Paid Search,paid,4018,185,7,125.93,USD,synthetic
+CMP001,Google Search - Brand,2021-01-03,google,cpc,Paid Search,paid,7083,439,36,298.35,USD,synthetic
+CMP001,Google Search - Brand,2021-01-04,google,cpc,Paid Search,paid,6779,387,26,374.92,USD,synthetic
+CMP001,Google Search - Brand,2021-01-05,google,cpc,Paid Search,paid,13806,419,26,362.57,USD,synthetic
+CMP001,Google Search - Brand,2021-01-06,google,cpc,Paid Search,paid,12420,502,15,456.48,USD,synthetic
+CMP001,Google Search - Brand,2021-01-07,google,cpc,Paid Search,paid,8897,392,13,319.35,USD,synthetic
+CMP001,Google Search - Brand,2021-01-08,google,cpc,Paid Search,paid,9298,354,19,282.77,USD,synthetic
+CMP001,Google Search - Brand,2021-01-09,google,cpc,Paid Search,paid,7023,442,20,453.91,USD,synthetic
+CMP001,Google Search - Brand,2021-01-10,google,cpc,Paid Search,paid,7810,460,30,420.83,USD,synthetic
+CMP001,Google Search - Brand,2021-01-11,google,cpc,Paid Search,paid,9587,317,17,295.69,USD,synthetic
+CMP001,Google Search - Brand,2021-01-12,google,cpc,Paid Search,paid,13549,390,17,368.91,USD,synthetic
+CMP001,Google Search - Brand,2021-01-13,google,cpc,Paid Search,paid,10337,315,21,329.18,USD,synthetic
+CMP001,Google Search - Brand,2021-01-14,google,cpc,Paid Search,paid,8729,496,20,515.62,USD,synthetic
+CMP001,Google Search - Brand,2021-01-15,google,cpc,Paid Search,paid,11935,344,12,309.38,USD,synthetic
+CMP001,Google Search - Brand,2021-01-16,google,cpc,Paid Search,paid,4025,176,14,151.29,USD,synthetic
+CMP001,Google Search - Brand,2021-01-17,google,cpc,Paid Search,paid,8745,391,22,348.9,USD,synthetic
+CMP001,Google Search - Brand,2021-01-18,google,cpc,Paid Search,paid,11967,341,19,312.73,USD,synthetic
+CMP001,Google Search - Brand,2021-01-19,google,cpc,Paid Search,paid,5612,291,23,226.78,USD,synthetic
+CMP001,Google Search - Brand,2021-01-20,google,cpc,Paid Search,paid,10528,417,10,321.56,USD,synthetic
+CMP001,Google Search - Brand,2021-01-21,google,cpc,Paid Search,paid,7070,441,22,363.21,USD,synthetic
+CMP001,Google Search - Brand,2021-01-22,google,cpc,Paid Search,paid,6172,385,17,373.11,USD,synthetic
+CMP001,Google Search - Brand,2021-01-23,google,cpc,Paid Search,paid,8582,553,35,521.23,USD,synthetic
+CMP001,Google Search - Brand,2021-01-24,google,cpc,Paid Search,paid,11300,338,11,299.98,USD,synthetic
+CMP001,Google Search - Brand,2021-01-25,google,cpc,Paid Search,paid,10552,456,18,450.66,USD,synthetic
+CMP001,Google Search - Brand,2021-01-26,google,cpc,Paid Search,paid,7496,278,13,285.74,USD,synthetic
+CMP001,Google Search - Brand,2021-01-27,google,cpc,Paid Search,paid,8702,565,27,571.31,USD,synthetic
+CMP001,Google Search - Brand,2021-01-28,google,cpc,Paid Search,paid,4910,319,13,293.61,USD,synthetic
+CMP001,Google Search - Brand,2021-01-29,google,cpc,Paid Search,paid,5511,336,9,218.34,USD,synthetic
+CMP001,Google Search - Brand,2021-01-30,google,cpc,Paid Search,paid,11102,366,13,374.97,USD,synthetic
+CMP001,Google Search - Brand,2021-01-31,google,cpc,Paid Search,paid,10454,264,18,174.1,USD,synthetic
+CMP002,Google Search - Generic,2020-11-01,google,cpc,Paid Search,paid,17179,615,31,646.45,USD,synthetic
+CMP002,Google Search - Generic,2020-11-02,google,cpc,Paid Search,paid,10101,340,8,504.47,USD,synthetic
+CMP002,Google Search - Generic,2020-11-03,google,cpc,Paid Search,paid,12930,200,8,270.61,USD,synthetic
+CMP002,Google Search - Generic,2020-11-04,google,cpc,Paid Search,paid,9623,345,9,385.46,USD,synthetic
+CMP002,Google Search - Generic,2020-11-05,google,cpc,Paid Search,paid,7204,230,3,385.05,USD,synthetic
+CMP002,Google Search - Generic,2020-11-06,google,cpc,Paid Search,paid,10520,308,14,320.65,USD,synthetic
+CMP002,Google Search - Generic,2020-11-07,google,cpc,Paid Search,paid,10868,158,7,179.55,USD,synthetic
+CMP002,Google Search - Generic,2020-11-08,google,cpc,Paid Search,paid,8140,276,6,398.01,USD,synthetic
+CMP002,Google Search - Generic,2020-11-09,google,cpc,Paid Search,paid,10228,209,8,293.16,USD,synthetic
+CMP002,Google Search - Generic,2020-11-10,google,cpc,Paid Search,paid,19299,740,20,823.4,USD,synthetic
+CMP002,Google Search - Generic,2020-11-11,google,cpc,Paid Search,paid,18879,290,5,319.87,USD,synthetic
+CMP002,Google Search - Generic,2020-11-12,google,cpc,Paid Search,paid,13164,316,10,450.27,USD,synthetic
+CMP002,Google Search - Generic,2020-11-13,google,cpc,Paid Search,paid,8994,163,1,229.77,USD,synthetic
+CMP002,Google Search - Generic,2020-11-14,google,cpc,Paid Search,paid,10836,257,5,342.46,USD,synthetic
+CMP002,Google Search - Generic,2020-11-15,google,cpc,Paid Search,paid,10173,322,9,466.86,USD,synthetic
+CMP002,Google Search - Generic,2020-11-16,google,cpc,Paid Search,paid,14355,489,14,676.37,USD,synthetic
+CMP002,Google Search - Generic,2020-11-17,google,cpc,Paid Search,paid,13843,365,21,551.07,USD,synthetic
+CMP002,Google Search - Generic,2020-11-18,google,cpc,Paid Search,paid,11688,305,10,415.92,USD,synthetic
+CMP002,Google Search - Generic,2020-11-19,google,cpc,Paid Search,paid,13751,355,7,387.2,USD,synthetic
+CMP002,Google Search - Generic,2020-11-20,google,cpc,Paid Search,paid,17886,242,3,290.86,USD,synthetic
+CMP002,Google Search - Generic,2020-11-21,google,cpc,Paid Search,paid,14520,476,23,486.67,USD,synthetic
+CMP002,Google Search - Generic,2020-11-22,google,cpc,Paid Search,paid,9750,219,4,244.45,USD,synthetic
+CMP002,Google Search - Generic,2020-11-23,google,cpc,Paid Search,paid,13608,528,18,889.38,USD,synthetic
+CMP002,Google Search - Generic,2020-11-24,google,cpc,Paid Search,paid,11744,367,10,546.33,USD,synthetic
+CMP002,Google Search - Generic,2020-11-25,google,cpc,Paid Search,paid,11337,202,2,276.12,USD,synthetic
+CMP002,Google Search - Generic,2020-11-26,google,cpc,Paid Search,paid,7139,253,10,425.08,USD,synthetic
+CMP002,Google Search - Generic,2020-11-27,google,cpc,Paid Search,paid,17421,278,3,365.59,USD,synthetic
+CMP002,Google Search - Generic,2020-11-28,google,cpc,Paid Search,paid,17490,580,12,757.07,USD,synthetic
+CMP002,Google Search - Generic,2020-11-29,google,cpc,Paid Search,paid,9664,361,6,376.39,USD,synthetic
+CMP002,Google Search - Generic,2020-11-30,google,cpc,Paid Search,paid,9352,241,3,339.41,USD,synthetic
+CMP002,Google Search - Generic,2020-12-01,google,cpc,Paid Search,paid,10495,374,14,539.63,USD,synthetic
+CMP002,Google Search - Generic,2020-12-02,google,cpc,Paid Search,paid,10167,339,8,356.53,USD,synthetic
+CMP002,Google Search - Generic,2020-12-03,google,cpc,Paid Search,paid,18456,658,30,880.56,USD,synthetic
+CMP002,Google Search - Generic,2020-12-04,google,cpc,Paid Search,paid,11400,298,12,484.68,USD,synthetic
+CMP002,Google Search - Generic,2020-12-05,google,cpc,Paid Search,paid,10555,274,4,375.71,USD,synthetic
+CMP002,Google Search - Generic,2020-12-06,google,cpc,Paid Search,paid,10056,379,6,545.12,USD,synthetic
+CMP002,Google Search - Generic,2020-12-07,google,cpc,Paid Search,paid,11114,141,3,231.03,USD,synthetic
+CMP002,Google Search - Generic,2020-12-08,google,cpc,Paid Search,paid,9491,273,7,277.76,USD,synthetic
+CMP002,Google Search - Generic,2020-12-09,google,cpc,Paid Search,paid,13836,546,18,781.46,USD,synthetic
+CMP002,Google Search - Generic,2020-12-10,google,cpc,Paid Search,paid,15239,568,29,851.41,USD,synthetic
+CMP002,Google Search - Generic,2020-12-11,google,cpc,Paid Search,paid,12990,197,5,296.86,USD,synthetic
+CMP002,Google Search - Generic,2020-12-12,google,cpc,Paid Search,paid,16076,487,19,811.89,USD,synthetic
+CMP002,Google Search - Generic,2020-12-13,google,cpc,Paid Search,paid,15557,513,4,639.39,USD,synthetic
+CMP002,Google Search - Generic,2020-12-14,google,cpc,Paid Search,paid,16539,558,24,749.42,USD,synthetic
+CMP002,Google Search - Generic,2020-12-15,google,cpc,Paid Search,paid,11228,264,4,408.73,USD,synthetic
+CMP002,Google Search - Generic,2020-12-16,google,cpc,Paid Search,paid,19713,679,18,1111.3,USD,synthetic
+CMP002,Google Search - Generic,2020-12-17,google,cpc,Paid Search,paid,7715,103,4,111.89,USD,synthetic
+CMP002,Google Search - Generic,2020-12-18,google,cpc,Paid Search,paid,11845,399,18,637.08,USD,synthetic
+CMP002,Google Search - Generic,2020-12-19,google,cpc,Paid Search,paid,10528,195,2,279.29,USD,synthetic
+CMP002,Google Search - Generic,2020-12-20,google,cpc,Paid Search,paid,6719,177,2,260.13,USD,synthetic
+CMP002,Google Search - Generic,2020-12-21,google,cpc,Paid Search,paid,16098,496,18,581.77,USD,synthetic
+CMP002,Google Search - Generic,2020-12-22,google,cpc,Paid Search,paid,18644,669,20,812.36,USD,synthetic
+CMP002,Google Search - Generic,2020-12-23,google,cpc,Paid Search,paid,8489,313,4,356.55,USD,synthetic
+CMP002,Google Search - Generic,2020-12-24,google,cpc,Paid Search,paid,10573,339,13,528.0,USD,synthetic
+CMP002,Google Search - Generic,2020-12-25,google,cpc,Paid Search,paid,17079,270,14,378.15,USD,synthetic
+CMP002,Google Search - Generic,2020-12-26,google,cpc,Paid Search,paid,10826,310,13,395.98,USD,synthetic
+CMP002,Google Search - Generic,2020-12-27,google,cpc,Paid Search,paid,10096,224,1,236.96,USD,synthetic
+CMP002,Google Search - Generic,2020-12-28,google,cpc,Paid Search,paid,8746,216,4,311.22,USD,synthetic
+CMP002,Google Search - Generic,2020-12-29,google,cpc,Paid Search,paid,18537,613,18,844.46,USD,synthetic
+CMP002,Google Search - Generic,2020-12-30,google,cpc,Paid Search,paid,19470,362,15,446.02,USD,synthetic
+CMP002,Google Search - Generic,2020-12-31,google,cpc,Paid Search,paid,19792,565,10,821.27,USD,synthetic
+CMP002,Google Search - Generic,2021-01-01,google,cpc,Paid Search,paid,16650,350,12,391.1,USD,synthetic
+CMP002,Google Search - Generic,2021-01-02,google,cpc,Paid Search,paid,6853,234,6,360.73,USD,synthetic
+CMP002,Google Search - Generic,2021-01-03,google,cpc,Paid Search,paid,12583,501,25,735.39,USD,synthetic
+CMP002,Google Search - Generic,2021-01-04,google,cpc,Paid Search,paid,10471,180,3,250.55,USD,synthetic
+CMP002,Google Search - Generic,2021-01-05,google,cpc,Paid Search,paid,17239,668,11,907.54,USD,synthetic
+CMP002,Google Search - Generic,2021-01-06,google,cpc,Paid Search,paid,19195,286,2,297.51,USD,synthetic
+CMP002,Google Search - Generic,2021-01-07,google,cpc,Paid Search,paid,19478,482,6,655.93,USD,synthetic
+CMP002,Google Search - Generic,2021-01-08,google,cpc,Paid Search,paid,18076,412,11,433.98,USD,synthetic
+CMP002,Google Search - Generic,2021-01-09,google,cpc,Paid Search,paid,7436,152,0,194.34,USD,synthetic
+CMP002,Google Search - Generic,2021-01-10,google,cpc,Paid Search,paid,9477,343,10,347.57,USD,synthetic
+CMP002,Google Search - Generic,2021-01-11,google,cpc,Paid Search,paid,8457,180,9,234.66,USD,synthetic
+CMP002,Google Search - Generic,2021-01-12,google,cpc,Paid Search,paid,13887,292,9,343.44,USD,synthetic
+CMP002,Google Search - Generic,2021-01-13,google,cpc,Paid Search,paid,10384,191,4,236.03,USD,synthetic
+CMP002,Google Search - Generic,2021-01-14,google,cpc,Paid Search,paid,13432,429,3,477.93,USD,synthetic
+CMP002,Google Search - Generic,2021-01-15,google,cpc,Paid Search,paid,12990,490,4,499.19,USD,synthetic
+CMP002,Google Search - Generic,2021-01-16,google,cpc,Paid Search,paid,7916,232,8,272.74,USD,synthetic
+CMP002,Google Search - Generic,2021-01-17,google,cpc,Paid Search,paid,7425,266,12,270.18,USD,synthetic
+CMP002,Google Search - Generic,2021-01-18,google,cpc,Paid Search,paid,12952,436,13,693.22,USD,synthetic
+CMP002,Google Search - Generic,2021-01-19,google,cpc,Paid Search,paid,9115,225,9,319.46,USD,synthetic
+CMP002,Google Search - Generic,2021-01-20,google,cpc,Paid Search,paid,16544,346,8,536.98,USD,synthetic
+CMP002,Google Search - Generic,2021-01-21,google,cpc,Paid Search,paid,17571,415,2,509.17,USD,synthetic
+CMP002,Google Search - Generic,2021-01-22,google,cpc,Paid Search,paid,16567,208,9,233.83,USD,synthetic
+CMP002,Google Search - Generic,2021-01-23,google,cpc,Paid Search,paid,10123,331,14,406.0,USD,synthetic
+CMP002,Google Search - Generic,2021-01-24,google,cpc,Paid Search,paid,8862,142,2,210.21,USD,synthetic
+CMP002,Google Search - Generic,2021-01-25,google,cpc,Paid Search,paid,8638,344,10,349.23,USD,synthetic
+CMP002,Google Search - Generic,2021-01-26,google,cpc,Paid Search,paid,14512,226,9,365.71,USD,synthetic
+CMP002,Google Search - Generic,2021-01-27,google,cpc,Paid Search,paid,14600,429,6,513.47,USD,synthetic
+CMP002,Google Search - Generic,2021-01-28,google,cpc,Paid Search,paid,8716,267,4,421.05,USD,synthetic
+CMP002,Google Search - Generic,2021-01-29,google,cpc,Paid Search,paid,10832,200,4,320.47,USD,synthetic
+CMP002,Google Search - Generic,2021-01-30,google,cpc,Paid Search,paid,8279,191,7,280.75,USD,synthetic
+CMP002,Google Search - Generic,2021-01-31,google,cpc,Paid Search,paid,12492,415,11,695.67,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-01,facebook,paid_social,Paid Social,paid,20312,518,6,392.43,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-02,facebook,paid_social,Paid Social,paid,8199,226,3,160.6,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-03,facebook,paid_social,Paid Social,paid,13754,164,8,104.52,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-04,facebook,paid_social,Paid Social,paid,23385,296,12,218.65,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-05,facebook,paid_social,Paid Social,paid,18334,355,12,298.43,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-06,facebook,paid_social,Paid Social,paid,14065,289,13,173.9,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-07,facebook,paid_social,Paid Social,paid,19166,195,1,124.63,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-08,facebook,paid_social,Paid Social,paid,18277,540,19,380.12,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-09,facebook,paid_social,Paid Social,paid,18060,271,6,214.3,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-10,facebook,paid_social,Paid Social,paid,14314,304,4,277.63,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-11,facebook,paid_social,Paid Social,paid,13408,224,3,137.01,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-12,facebook,paid_social,Paid Social,paid,14035,217,1,199.77,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-13,facebook,paid_social,Paid Social,paid,15566,426,4,284.05,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-14,facebook,paid_social,Paid Social,paid,17649,344,2,253.93,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-15,facebook,paid_social,Paid Social,paid,7160,208,2,167.9,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-16,facebook,paid_social,Paid Social,paid,15704,213,9,143.36,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-17,facebook,paid_social,Paid Social,paid,20363,604,14,562.26,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-18,facebook,paid_social,Paid Social,paid,22427,247,3,167.14,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-19,facebook,paid_social,Paid Social,paid,21064,454,4,347.71,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-20,facebook,paid_social,Paid Social,paid,21533,248,7,218.73,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-21,facebook,paid_social,Paid Social,paid,17456,282,10,201.44,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-22,facebook,paid_social,Paid Social,paid,11207,141,3,129.1,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-23,facebook,paid_social,Paid Social,paid,19628,271,3,238.46,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-24,facebook,paid_social,Paid Social,paid,9606,172,7,112.57,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-25,facebook,paid_social,Paid Social,paid,17189,266,2,202.58,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-26,facebook,paid_social,Paid Social,paid,21994,254,10,232.41,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-27,facebook,paid_social,Paid Social,paid,13254,249,5,189.53,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-28,facebook,paid_social,Paid Social,paid,14329,156,5,95.1,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-29,facebook,paid_social,Paid Social,paid,18787,218,2,167.95,USD,synthetic
+CMP003,Facebook Prospecting,2020-11-30,facebook,paid_social,Paid Social,paid,23252,201,5,122.03,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-01,facebook,paid_social,Paid Social,paid,22647,413,7,294.33,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-02,facebook,paid_social,Paid Social,paid,17730,527,14,458.16,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-03,facebook,paid_social,Paid Social,paid,21428,605,5,417.76,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-04,facebook,paid_social,Paid Social,paid,10446,266,10,211.74,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-05,facebook,paid_social,Paid Social,paid,18689,529,4,384.45,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-06,facebook,paid_social,Paid Social,paid,10024,299,3,199.68,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-07,facebook,paid_social,Paid Social,paid,20766,236,7,188.71,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-08,facebook,paid_social,Paid Social,paid,10064,151,4,126.06,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-09,facebook,paid_social,Paid Social,paid,18532,341,4,313.3,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-10,facebook,paid_social,Paid Social,paid,17595,403,3,354.54,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-11,facebook,paid_social,Paid Social,paid,12634,309,8,288.74,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-12,facebook,paid_social,Paid Social,paid,19606,287,6,263.42,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-13,facebook,paid_social,Paid Social,paid,12590,256,9,213.1,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-14,facebook,paid_social,Paid Social,paid,14450,249,4,200.48,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-15,facebook,paid_social,Paid Social,paid,15430,166,5,99.08,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-16,facebook,paid_social,Paid Social,paid,15041,340,4,193.77,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-17,facebook,paid_social,Paid Social,paid,10598,285,4,186.68,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-18,facebook,paid_social,Paid Social,paid,20451,287,5,176.36,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-19,facebook,paid_social,Paid Social,paid,19915,248,11,189.91,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-20,facebook,paid_social,Paid Social,paid,19858,425,9,279.72,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-21,facebook,paid_social,Paid Social,paid,19488,327,2,267.99,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-22,facebook,paid_social,Paid Social,paid,23619,644,18,509.62,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-23,facebook,paid_social,Paid Social,paid,21557,325,8,249.18,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-24,facebook,paid_social,Paid Social,paid,21664,333,16,217.81,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-25,facebook,paid_social,Paid Social,paid,13057,385,13,324.12,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-26,facebook,paid_social,Paid Social,paid,18914,351,6,257.52,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-27,facebook,paid_social,Paid Social,paid,15964,218,3,170.53,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-28,facebook,paid_social,Paid Social,paid,12629,328,0,290.35,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-29,facebook,paid_social,Paid Social,paid,8626,220,4,192.98,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-30,facebook,paid_social,Paid Social,paid,13378,141,3,99.94,USD,synthetic
+CMP003,Facebook Prospecting,2020-12-31,facebook,paid_social,Paid Social,paid,23135,400,21,317.95,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-01,facebook,paid_social,Paid Social,paid,10463,100,2,61.42,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-02,facebook,paid_social,Paid Social,paid,13744,311,7,187.98,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-03,facebook,paid_social,Paid Social,paid,19499,338,8,260.11,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-04,facebook,paid_social,Paid Social,paid,20744,619,9,580.18,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-05,facebook,paid_social,Paid Social,paid,18443,443,7,411.44,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-06,facebook,paid_social,Paid Social,paid,10845,99,3,80.65,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-07,facebook,paid_social,Paid Social,paid,14796,389,6,338.61,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-08,facebook,paid_social,Paid Social,paid,11763,301,6,224.76,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-09,facebook,paid_social,Paid Social,paid,17583,481,6,287.9,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-10,facebook,paid_social,Paid Social,paid,10990,101,3,56.83,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-11,facebook,paid_social,Paid Social,paid,9080,80,1,64.57,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-12,facebook,paid_social,Paid Social,paid,8421,227,7,197.76,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-13,facebook,paid_social,Paid Social,paid,10349,104,2,73.88,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-14,facebook,paid_social,Paid Social,paid,13236,253,4,213.49,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-15,facebook,paid_social,Paid Social,paid,20038,257,4,164.65,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-16,facebook,paid_social,Paid Social,paid,17737,211,6,132.56,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-17,facebook,paid_social,Paid Social,paid,8250,246,6,151.03,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-18,facebook,paid_social,Paid Social,paid,22687,618,16,573.72,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-19,facebook,paid_social,Paid Social,paid,14287,184,4,148.77,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-20,facebook,paid_social,Paid Social,paid,8103,163,1,142.33,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-21,facebook,paid_social,Paid Social,paid,17063,155,2,122.15,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-22,facebook,paid_social,Paid Social,paid,12614,311,6,271.34,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-23,facebook,paid_social,Paid Social,paid,12934,180,3,136.48,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-24,facebook,paid_social,Paid Social,paid,16042,152,4,85.56,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-25,facebook,paid_social,Paid Social,paid,18827,418,13,262.08,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-26,facebook,paid_social,Paid Social,paid,21281,608,9,355.56,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-27,facebook,paid_social,Paid Social,paid,15617,192,1,156.93,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-28,facebook,paid_social,Paid Social,paid,14636,253,5,159.02,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-29,facebook,paid_social,Paid Social,paid,11311,170,1,118.62,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-30,facebook,paid_social,Paid Social,paid,11858,254,12,162.44,USD,synthetic
+CMP003,Facebook Prospecting,2021-01-31,facebook,paid_social,Paid Social,paid,10768,110,1,66.31,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-01,instagram,paid_social,Paid Social,paid,5507,221,12,161.91,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-02,instagram,paid_social,Paid Social,paid,3975,178,5,89.33,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-03,instagram,paid_social,Paid Social,paid,6747,209,10,156.65,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-04,instagram,paid_social,Paid Social,paid,10590,301,16,195.03,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-05,instagram,paid_social,Paid Social,paid,9443,296,6,156.62,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-06,instagram,paid_social,Paid Social,paid,6180,95,3,73.05,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-07,instagram,paid_social,Paid Social,paid,7333,192,16,133.11,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-08,instagram,paid_social,Paid Social,paid,5516,137,5,81.45,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-09,instagram,paid_social,Paid Social,paid,6069,205,5,136.87,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-10,instagram,paid_social,Paid Social,paid,6695,164,5,84.99,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-11,instagram,paid_social,Paid Social,paid,10748,205,8,137.43,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-12,instagram,paid_social,Paid Social,paid,6113,240,11,189.35,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-13,instagram,paid_social,Paid Social,paid,10939,473,28,290.92,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-14,instagram,paid_social,Paid Social,paid,3009,37,2,18.5,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-15,instagram,paid_social,Paid Social,paid,3226,118,4,90.2,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-16,instagram,paid_social,Paid Social,paid,3212,39,2,28.98,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-17,instagram,paid_social,Paid Social,paid,10908,334,9,192.17,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-18,instagram,paid_social,Paid Social,paid,5984,170,16,112.52,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-19,instagram,paid_social,Paid Social,paid,9335,170,8,115.71,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-20,instagram,paid_social,Paid Social,paid,9845,151,6,113.41,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-21,instagram,paid_social,Paid Social,paid,7132,228,7,142.64,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-22,instagram,paid_social,Paid Social,paid,9555,152,6,113.36,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-23,instagram,paid_social,Paid Social,paid,8649,353,13,174.84,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-24,instagram,paid_social,Paid Social,paid,5430,189,7,102.17,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-25,instagram,paid_social,Paid Social,paid,9324,124,3,79.06,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-26,instagram,paid_social,Paid Social,paid,7950,132,2,72.44,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-27,instagram,paid_social,Paid Social,paid,7096,180,6,135.07,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-28,instagram,paid_social,Paid Social,paid,9309,312,13,240.46,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-29,instagram,paid_social,Paid Social,paid,3581,47,6,31.08,USD,synthetic
+CMP004,Instagram Retargeting,2020-11-30,instagram,paid_social,Paid Social,paid,6449,86,5,61.65,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-01,instagram,paid_social,Paid Social,paid,6110,262,2,199.04,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-02,instagram,paid_social,Paid Social,paid,3360,133,8,71.57,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-03,instagram,paid_social,Paid Social,paid,9970,250,9,158.03,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-04,instagram,paid_social,Paid Social,paid,7540,168,9,92.24,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-05,instagram,paid_social,Paid Social,paid,4047,164,15,117.68,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-06,instagram,paid_social,Paid Social,paid,3303,131,4,104.03,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-07,instagram,paid_social,Paid Social,paid,5401,162,11,126.3,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-08,instagram,paid_social,Paid Social,paid,7365,206,6,130.98,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-09,instagram,paid_social,Paid Social,paid,4559,68,3,34.86,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-10,instagram,paid_social,Paid Social,paid,6132,262,2,179.86,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-11,instagram,paid_social,Paid Social,paid,9883,437,23,244.1,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-12,instagram,paid_social,Paid Social,paid,4088,181,1,102.14,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-13,instagram,paid_social,Paid Social,paid,9208,170,10,114.29,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-14,instagram,paid_social,Paid Social,paid,3506,114,6,63.05,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-15,instagram,paid_social,Paid Social,paid,8215,356,5,213.8,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-16,instagram,paid_social,Paid Social,paid,9913,262,10,208.25,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-17,instagram,paid_social,Paid Social,paid,3989,72,4,42.61,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-18,instagram,paid_social,Paid Social,paid,7324,193,6,108.43,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-19,instagram,paid_social,Paid Social,paid,7674,140,5,73.13,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-20,instagram,paid_social,Paid Social,paid,9234,266,16,167.42,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-21,instagram,paid_social,Paid Social,paid,7101,184,6,93.7,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-22,instagram,paid_social,Paid Social,paid,6824,225,13,113.4,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-23,instagram,paid_social,Paid Social,paid,6955,193,11,97.87,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-24,instagram,paid_social,Paid Social,paid,10174,385,21,241.26,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-25,instagram,paid_social,Paid Social,paid,9164,215,15,151.11,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-26,instagram,paid_social,Paid Social,paid,7083,172,9,107.61,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-27,instagram,paid_social,Paid Social,paid,2961,80,2,44.6,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-28,instagram,paid_social,Paid Social,paid,8893,165,12,114.05,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-29,instagram,paid_social,Paid Social,paid,8860,139,2,110.95,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-30,instagram,paid_social,Paid Social,paid,5180,112,8,73.87,USD,synthetic
+CMP004,Instagram Retargeting,2020-12-31,instagram,paid_social,Paid Social,paid,4355,77,1,46.49,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-01,instagram,paid_social,Paid Social,paid,8665,182,4,106.96,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-02,instagram,paid_social,Paid Social,paid,8477,121,8,77.91,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-03,instagram,paid_social,Paid Social,paid,7603,296,13,187.42,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-04,instagram,paid_social,Paid Social,paid,5717,102,2,65.22,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-05,instagram,paid_social,Paid Social,paid,5886,217,3,127.92,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-06,instagram,paid_social,Paid Social,paid,3115,69,3,41.92,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-07,instagram,paid_social,Paid Social,paid,6511,278,16,180.51,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-08,instagram,paid_social,Paid Social,paid,7989,258,17,200.38,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-09,instagram,paid_social,Paid Social,paid,9672,263,4,135.15,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-10,instagram,paid_social,Paid Social,paid,5939,151,8,101.5,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-11,instagram,paid_social,Paid Social,paid,6955,108,8,60.55,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-12,instagram,paid_social,Paid Social,paid,9165,374,10,290.49,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-13,instagram,paid_social,Paid Social,paid,10959,228,12,156.08,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-14,instagram,paid_social,Paid Social,paid,10957,239,2,129.7,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-15,instagram,paid_social,Paid Social,paid,7456,323,19,199.75,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-16,instagram,paid_social,Paid Social,paid,7363,131,6,98.43,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-17,instagram,paid_social,Paid Social,paid,3990,66,2,46.71,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-18,instagram,paid_social,Paid Social,paid,10683,468,15,268.4,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-19,instagram,paid_social,Paid Social,paid,5209,106,4,78.4,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-20,instagram,paid_social,Paid Social,paid,8903,169,14,82.62,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-21,instagram,paid_social,Paid Social,paid,9681,129,7,71.61,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-22,instagram,paid_social,Paid Social,paid,9141,229,5,167.24,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-23,instagram,paid_social,Paid Social,paid,3266,60,4,37.25,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-24,instagram,paid_social,Paid Social,paid,6346,221,7,178.34,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-25,instagram,paid_social,Paid Social,paid,8138,346,19,196.32,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-26,instagram,paid_social,Paid Social,paid,10757,295,6,163.04,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-27,instagram,paid_social,Paid Social,paid,3782,82,6,61.19,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-28,instagram,paid_social,Paid Social,paid,8091,170,7,96.95,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-29,instagram,paid_social,Paid Social,paid,5128,130,6,72.87,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-30,instagram,paid_social,Paid Social,paid,4440,77,2,53.53,USD,synthetic
+CMP004,Instagram Retargeting,2021-01-31,instagram,paid_social,Paid Social,paid,2886,122,5,93.22,USD,synthetic
+CMP005,YouTube Awareness,2020-11-01,youtube,paid_video,Paid Video,paid,21146,339,5,91.82,USD,synthetic
+CMP005,YouTube Awareness,2020-11-02,youtube,paid_video,Paid Video,paid,13162,65,2,22.24,USD,synthetic
+CMP005,YouTube Awareness,2020-11-03,youtube,paid_video,Paid Video,paid,34431,556,10,169.09,USD,synthetic
+CMP005,YouTube Awareness,2020-11-04,youtube,paid_video,Paid Video,paid,22148,315,0,84.48,USD,synthetic
+CMP005,YouTube Awareness,2020-11-05,youtube,paid_video,Paid Video,paid,19099,202,3,63.1,USD,synthetic
+CMP005,YouTube Awareness,2020-11-06,youtube,paid_video,Paid Video,paid,23566,393,6,102.97,USD,synthetic
+CMP005,YouTube Awareness,2020-11-07,youtube,paid_video,Paid Video,paid,15679,91,2,31.33,USD,synthetic
+CMP005,YouTube Awareness,2020-11-08,youtube,paid_video,Paid Video,paid,21147,355,3,132.28,USD,synthetic
+CMP005,YouTube Awareness,2020-11-09,youtube,paid_video,Paid Video,paid,27164,484,7,115.71,USD,synthetic
+CMP005,YouTube Awareness,2020-11-10,youtube,paid_video,Paid Video,paid,22900,166,4,56.97,USD,synthetic
+CMP005,YouTube Awareness,2020-11-11,youtube,paid_video,Paid Video,paid,23041,173,1,58.91,USD,synthetic
+CMP005,YouTube Awareness,2020-11-12,youtube,paid_video,Paid Video,paid,32322,416,0,145.37,USD,synthetic
+CMP005,YouTube Awareness,2020-11-13,youtube,paid_video,Paid Video,paid,33111,379,1,113.45,USD,synthetic
+CMP005,YouTube Awareness,2020-11-14,youtube,paid_video,Paid Video,paid,24969,399,6,91.62,USD,synthetic
+CMP005,YouTube Awareness,2020-11-15,youtube,paid_video,Paid Video,paid,28114,401,8,105.72,USD,synthetic
+CMP005,YouTube Awareness,2020-11-16,youtube,paid_video,Paid Video,paid,13170,214,3,55.08,USD,synthetic
+CMP005,YouTube Awareness,2020-11-17,youtube,paid_video,Paid Video,paid,30378,196,4,44.9,USD,synthetic
+CMP005,YouTube Awareness,2020-11-18,youtube,paid_video,Paid Video,paid,17651,221,2,74.39,USD,synthetic
+CMP005,YouTube Awareness,2020-11-19,youtube,paid_video,Paid Video,paid,14831,187,5,47.73,USD,synthetic
+CMP005,YouTube Awareness,2020-11-20,youtube,paid_video,Paid Video,paid,22339,184,3,57.37,USD,synthetic
+CMP005,YouTube Awareness,2020-11-21,youtube,paid_video,Paid Video,paid,13992,235,0,64.58,USD,synthetic
+CMP005,YouTube Awareness,2020-11-22,youtube,paid_video,Paid Video,paid,28834,125,2,30.38,USD,synthetic
+CMP005,YouTube Awareness,2020-11-23,youtube,paid_video,Paid Video,paid,14017,70,1,24.44,USD,synthetic
+CMP005,YouTube Awareness,2020-11-24,youtube,paid_video,Paid Video,paid,13703,171,2,61.1,USD,synthetic
+CMP005,YouTube Awareness,2020-11-25,youtube,paid_video,Paid Video,paid,33593,326,1,90.27,USD,synthetic
+CMP005,YouTube Awareness,2020-11-26,youtube,paid_video,Paid Video,paid,28393,424,1,111.98,USD,synthetic
+CMP005,YouTube Awareness,2020-11-27,youtube,paid_video,Paid Video,paid,30389,242,1,79.35,USD,synthetic
+CMP005,YouTube Awareness,2020-11-28,youtube,paid_video,Paid Video,paid,27603,400,3,108.46,USD,synthetic
+CMP005,YouTube Awareness,2020-11-29,youtube,paid_video,Paid Video,paid,23725,176,1,54.62,USD,synthetic
+CMP005,YouTube Awareness,2020-11-30,youtube,paid_video,Paid Video,paid,32926,406,2,128.52,USD,synthetic
+CMP005,YouTube Awareness,2020-12-01,youtube,paid_video,Paid Video,paid,19531,256,1,83.81,USD,synthetic
+CMP005,YouTube Awareness,2020-12-02,youtube,paid_video,Paid Video,paid,27952,255,1,60.69,USD,synthetic
+CMP005,YouTube Awareness,2020-12-03,youtube,paid_video,Paid Video,paid,31148,204,3,71.29,USD,synthetic
+CMP005,YouTube Awareness,2020-12-04,youtube,paid_video,Paid Video,paid,29087,293,6,87.86,USD,synthetic
+CMP005,YouTube Awareness,2020-12-05,youtube,paid_video,Paid Video,paid,29379,321,2,101.21,USD,synthetic
+CMP005,YouTube Awareness,2020-12-06,youtube,paid_video,Paid Video,paid,20514,220,3,65.39,USD,synthetic
+CMP005,YouTube Awareness,2020-12-07,youtube,paid_video,Paid Video,paid,24820,433,1,126.69,USD,synthetic
+CMP005,YouTube Awareness,2020-12-08,youtube,paid_video,Paid Video,paid,22771,101,1,22.73,USD,synthetic
+CMP005,YouTube Awareness,2020-12-09,youtube,paid_video,Paid Video,paid,24391,85,1,26.39,USD,synthetic
+CMP005,YouTube Awareness,2020-12-10,youtube,paid_video,Paid Video,paid,28870,159,1,50.72,USD,synthetic
+CMP005,YouTube Awareness,2020-12-11,youtube,paid_video,Paid Video,paid,19085,275,4,71.39,USD,synthetic
+CMP005,YouTube Awareness,2020-12-12,youtube,paid_video,Paid Video,paid,18904,271,3,95.52,USD,synthetic
+CMP005,YouTube Awareness,2020-12-13,youtube,paid_video,Paid Video,paid,25245,171,6,45.22,USD,synthetic
+CMP005,YouTube Awareness,2020-12-14,youtube,paid_video,Paid Video,paid,18598,332,6,100.93,USD,synthetic
+CMP005,YouTube Awareness,2020-12-15,youtube,paid_video,Paid Video,paid,21245,129,1,39.25,USD,synthetic
+CMP005,YouTube Awareness,2020-12-16,youtube,paid_video,Paid Video,paid,33458,321,9,119.68,USD,synthetic
+CMP005,YouTube Awareness,2020-12-17,youtube,paid_video,Paid Video,paid,25382,179,2,48.89,USD,synthetic
+CMP005,YouTube Awareness,2020-12-18,youtube,paid_video,Paid Video,paid,30365,321,4,102.88,USD,synthetic
+CMP005,YouTube Awareness,2020-12-19,youtube,paid_video,Paid Video,paid,26908,214,2,52.23,USD,synthetic
+CMP005,YouTube Awareness,2020-12-20,youtube,paid_video,Paid Video,paid,17310,168,2,43.54,USD,synthetic
+CMP005,YouTube Awareness,2020-12-21,youtube,paid_video,Paid Video,paid,16067,124,1,31.19,USD,synthetic
+CMP005,YouTube Awareness,2020-12-22,youtube,paid_video,Paid Video,paid,12486,50,0,11.66,USD,synthetic
+CMP005,YouTube Awareness,2020-12-23,youtube,paid_video,Paid Video,paid,12511,67,0,21.17,USD,synthetic
+CMP005,YouTube Awareness,2020-12-24,youtube,paid_video,Paid Video,paid,31523,129,0,44.56,USD,synthetic
+CMP005,YouTube Awareness,2020-12-25,youtube,paid_video,Paid Video,paid,24608,407,1,125.12,USD,synthetic
+CMP005,YouTube Awareness,2020-12-26,youtube,paid_video,Paid Video,paid,14175,183,5,61.07,USD,synthetic
+CMP005,YouTube Awareness,2020-12-27,youtube,paid_video,Paid Video,paid,28194,212,1,62.88,USD,synthetic
+CMP005,YouTube Awareness,2020-12-28,youtube,paid_video,Paid Video,paid,23363,86,0,23.89,USD,synthetic
+CMP005,YouTube Awareness,2020-12-29,youtube,paid_video,Paid Video,paid,19484,247,5,78.19,USD,synthetic
+CMP005,YouTube Awareness,2020-12-30,youtube,paid_video,Paid Video,paid,22101,302,3,72.61,USD,synthetic
+CMP005,YouTube Awareness,2020-12-31,youtube,paid_video,Paid Video,paid,27982,102,1,26.37,USD,synthetic
+CMP005,YouTube Awareness,2021-01-01,youtube,paid_video,Paid Video,paid,17648,100,1,34.87,USD,synthetic
+CMP005,YouTube Awareness,2021-01-02,youtube,paid_video,Paid Video,paid,22878,75,0,27.28,USD,synthetic
+CMP005,YouTube Awareness,2021-01-03,youtube,paid_video,Paid Video,paid,29375,424,12,157.1,USD,synthetic
+CMP005,YouTube Awareness,2021-01-04,youtube,paid_video,Paid Video,paid,16403,68,1,23.97,USD,synthetic
+CMP005,YouTube Awareness,2021-01-05,youtube,paid_video,Paid Video,paid,24657,228,2,70.86,USD,synthetic
+CMP005,YouTube Awareness,2021-01-06,youtube,paid_video,Paid Video,paid,28304,395,4,139.18,USD,synthetic
+CMP005,YouTube Awareness,2021-01-07,youtube,paid_video,Paid Video,paid,13725,105,1,38.89,USD,synthetic
+CMP005,YouTube Awareness,2021-01-08,youtube,paid_video,Paid Video,paid,34310,216,5,63.63,USD,synthetic
+CMP005,YouTube Awareness,2021-01-09,youtube,paid_video,Paid Video,paid,14097,88,2,31.15,USD,synthetic
+CMP005,YouTube Awareness,2021-01-10,youtube,paid_video,Paid Video,paid,26454,325,3,118.3,USD,synthetic
+CMP005,YouTube Awareness,2021-01-11,youtube,paid_video,Paid Video,paid,17559,313,1,77.5,USD,synthetic
+CMP005,YouTube Awareness,2021-01-12,youtube,paid_video,Paid Video,paid,31726,129,1,38.22,USD,synthetic
+CMP005,YouTube Awareness,2021-01-13,youtube,paid_video,Paid Video,paid,19814,159,3,55.94,USD,synthetic
+CMP005,YouTube Awareness,2021-01-14,youtube,paid_video,Paid Video,paid,12811,222,2,71.62,USD,synthetic
+CMP005,YouTube Awareness,2021-01-15,youtube,paid_video,Paid Video,paid,22267,230,1,56.64,USD,synthetic
+CMP005,YouTube Awareness,2021-01-16,youtube,paid_video,Paid Video,paid,13245,97,1,23.86,USD,synthetic
+CMP005,YouTube Awareness,2021-01-17,youtube,paid_video,Paid Video,paid,11518,125,0,33.37,USD,synthetic
+CMP005,YouTube Awareness,2021-01-18,youtube,paid_video,Paid Video,paid,19041,243,0,58.64,USD,synthetic
+CMP005,YouTube Awareness,2021-01-19,youtube,paid_video,Paid Video,paid,20595,203,2,57.67,USD,synthetic
+CMP005,YouTube Awareness,2021-01-20,youtube,paid_video,Paid Video,paid,31479,375,3,85.6,USD,synthetic
+CMP005,YouTube Awareness,2021-01-21,youtube,paid_video,Paid Video,paid,24200,226,6,54.25,USD,synthetic
+CMP005,YouTube Awareness,2021-01-22,youtube,paid_video,Paid Video,paid,19466,234,2,79.46,USD,synthetic
+CMP005,YouTube Awareness,2021-01-23,youtube,paid_video,Paid Video,paid,11010,137,0,49.92,USD,synthetic
+CMP005,YouTube Awareness,2021-01-24,youtube,paid_video,Paid Video,paid,17976,201,5,49.65,USD,synthetic
+CMP005,YouTube Awareness,2021-01-25,youtube,paid_video,Paid Video,paid,22234,72,0,21.09,USD,synthetic
+CMP005,YouTube Awareness,2021-01-26,youtube,paid_video,Paid Video,paid,12072,213,0,63.1,USD,synthetic
+CMP005,YouTube Awareness,2021-01-27,youtube,paid_video,Paid Video,paid,23035,396,1,104.89,USD,synthetic
+CMP005,YouTube Awareness,2021-01-28,youtube,paid_video,Paid Video,paid,24599,417,5,125.25,USD,synthetic
+CMP005,YouTube Awareness,2021-01-29,youtube,paid_video,Paid Video,paid,21744,230,1,81.4,USD,synthetic
+CMP005,YouTube Awareness,2021-01-30,youtube,paid_video,Paid Video,paid,18929,167,1,50.87,USD,synthetic
+CMP005,YouTube Awareness,2021-01-31,youtube,paid_video,Paid Video,paid,27874,210,1,48.23,USD,synthetic
+CMP006,Email Newsletter,2020-11-01,email,email,Email,owned,6286,231,9,30.14,USD,synthetic
+CMP006,Email Newsletter,2020-11-02,email,email,Email,owned,6920,495,50,58.41,USD,synthetic
+CMP006,Email Newsletter,2020-11-03,email,email,Email,owned,7318,418,23,40.73,USD,synthetic
+CMP006,Email Newsletter,2020-11-04,email,email,Email,owned,2753,213,16,31.14,USD,synthetic
+CMP006,Email Newsletter,2020-11-05,email,email,Email,owned,6954,328,14,32.73,USD,synthetic
+CMP006,Email Newsletter,2020-11-06,email,email,Email,owned,8954,581,14,52.78,USD,synthetic
+CMP006,Email Newsletter,2020-11-07,email,email,Email,owned,7604,309,9,32.89,USD,synthetic
+CMP006,Email Newsletter,2020-11-08,email,email,Email,owned,2818,140,3,15.84,USD,synthetic
+CMP006,Email Newsletter,2020-11-09,email,email,Email,owned,6428,245,20,33.17,USD,synthetic
+CMP006,Email Newsletter,2020-11-10,email,email,Email,owned,2663,159,14,21.04,USD,synthetic
+CMP006,Email Newsletter,2020-11-11,email,email,Email,owned,5613,299,17,40.67,USD,synthetic
+CMP006,Email Newsletter,2020-11-12,email,email,Email,owned,8321,259,8,38.76,USD,synthetic
+CMP006,Email Newsletter,2020-11-13,email,email,Email,owned,3367,253,14,34.9,USD,synthetic
+CMP006,Email Newsletter,2020-11-14,email,email,Email,owned,2395,103,4,11.83,USD,synthetic
+CMP006,Email Newsletter,2020-11-15,email,email,Email,owned,7755,408,26,58.25,USD,synthetic
+CMP006,Email Newsletter,2020-11-16,email,email,Email,owned,5053,291,11,33.48,USD,synthetic
+CMP006,Email Newsletter,2020-11-17,email,email,Email,owned,7484,462,25,53.04,USD,synthetic
+CMP006,Email Newsletter,2020-11-18,email,email,Email,owned,4787,364,11,53.89,USD,synthetic
+CMP006,Email Newsletter,2020-11-19,email,email,Email,owned,6129,479,36,59.9,USD,synthetic
+CMP006,Email Newsletter,2020-11-20,email,email,Email,owned,3605,259,13,24.22,USD,synthetic
+CMP006,Email Newsletter,2020-11-21,email,email,Email,owned,5110,214,22,27.77,USD,synthetic
+CMP006,Email Newsletter,2020-11-22,email,email,Email,owned,5130,190,12,20.79,USD,synthetic
+CMP006,Email Newsletter,2020-11-23,email,email,Email,owned,5561,177,13,26.55,USD,synthetic
+CMP006,Email Newsletter,2020-11-24,email,email,Email,owned,3516,299,32,28.48,USD,synthetic
+CMP006,Email Newsletter,2020-11-25,email,email,Email,owned,4738,228,11,26.71,USD,synthetic
+CMP006,Email Newsletter,2020-11-26,email,email,Email,owned,4545,188,5,24.88,USD,synthetic
+CMP006,Email Newsletter,2020-11-27,email,email,Email,owned,3166,214,19,23.58,USD,synthetic
+CMP006,Email Newsletter,2020-11-28,email,email,Email,owned,4138,140,6,15.29,USD,synthetic
+CMP006,Email Newsletter,2020-11-29,email,email,Email,owned,6980,342,9,36.0,USD,synthetic
+CMP006,Email Newsletter,2020-11-30,email,email,Email,owned,2894,190,13,21.52,USD,synthetic
+CMP006,Email Newsletter,2020-12-01,email,email,Email,owned,2609,165,16,24.42,USD,synthetic
+CMP006,Email Newsletter,2020-12-02,email,email,Email,owned,4963,143,12,19.96,USD,synthetic
+CMP006,Email Newsletter,2020-12-03,email,email,Email,owned,2622,161,10,20.72,USD,synthetic
+CMP006,Email Newsletter,2020-12-04,email,email,Email,owned,3103,253,22,32.32,USD,synthetic
+CMP006,Email Newsletter,2020-12-05,email,email,Email,owned,5201,142,12,17.52,USD,synthetic
+CMP006,Email Newsletter,2020-12-06,email,email,Email,owned,7171,375,21,37.98,USD,synthetic
+CMP006,Email Newsletter,2020-12-07,email,email,Email,owned,6996,579,32,78.66,USD,synthetic
+CMP006,Email Newsletter,2020-12-08,email,email,Email,owned,3108,221,4,27.99,USD,synthetic
+CMP006,Email Newsletter,2020-12-09,email,email,Email,owned,2973,83,8,20.4,USD,synthetic
+CMP006,Email Newsletter,2020-12-10,email,email,Email,owned,7235,403,17,48.02,USD,synthetic
+CMP006,Email Newsletter,2020-12-11,email,email,Email,owned,6141,392,9,56.4,USD,synthetic
+CMP006,Email Newsletter,2020-12-12,email,email,Email,owned,4665,171,7,19.0,USD,synthetic
+CMP006,Email Newsletter,2020-12-13,email,email,Email,owned,6916,586,20,53.89,USD,synthetic
+CMP006,Email Newsletter,2020-12-14,email,email,Email,owned,5726,241,8,35.95,USD,synthetic
+CMP006,Email Newsletter,2020-12-15,email,email,Email,owned,5233,328,9,36.93,USD,synthetic
+CMP006,Email Newsletter,2020-12-16,email,email,Email,owned,5737,401,16,56.98,USD,synthetic
+CMP006,Email Newsletter,2020-12-17,email,email,Email,owned,4611,136,5,18.18,USD,synthetic
+CMP006,Email Newsletter,2020-12-18,email,email,Email,owned,3607,292,3,40.92,USD,synthetic
+CMP006,Email Newsletter,2020-12-19,email,email,Email,owned,5311,214,15,26.3,USD,synthetic
+CMP006,Email Newsletter,2020-12-20,email,email,Email,owned,7083,408,27,60.93,USD,synthetic
+CMP006,Email Newsletter,2020-12-21,email,email,Email,owned,3138,214,9,28.06,USD,synthetic
+CMP006,Email Newsletter,2020-12-22,email,email,Email,owned,8262,487,16,57.34,USD,synthetic
+CMP006,Email Newsletter,2020-12-23,email,email,Email,owned,8122,282,9,40.14,USD,synthetic
+CMP006,Email Newsletter,2020-12-24,email,email,Email,owned,4873,390,4,40.66,USD,synthetic
+CMP006,Email Newsletter,2020-12-25,email,email,Email,owned,4420,394,10,36.52,USD,synthetic
+CMP006,Email Newsletter,2020-12-26,email,email,Email,owned,6560,486,41,54.21,USD,synthetic
+CMP006,Email Newsletter,2020-12-27,email,email,Email,owned,7755,289,20,28.16,USD,synthetic
+CMP006,Email Newsletter,2020-12-28,email,email,Email,owned,4174,309,11,44.36,USD,synthetic
+CMP006,Email Newsletter,2020-12-29,email,email,Email,owned,7351,341,27,49.76,USD,synthetic
+CMP006,Email Newsletter,2020-12-30,email,email,Email,owned,4433,266,9,31.71,USD,synthetic
+CMP006,Email Newsletter,2020-12-31,email,email,Email,owned,3390,290,15,28.25,USD,synthetic
+CMP006,Email Newsletter,2021-01-01,email,email,Email,owned,2938,245,17,32.72,USD,synthetic
+CMP006,Email Newsletter,2021-01-02,email,email,Email,owned,3698,292,14,38.87,USD,synthetic
+CMP006,Email Newsletter,2021-01-03,email,email,Email,owned,6532,570,31,71.39,USD,synthetic
+CMP006,Email Newsletter,2021-01-04,email,email,Email,owned,4970,176,9,17.98,USD,synthetic
+CMP006,Email Newsletter,2021-01-05,email,email,Email,owned,8985,253,16,28.91,USD,synthetic
+CMP006,Email Newsletter,2021-01-06,email,email,Email,owned,6539,436,25,59.91,USD,synthetic
+CMP006,Email Newsletter,2021-01-07,email,email,Email,owned,7182,227,19,24.15,USD,synthetic
+CMP006,Email Newsletter,2021-01-08,email,email,Email,owned,4651,295,23,30.47,USD,synthetic
+CMP006,Email Newsletter,2021-01-09,email,email,Email,owned,2716,172,15,18.97,USD,synthetic
+CMP006,Email Newsletter,2021-01-10,email,email,Email,owned,4316,211,6,19.63,USD,synthetic
+CMP006,Email Newsletter,2021-01-11,email,email,Email,owned,5878,508,12,61.12,USD,synthetic
+CMP006,Email Newsletter,2021-01-12,email,email,Email,owned,2741,137,4,21.46,USD,synthetic
+CMP006,Email Newsletter,2021-01-13,email,email,Email,owned,7803,682,48,77.84,USD,synthetic
+CMP006,Email Newsletter,2021-01-14,email,email,Email,owned,7354,422,21,38.84,USD,synthetic
+CMP006,Email Newsletter,2021-01-15,email,email,Email,owned,7827,223,13,32.65,USD,synthetic
+CMP006,Email Newsletter,2021-01-16,email,email,Email,owned,7237,378,17,36.73,USD,synthetic
+CMP006,Email Newsletter,2021-01-17,email,email,Email,owned,4846,167,3,17.8,USD,synthetic
+CMP006,Email Newsletter,2021-01-18,email,email,Email,owned,5089,249,11,31.76,USD,synthetic
+CMP006,Email Newsletter,2021-01-19,email,email,Email,owned,6162,516,24,72.11,USD,synthetic
+CMP006,Email Newsletter,2021-01-20,email,email,Email,owned,8411,638,38,71.86,USD,synthetic
+CMP006,Email Newsletter,2021-01-21,email,email,Email,owned,6307,374,10,42.08,USD,synthetic
+CMP006,Email Newsletter,2021-01-22,email,email,Email,owned,8596,518,42,62.14,USD,synthetic
+CMP006,Email Newsletter,2021-01-23,email,email,Email,owned,3881,103,3,16.58,USD,synthetic
+CMP006,Email Newsletter,2021-01-24,email,email,Email,owned,5719,421,12,50.94,USD,synthetic
+CMP006,Email Newsletter,2021-01-25,email,email,Email,owned,6909,218,5,28.19,USD,synthetic
+CMP006,Email Newsletter,2021-01-26,email,email,Email,owned,6662,525,38,64.42,USD,synthetic
+CMP006,Email Newsletter,2021-01-27,email,email,Email,owned,7382,398,18,43.8,USD,synthetic
+CMP006,Email Newsletter,2021-01-28,email,email,Email,owned,8056,669,33,86.4,USD,synthetic
+CMP006,Email Newsletter,2021-01-29,email,email,Email,owned,7490,230,18,26.31,USD,synthetic
+CMP006,Email Newsletter,2021-01-30,email,email,Email,owned,6985,382,12,51.65,USD,synthetic
+CMP006,Email Newsletter,2021-01-31,email,email,Email,owned,6017,241,22,31.32,USD,synthetic
+CMP007,Display Retargeting,2020-11-01,google,display,Display,paid,19022,214,2,90.97,USD,synthetic
+CMP007,Display Retargeting,2020-11-02,google,display,Display,paid,20842,257,9,143.29,USD,synthetic
+CMP007,Display Retargeting,2020-11-03,google,display,Display,paid,30007,142,2,82.88,USD,synthetic
+CMP007,Display Retargeting,2020-11-04,google,display,Display,paid,31112,271,1,119.84,USD,synthetic
+CMP007,Display Retargeting,2020-11-05,google,display,Display,paid,31855,254,4,145.56,USD,synthetic
+CMP007,Display Retargeting,2020-11-06,google,display,Display,paid,11813,84,1,39.6,USD,synthetic
+CMP007,Display Retargeting,2020-11-07,google,display,Display,paid,16112,171,5,92.75,USD,synthetic
+CMP007,Display Retargeting,2020-11-08,google,display,Display,paid,12640,69,2,39.44,USD,synthetic
+CMP007,Display Retargeting,2020-11-09,google,display,Display,paid,10109,123,3,73.6,USD,synthetic
+CMP007,Display Retargeting,2020-11-10,google,display,Display,paid,24621,269,5,126.08,USD,synthetic
+CMP007,Display Retargeting,2020-11-11,google,display,Display,paid,19000,62,1,25.68,USD,synthetic
+CMP007,Display Retargeting,2020-11-12,google,display,Display,paid,22440,151,3,63.27,USD,synthetic
+CMP007,Display Retargeting,2020-11-13,google,display,Display,paid,18600,53,1,26.39,USD,synthetic
+CMP007,Display Retargeting,2020-11-14,google,display,Display,paid,26130,193,3,87.95,USD,synthetic
+CMP007,Display Retargeting,2020-11-15,google,display,Display,paid,13185,101,1,56.18,USD,synthetic
+CMP007,Display Retargeting,2020-11-16,google,display,Display,paid,21022,244,2,137.83,USD,synthetic
+CMP007,Display Retargeting,2020-11-17,google,display,Display,paid,24634,268,3,111.84,USD,synthetic
+CMP007,Display Retargeting,2020-11-18,google,display,Display,paid,16277,132,3,77.57,USD,synthetic
+CMP007,Display Retargeting,2020-11-19,google,display,Display,paid,15173,190,1,75.96,USD,synthetic
+CMP007,Display Retargeting,2020-11-20,google,display,Display,paid,31713,213,4,121.19,USD,synthetic
+CMP007,Display Retargeting,2020-11-21,google,display,Display,paid,9279,109,3,57.8,USD,synthetic
+CMP007,Display Retargeting,2020-11-22,google,display,Display,paid,16309,78,4,31.27,USD,synthetic
+CMP007,Display Retargeting,2020-11-23,google,display,Display,paid,11619,58,0,22.82,USD,synthetic
+CMP007,Display Retargeting,2020-11-24,google,display,Display,paid,15439,124,0,74.13,USD,synthetic
+CMP007,Display Retargeting,2020-11-25,google,display,Display,paid,21372,250,1,111.32,USD,synthetic
+CMP007,Display Retargeting,2020-11-26,google,display,Display,paid,21270,232,1,127.21,USD,synthetic
+CMP007,Display Retargeting,2020-11-27,google,display,Display,paid,21391,43,0,18.56,USD,synthetic
+CMP007,Display Retargeting,2020-11-28,google,display,Display,paid,26086,137,1,64.45,USD,synthetic
+CMP007,Display Retargeting,2020-11-29,google,display,Display,paid,13772,123,1,47.03,USD,synthetic
+CMP007,Display Retargeting,2020-11-30,google,display,Display,paid,25548,286,4,127.71,USD,synthetic
+CMP007,Display Retargeting,2020-12-01,google,display,Display,paid,27038,215,3,79.1,USD,synthetic
+CMP007,Display Retargeting,2020-12-02,google,display,Display,paid,14106,170,5,64.5,USD,synthetic
+CMP007,Display Retargeting,2020-12-03,google,display,Display,paid,29937,311,5,162.28,USD,synthetic
+CMP007,Display Retargeting,2020-12-04,google,display,Display,paid,29133,380,1,145.97,USD,synthetic
+CMP007,Display Retargeting,2020-12-05,google,display,Display,paid,20247,149,8,77.79,USD,synthetic
+CMP007,Display Retargeting,2020-12-06,google,display,Display,paid,27091,107,0,59.05,USD,synthetic
+CMP007,Display Retargeting,2020-12-07,google,display,Display,paid,14826,93,1,47.96,USD,synthetic
+CMP007,Display Retargeting,2020-12-08,google,display,Display,paid,26590,96,1,37.25,USD,synthetic
+CMP007,Display Retargeting,2020-12-09,google,display,Display,paid,14851,68,1,35.77,USD,synthetic
+CMP007,Display Retargeting,2020-12-10,google,display,Display,paid,17731,234,2,105.88,USD,synthetic
+CMP007,Display Retargeting,2020-12-11,google,display,Display,paid,20104,279,5,157.13,USD,synthetic
+CMP007,Display Retargeting,2020-12-12,google,display,Display,paid,23123,144,9,75.32,USD,synthetic
+CMP007,Display Retargeting,2020-12-13,google,display,Display,paid,8985,25,0,12.58,USD,synthetic
+CMP007,Display Retargeting,2020-12-14,google,display,Display,paid,20834,124,0,66.4,USD,synthetic
+CMP007,Display Retargeting,2020-12-15,google,display,Display,paid,10481,131,0,68.96,USD,synthetic
+CMP007,Display Retargeting,2020-12-16,google,display,Display,paid,10989,96,1,41.07,USD,synthetic
+CMP007,Display Retargeting,2020-12-17,google,display,Display,paid,12387,68,2,35.56,USD,synthetic
+CMP007,Display Retargeting,2020-12-18,google,display,Display,paid,30313,417,4,224.09,USD,synthetic
+CMP007,Display Retargeting,2020-12-19,google,display,Display,paid,24881,270,3,111.58,USD,synthetic
+CMP007,Display Retargeting,2020-12-20,google,display,Display,paid,24530,292,6,153.04,USD,synthetic
+CMP007,Display Retargeting,2020-12-21,google,display,Display,paid,20874,135,2,50.08,USD,synthetic
+CMP007,Display Retargeting,2020-12-22,google,display,Display,paid,15950,116,1,48.59,USD,synthetic
+CMP007,Display Retargeting,2020-12-23,google,display,Display,paid,29492,82,1,44.62,USD,synthetic
+CMP007,Display Retargeting,2020-12-24,google,display,Display,paid,15116,108,2,60.01,USD,synthetic
+CMP007,Display Retargeting,2020-12-25,google,display,Display,paid,16020,159,3,73.71,USD,synthetic
+CMP007,Display Retargeting,2020-12-26,google,display,Display,paid,26989,188,0,91.38,USD,synthetic
+CMP007,Display Retargeting,2020-12-27,google,display,Display,paid,16832,59,2,27.05,USD,synthetic
+CMP007,Display Retargeting,2020-12-28,google,display,Display,paid,19127,47,0,23.93,USD,synthetic
+CMP007,Display Retargeting,2020-12-29,google,display,Display,paid,19532,67,0,27.61,USD,synthetic
+CMP007,Display Retargeting,2020-12-30,google,display,Display,paid,15490,129,0,46.47,USD,synthetic
+CMP007,Display Retargeting,2020-12-31,google,display,Display,paid,16922,101,0,49.65,USD,synthetic
+CMP007,Display Retargeting,2021-01-01,google,display,Display,paid,22093,294,1,113.48,USD,synthetic
+CMP007,Display Retargeting,2021-01-02,google,display,Display,paid,25908,244,3,123.58,USD,synthetic
+CMP007,Display Retargeting,2021-01-03,google,display,Display,paid,27798,381,6,155.81,USD,synthetic
+CMP007,Display Retargeting,2021-01-04,google,display,Display,paid,12736,168,3,66.5,USD,synthetic
+CMP007,Display Retargeting,2021-01-05,google,display,Display,paid,18447,181,2,107.21,USD,synthetic
+CMP007,Display Retargeting,2021-01-06,google,display,Display,paid,18654,195,4,77.18,USD,synthetic
+CMP007,Display Retargeting,2021-01-07,google,display,Display,paid,22492,168,3,66.73,USD,synthetic
+CMP007,Display Retargeting,2021-01-08,google,display,Display,paid,29302,308,0,184.75,USD,synthetic
+CMP007,Display Retargeting,2021-01-09,google,display,Display,paid,9467,96,2,35.94,USD,synthetic
+CMP007,Display Retargeting,2021-01-10,google,display,Display,paid,16771,107,1,56.43,USD,synthetic
+CMP007,Display Retargeting,2021-01-11,google,display,Display,paid,22939,201,3,114.9,USD,synthetic
+CMP007,Display Retargeting,2021-01-12,google,display,Display,paid,26232,79,2,33.08,USD,synthetic
+CMP007,Display Retargeting,2021-01-13,google,display,Display,paid,17075,80,0,44.45,USD,synthetic
+CMP007,Display Retargeting,2021-01-14,google,display,Display,paid,26377,155,6,85.5,USD,synthetic
+CMP007,Display Retargeting,2021-01-15,google,display,Display,paid,19202,74,2,40.43,USD,synthetic
+CMP007,Display Retargeting,2021-01-16,google,display,Display,paid,24203,146,0,58.06,USD,synthetic
+CMP007,Display Retargeting,2021-01-17,google,display,Display,paid,18825,244,3,134.53,USD,synthetic
+CMP007,Display Retargeting,2021-01-18,google,display,Display,paid,26351,134,1,65.7,USD,synthetic
+CMP007,Display Retargeting,2021-01-19,google,display,Display,paid,23028,205,3,82.82,USD,synthetic
+CMP007,Display Retargeting,2021-01-20,google,display,Display,paid,15579,205,5,98.68,USD,synthetic
+CMP007,Display Retargeting,2021-01-21,google,display,Display,paid,12820,135,3,71.8,USD,synthetic
+CMP007,Display Retargeting,2021-01-22,google,display,Display,paid,28252,90,0,45.5,USD,synthetic
+CMP007,Display Retargeting,2021-01-23,google,display,Display,paid,14186,39,0,19.18,USD,synthetic
+CMP007,Display Retargeting,2021-01-24,google,display,Display,paid,20503,243,4,105.53,USD,synthetic
+CMP007,Display Retargeting,2021-01-25,google,display,Display,paid,27399,210,5,108.62,USD,synthetic
+CMP007,Display Retargeting,2021-01-26,google,display,Display,paid,26564,317,4,159.32,USD,synthetic
+CMP007,Display Retargeting,2021-01-27,google,display,Display,paid,12157,37,0,20.2,USD,synthetic
+CMP007,Display Retargeting,2021-01-28,google,display,Display,paid,17299,190,6,81.76,USD,synthetic
+CMP007,Display Retargeting,2021-01-29,google,display,Display,paid,11749,122,5,52.08,USD,synthetic
+CMP007,Display Retargeting,2021-01-30,google,display,Display,paid,13616,81,2,33.72,USD,synthetic
+CMP007,Display Retargeting,2021-01-31,google,display,Display,paid,10572,81,0,40.26,USD,synthetic
+CMP008,Affiliate Referral,2020-11-01,affiliate,referral,Affiliate,partner,6336,123,2,71.11,USD,synthetic
+CMP008,Affiliate Referral,2020-11-02,affiliate,referral,Affiliate,partner,6036,52,2,60.22,USD,synthetic
+CMP008,Affiliate Referral,2020-11-03,affiliate,referral,Affiliate,partner,12159,89,6,52.27,USD,synthetic
+CMP008,Affiliate Referral,2020-11-04,affiliate,referral,Affiliate,partner,3547,43,1,59.86,USD,synthetic
+CMP008,Affiliate Referral,2020-11-05,affiliate,referral,Affiliate,partner,9967,84,4,55.13,USD,synthetic
+CMP008,Affiliate Referral,2020-11-06,affiliate,referral,Affiliate,partner,12228,184,2,100.97,USD,synthetic
+CMP008,Affiliate Referral,2020-11-07,affiliate,referral,Affiliate,partner,7296,108,4,57.67,USD,synthetic
+CMP008,Affiliate Referral,2020-11-08,affiliate,referral,Affiliate,partner,5336,64,2,33.61,USD,synthetic
+CMP008,Affiliate Referral,2020-11-09,affiliate,referral,Affiliate,partner,6509,139,10,88.52,USD,synthetic
+CMP008,Affiliate Referral,2020-11-10,affiliate,referral,Affiliate,partner,3654,37,0,46.67,USD,synthetic
+CMP008,Affiliate Referral,2020-11-11,affiliate,referral,Affiliate,partner,5636,89,1,55.83,USD,synthetic
+CMP008,Affiliate Referral,2020-11-12,affiliate,referral,Affiliate,partner,4582,56,5,57.84,USD,synthetic
+CMP008,Affiliate Referral,2020-11-13,affiliate,referral,Affiliate,partner,5191,111,1,60.0,USD,synthetic
+CMP008,Affiliate Referral,2020-11-14,affiliate,referral,Affiliate,partner,10188,88,4,59.07,USD,synthetic
+CMP008,Affiliate Referral,2020-11-15,affiliate,referral,Affiliate,partner,8983,140,3,83.78,USD,synthetic
+CMP008,Affiliate Referral,2020-11-16,affiliate,referral,Affiliate,partner,10728,224,10,110.99,USD,synthetic
+CMP008,Affiliate Referral,2020-11-17,affiliate,referral,Affiliate,partner,3544,55,0,48.99,USD,synthetic
+CMP008,Affiliate Referral,2020-11-18,affiliate,referral,Affiliate,partner,7787,54,0,36.68,USD,synthetic
+CMP008,Affiliate Referral,2020-11-19,affiliate,referral,Affiliate,partner,9993,137,6,61.37,USD,synthetic
+CMP008,Affiliate Referral,2020-11-20,affiliate,referral,Affiliate,partner,5333,108,6,47.47,USD,synthetic
+CMP008,Affiliate Referral,2020-11-21,affiliate,referral,Affiliate,partner,7854,39,0,38.31,USD,synthetic
+CMP008,Affiliate Referral,2020-11-22,affiliate,referral,Affiliate,partner,10127,222,10,95.46,USD,synthetic
+CMP008,Affiliate Referral,2020-11-23,affiliate,referral,Affiliate,partner,4140,81,2,37.51,USD,synthetic
+CMP008,Affiliate Referral,2020-11-24,affiliate,referral,Affiliate,partner,10262,64,0,36.69,USD,synthetic
+CMP008,Affiliate Referral,2020-11-25,affiliate,referral,Affiliate,partner,10936,105,2,71.67,USD,synthetic
+CMP008,Affiliate Referral,2020-11-26,affiliate,referral,Affiliate,partner,12203,181,1,109.04,USD,synthetic
+CMP008,Affiliate Referral,2020-11-27,affiliate,referral,Affiliate,partner,11122,242,13,144.55,USD,synthetic
+CMP008,Affiliate Referral,2020-11-28,affiliate,referral,Affiliate,partner,8130,38,0,37.88,USD,synthetic
+CMP008,Affiliate Referral,2020-11-29,affiliate,referral,Affiliate,partner,8304,72,0,39.43,USD,synthetic
+CMP008,Affiliate Referral,2020-11-30,affiliate,referral,Affiliate,partner,12402,212,3,137.83,USD,synthetic
+CMP008,Affiliate Referral,2020-12-01,affiliate,referral,Affiliate,partner,9273,129,3,78.04,USD,synthetic
+CMP008,Affiliate Referral,2020-12-02,affiliate,referral,Affiliate,partner,3755,21,2,58.29,USD,synthetic
+CMP008,Affiliate Referral,2020-12-03,affiliate,referral,Affiliate,partner,11222,176,0,117.53,USD,synthetic
+CMP008,Affiliate Referral,2020-12-04,affiliate,referral,Affiliate,partner,12209,73,4,37.41,USD,synthetic
+CMP008,Affiliate Referral,2020-12-05,affiliate,referral,Affiliate,partner,11233,75,0,46.36,USD,synthetic
+CMP008,Affiliate Referral,2020-12-06,affiliate,referral,Affiliate,partner,8014,80,4,53.98,USD,synthetic
+CMP008,Affiliate Referral,2020-12-07,affiliate,referral,Affiliate,partner,5287,98,3,58.67,USD,synthetic
+CMP008,Affiliate Referral,2020-12-08,affiliate,referral,Affiliate,partner,4820,57,0,43.41,USD,synthetic
+CMP008,Affiliate Referral,2020-12-09,affiliate,referral,Affiliate,partner,3646,77,3,37.79,USD,synthetic
+CMP008,Affiliate Referral,2020-12-10,affiliate,referral,Affiliate,partner,4759,67,1,44.57,USD,synthetic
+CMP008,Affiliate Referral,2020-12-11,affiliate,referral,Affiliate,partner,6315,116,6,75.9,USD,synthetic
+CMP008,Affiliate Referral,2020-12-12,affiliate,referral,Affiliate,partner,5968,53,0,28.99,USD,synthetic
+CMP008,Affiliate Referral,2020-12-13,affiliate,referral,Affiliate,partner,9850,140,2,59.4,USD,synthetic
+CMP008,Affiliate Referral,2020-12-14,affiliate,referral,Affiliate,partner,6433,81,2,40.96,USD,synthetic
+CMP008,Affiliate Referral,2020-12-15,affiliate,referral,Affiliate,partner,6773,44,2,46.16,USD,synthetic
+CMP008,Affiliate Referral,2020-12-16,affiliate,referral,Affiliate,partner,12540,209,5,133.33,USD,synthetic
+CMP008,Affiliate Referral,2020-12-17,affiliate,referral,Affiliate,partner,12565,201,1,84.77,USD,synthetic
+CMP008,Affiliate Referral,2020-12-18,affiliate,referral,Affiliate,partner,4500,70,1,40.97,USD,synthetic
+CMP008,Affiliate Referral,2020-12-19,affiliate,referral,Affiliate,partner,6951,118,7,67.46,USD,synthetic
+CMP008,Affiliate Referral,2020-12-20,affiliate,referral,Affiliate,partner,6028,106,3,58.21,USD,synthetic
+CMP008,Affiliate Referral,2020-12-21,affiliate,referral,Affiliate,partner,8014,69,0,50.62,USD,synthetic
+CMP008,Affiliate Referral,2020-12-22,affiliate,referral,Affiliate,partner,6532,29,3,27.33,USD,synthetic
+CMP008,Affiliate Referral,2020-12-23,affiliate,referral,Affiliate,partner,8543,129,2,63.57,USD,synthetic
+CMP008,Affiliate Referral,2020-12-24,affiliate,referral,Affiliate,partner,8688,48,2,25.2,USD,synthetic
+CMP008,Affiliate Referral,2020-12-25,affiliate,referral,Affiliate,partner,4847,72,3,46.47,USD,synthetic
+CMP008,Affiliate Referral,2020-12-26,affiliate,referral,Affiliate,partner,9779,78,0,52.43,USD,synthetic
+CMP008,Affiliate Referral,2020-12-27,affiliate,referral,Affiliate,partner,6847,71,1,56.54,USD,synthetic
+CMP008,Affiliate Referral,2020-12-28,affiliate,referral,Affiliate,partner,6983,71,1,45.33,USD,synthetic
+CMP008,Affiliate Referral,2020-12-29,affiliate,referral,Affiliate,partner,7786,143,1,82.17,USD,synthetic
+CMP008,Affiliate Referral,2020-12-30,affiliate,referral,Affiliate,partner,9883,60,1,36.59,USD,synthetic
+CMP008,Affiliate Referral,2020-12-31,affiliate,referral,Affiliate,partner,8867,112,2,67.08,USD,synthetic
+CMP008,Affiliate Referral,2021-01-01,affiliate,referral,Affiliate,partner,8826,128,4,73.79,USD,synthetic
+CMP008,Affiliate Referral,2021-01-02,affiliate,referral,Affiliate,partner,5831,37,1,56.89,USD,synthetic
+CMP008,Affiliate Referral,2021-01-03,affiliate,referral,Affiliate,partner,8492,59,2,40.03,USD,synthetic
+CMP008,Affiliate Referral,2021-01-04,affiliate,referral,Affiliate,partner,8499,180,9,88.44,USD,synthetic
+CMP008,Affiliate Referral,2021-01-05,affiliate,referral,Affiliate,partner,7822,60,2,44.51,USD,synthetic
+CMP008,Affiliate Referral,2021-01-06,affiliate,referral,Affiliate,partner,4855,32,1,59.82,USD,synthetic
+CMP008,Affiliate Referral,2021-01-07,affiliate,referral,Affiliate,partner,6051,125,5,54.13,USD,synthetic
+CMP008,Affiliate Referral,2021-01-08,affiliate,referral,Affiliate,partner,11589,220,13,122.42,USD,synthetic
+CMP008,Affiliate Referral,2021-01-09,affiliate,referral,Affiliate,partner,3654,49,1,42.97,USD,synthetic
+CMP008,Affiliate Referral,2021-01-10,affiliate,referral,Affiliate,partner,11420,151,3,64.55,USD,synthetic
+CMP008,Affiliate Referral,2021-01-11,affiliate,referral,Affiliate,partner,4772,87,3,55.36,USD,synthetic
+CMP008,Affiliate Referral,2021-01-12,affiliate,referral,Affiliate,partner,6099,69,2,43.78,USD,synthetic
+CMP008,Affiliate Referral,2021-01-13,affiliate,referral,Affiliate,partner,9761,201,12,128.33,USD,synthetic
+CMP008,Affiliate Referral,2021-01-14,affiliate,referral,Affiliate,partner,7757,42,0,36.59,USD,synthetic
+CMP008,Affiliate Referral,2021-01-15,affiliate,referral,Affiliate,partner,5855,86,0,41.72,USD,synthetic
+CMP008,Affiliate Referral,2021-01-16,affiliate,referral,Affiliate,partner,3930,40,2,51.99,USD,synthetic
+CMP008,Affiliate Referral,2021-01-17,affiliate,referral,Affiliate,partner,10428,172,6,97.4,USD,synthetic
+CMP008,Affiliate Referral,2021-01-18,affiliate,referral,Affiliate,partner,9526,199,8,131.47,USD,synthetic
+CMP008,Affiliate Referral,2021-01-19,affiliate,referral,Affiliate,partner,10932,199,10,82.46,USD,synthetic
+CMP008,Affiliate Referral,2021-01-20,affiliate,referral,Affiliate,partner,4169,39,1,59.55,USD,synthetic
+CMP008,Affiliate Referral,2021-01-21,affiliate,referral,Affiliate,partner,9387,131,5,68.79,USD,synthetic
+CMP008,Affiliate Referral,2021-01-22,affiliate,referral,Affiliate,partner,7576,157,8,89.13,USD,synthetic
+CMP008,Affiliate Referral,2021-01-23,affiliate,referral,Affiliate,partner,10679,151,7,91.35,USD,synthetic
+CMP008,Affiliate Referral,2021-01-24,affiliate,referral,Affiliate,partner,9693,126,6,72.36,USD,synthetic
+CMP008,Affiliate Referral,2021-01-25,affiliate,referral,Affiliate,partner,5482,35,1,50.56,USD,synthetic
+CMP008,Affiliate Referral,2021-01-26,affiliate,referral,Affiliate,partner,7454,85,4,48.4,USD,synthetic
+CMP008,Affiliate Referral,2021-01-27,affiliate,referral,Affiliate,partner,11615,165,5,90.59,USD,synthetic
+CMP008,Affiliate Referral,2021-01-28,affiliate,referral,Affiliate,partner,8431,141,8,96.47,USD,synthetic
+CMP008,Affiliate Referral,2021-01-29,affiliate,referral,Affiliate,partner,12612,189,8,86.91,USD,synthetic
+CMP008,Affiliate Referral,2021-01-30,affiliate,referral,Affiliate,partner,8178,49,0,42.96,USD,synthetic
+CMP008,Affiliate Referral,2021-01-31,affiliate,referral,Affiliate,partner,10339,70,0,45.0,USD,synthetic

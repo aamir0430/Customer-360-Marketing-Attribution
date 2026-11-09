@@ -1,0 +1,15 @@
+ga4_users_rows: 270154
+ga4_users_unique_ids: 270154
+ga4_sessions_rows: 360129
+crm_customers: 5000
+crm_unique_customer_ids: 5000
+crm_duplicate_customer_ids: 0
+crm_unique_emails: 5000
+identity_mappings: 3500
+identity_unique_pseudo_ids: 3500
+mapped_purchasing_users: 2500
+mapped_nonpurchasing_users: 1000
+crm_unmapped_customers: 1500
+ga4_users_unmatched: 266654
+registration_date_min: 2019-11-02
+registration_date_max: 2021-01-30
