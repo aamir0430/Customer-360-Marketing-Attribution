@@ -1,0 +1,2 @@
+total_session_records,unique_session_records,mapped_session_records,unmapped_session_records,distinct_mapped_ga4_users,distinct_unmapped_ga4_users,missing_crm_customers,mismatched_synthetic_user_ids
+360129,360129,10246,349883,3500,266654,0,0

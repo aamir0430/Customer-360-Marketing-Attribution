@@ -3,128 +3,99 @@
 
 ## 1. Overview
 
-This document describes the testing and validation strategy for the Customer 360 & Marketing Attribution platform.
-
-Testing will be performed throughout development to ensure data accuracy, consistency, reliability and correctness of analytical outputs.
+This document describes the testing and validation strategy and records completed validation activities for the Customer 360 & Marketing Attribution platform.
 
 ## 2. Testing Objectives
 
-- Verify the correctness of generated datasets.
-- Validate data ingestion into BigQuery.
+- Verify generated datasets and BigQuery ingestion.
 - Identify missing and duplicate records.
-- Validate customer identity matching.
-- Verify SQL transformations.
-- Validate analytical calculations.
-- Ensure marketing attribution results are consistent.
+- Validate customer identity matching and referential consistency.
+- Verify SQL transformations and analytical calculations.
+- Reconcile attribution outputs.
 - Verify Tableau dashboard metrics.
 
-## 3. Dataset Validation
+## 3. Source Dataset Validation
 
-The following datasets will undergo validation:
-
-| Dataset | Planned Validation |
+| Dataset | Validation |
 |---|---|
-| GA4 Ecommerce Data | Schema, event completeness and identifier availability |
-| Synthetic CRM Customers | Required fields, duplicate records and data types |
-| Synthetic Advertising Spend | Campaign attributes, spending values and date consistency |
-| Identity Mapping | Identifier completeness, mapping consistency and duplicate mappings |
+| GA4 session data | Schema, session identifiers and session coverage |
+| Synthetic CRM customers | Required fields, identifiers and record consistency |
+| Synthetic advertising spend | Campaign attributes, spending values and date consistency |
+| Synthetic identity mapping | Identifier completeness, mapping consistency and duplicate mappings |
+
+The source tables used in Phase 2 are `customer_360_raw.ga4_sessions`, `customer_360_raw.crm_customers` and `customer_360_raw.identity_mapping`.
 
 ## 4. Python Testing
 
-Python scripts will be tested to verify:
-
-- Successful dataset generation.
-- Expected output files.
-- Correct data structures.
-- Valid data types.
-- Duplicate handling.
-- Identity matching behaviour.
-
-Pytest will be used for automated Python testing.
+Python scripts are intended to be tested for successful generation, expected output files, data structures, data types, duplicate handling and identity matching behaviour. Pytest is planned for automated Python tests.
 
 ## 5. SQL Testing
 
-SQL transformations will undergo:
+SQL validation includes schema checks, null and duplicate detection, referential integrity, join validation, aggregation checks and calculation verification.
 
-- Schema validation.
-- Null value checks.
-- Duplicate detection.
-- Referential integrity checks.
-- Join validation.
-- Aggregation verification.
-- Calculation accuracy checks.
+## 6. Phase 2 – Identity Resolution Validation
 
-## 6. dbt Testing
+**Status: Completed.**
 
-The dbt testing framework will be used for:
+Final output table: `customer_360_curated.identity_resolved_sessions`.
 
-- Unique constraints.
-- Not-null constraints.
-- Accepted values.
-- Referential integrity.
-- Source freshness, where applicable.
-- Custom business rule validation.
+The workflow included inspection and validation of the identity mapping source, previewing the joins, validating the proposed output, creating the final table and executing final validation checks.
 
-## 7. Identity Resolution Testing
+### 6.1 Session Population and Uniqueness
 
-Identity resolution will be validated using:
+| Check | Result |
+|---|---:|
+| Total output sessions | 360,129 |
+| Unique sessions | 360,129 |
+| Identified sessions | 10,246 |
+| Unidentified sessions | 349,883 |
 
-- Matching identifier checks.
-- Valid mapping checks.
-- Unmatched identifier detection.
-- Duplicate identity detection.
-- Customer-level consistency checks.
+**Outcome:** Every source session was retained in the output, and the total session count reconciles with the identified and unidentified counts.
 
-Matching accuracy will be assessed against the synthetic mapping data used as the reference.
+### 6.2 CRM and Mapping Consistency
 
-## 8. Analytical Testing
+| Check | Result |
+|---|---:|
+| CRM customers represented among identified sessions | 3,500 |
+| Identified records with missing CRM customer records | 0 |
+| Mismatched synthetic IDs | 0 |
 
-The following analytical components will undergo validation:
+**Outcome:** The final validation checks reported no missing CRM customer records among identified output records and no mismatched synthetic identifiers.
 
-### RFM Analysis
+### 6.3 Interpretation and Limitation
 
-Verify recency, frequency and monetary calculations.
+The mapping dataset is synthetic. These checks validate implementation consistency against the generated mapping data; they do not establish real-world identity accuracy. The large unidentified session population is retained rather than dropped.
 
-### Customer Lifetime Value
+## 7. dbt Testing
 
-Verify customer-level revenue calculations and aggregation logic.
+Planned dbt tests include unique, not-null, accepted-values, referential-integrity, source-freshness (where applicable) and custom business-rule tests. These will be recorded after dbt models are implemented.
 
-### Marketing Attribution
+## 8. Further Analytical Testing
 
-Verify conversion credit allocation and attribution reconciliation.
+Future validation will cover:
+- RFM recency, frequency and monetary calculations.
+- Customer Lifetime Value calculations.
+- Attribution credit allocation and reconciliation.
+- Advertising spend, attributed revenue, ROAS and acquisition-cost calculations.
+- Tableau KPI accuracy, filters and aggregations.
 
-### Marketing Performance
-
-Verify advertising spend, attributed revenue, ROAS and acquisition cost calculations.
-
-## 9. Dashboard Testing
-
-Tableau dashboards will be validated for:
-
-- KPI accuracy.
-- Filter functionality.
-- Data consistency.
-- Interactive behaviour.
-- Visual presentation.
-- Correct aggregation.
-
-## 10. Test Execution Status
+## 9. Test Execution Status
 
 | Component | Status |
 |---|---|
-| Synthetic CRM dataset generation | Completed; detailed validation pending |
-| Synthetic advertising dataset generation | Completed; detailed validation pending |
-| Identity mapping dataset generation | Completed; detailed validation pending |
-| BigQuery ingestion | Pending |
-| Identity resolution | Pending |
-| SQL transformation testing | Pending |
-| dbt testing | Pending |
+| Synthetic CRM dataset generation | Completed |
+| Synthetic advertising dataset generation | Completed |
+| Synthetic identity mapping dataset generation | Completed |
+| BigQuery raw source table loading and verification | Completed |
+| Identity mapping inspection and validation | Completed |
+| Identity-resolution join preview and output validation | Completed |
+| Curated identity-resolved table creation | Completed |
+| Final identity-resolution validation | Completed |
+| dbt model tests | Pending |
 | RFM and CLV validation | Pending |
-| Attribution validation | Pending |
+| Marketing attribution validation | Pending |
 | Tableau dashboard testing | Pending |
 
-## 11. Test Results
+## 10. Test Evidence
 
-Actual test cases, execution evidence, failures and resolutions will be recorded as testing progresses.
-
-No analytical validation results are claimed at this stage.
+The SQL scripts and validation result exports created during Phase 2 should be retained in the repository's SQL and validation-evidence folders. This document records the final reported results; it does not replace the executable SQL or underlying query-result evidence.

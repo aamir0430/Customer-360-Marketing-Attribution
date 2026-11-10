@@ -3,146 +3,103 @@
 
 ## 1. Overview
 
-This document describes the datasets used in the Customer 360 & Marketing Attribution Programme.
+This document describes the source and curated datasets used in the Customer 360 & Marketing Attribution Programme. It records their purposes, locations and roles in the analytical architecture.
 
-It identifies the data sources, their purposes, and their roles in the analytical architecture.
-
-Detailed column-level definitions, data types, and business rules will be added after source schema inspection and validation.
+The BigQuery table schema remains the authoritative source for exact column names and data types. Column-level definitions should be expanded from the live schema when documenting downstream models.
 
 ## 2. Data Source Inventory
 
-| Dataset | File / Source | Data Type | Purpose |
+| Data Source | File / BigQuery table | Data Type | Purpose |
 |---|---|---|---|
-| GA4 Ecommerce Events | `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*` | Public sample data | Website behavioural and ecommerce analysis |
-| CRM Customers | `synthetic_crm_customers.csv` | Synthetic | Customer information and CRM identifiers |
+| GA4 Ecommerce | `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*` | Public sample data | Website behavioural and ecommerce events |
+| GA4 Sessions | `customer_360_raw.ga4_sessions` | Prepared GA4 data | Session-level behavioural records |
+| CRM Customers | `customer_360_raw.crm_customers` | Synthetic | Customer profile and CRM identifiers |
 | Advertising Spend | `synthetic_ad_spend.csv` | Synthetic | Advertising campaign and spending information |
-| Identity Mapping | `identity_mapping.csv` | Synthetic | Cross-platform customer identifier mapping |
+| Identity Mapping | `customer_360_raw.identity_mapping` | Synthetic | Mapping between website-side and CRM identifiers |
+| Identity-Resolved Sessions | `customer_360_curated.identity_resolved_sessions` | Curated integration output | GA4 sessions enriched with mapped CRM identities and profile attributes |
 
-## 3. GA4 Ecommerce Dataset
+## 3. Raw BigQuery Tables
 
-**Source:** Google Analytics 4 public ecommerce sample dataset.
+Project: `customer360-mta`  
+Dataset: `customer_360_raw`
 
-**BigQuery Table Pattern:**
+| Table | Purpose |
+|---|---|
+| `ga4_sessions` | Prepared GA4 session-level data |
+| `crm_customers` | Synthetic CRM customer records |
+| `identity_mapping` | Synthetic cross-platform identity mappings |
 
-`bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+## 4. Curated Identity Resolution Table
 
-### Purpose
+**Fully qualified table:** `customer360-mta.customer_360_curated.identity_resolved_sessions`
 
-Provides website interaction, traffic acquisition and ecommerce event information.
+**Purpose:** Provides a session-level dataset that retains GA4 sessions and attaches CRM identity and profile information where a corresponding synthetic mapping exists.
 
-### Expected Analytical Usage
+### Content groups
 
-- Website session analysis.
-- Customer journey analysis.
-- Traffic source analysis.
-- Ecommerce purchase analysis.
-- Marketing channel attribution.
-- Customer behavioural analysis.
+| Content group | Description |
+|---|---|
+| GA4 session fields | Session identifiers and available session-level behavioural/traffic attributes |
+| Identity mapping fields | Synthetic user identifier, CRM customer identifier, match method, synthetic-mapping indicator and available mapping metadata |
+| CRM profile fields | Customer attributes from the matching CRM record |
+| Identity status | `identity_resolution_status`, with `IDENTIFIED` or `UNIDENTIFIED` values |
 
-### Important Considerations
+Refer to the actual BigQuery schema for the complete field list and data types.
 
-GA4 uses event-level data. A single customer journey may involve multiple events and sessions.
+### Identity status interpretation
 
-Anonymous and authenticated identifiers may need to be connected through identity resolution.
+- `IDENTIFIED`: the GA4 session was connected to a CRM customer through the project's synthetic mapping data.
+- `UNIDENTIFIED`: no corresponding identity mapping was available for that session.
 
-The detailed field definitions will be documented after inspecting the source schema.
+An unidentified session is retained in the output; it is not discarded.
 
-## 4. Synthetic CRM Customer Dataset
+## 5. Phase 2 Validation Counts
 
-**File:** `synthetic_crm_customers.csv`
+Recorded final validation results for `identity_resolved_sessions`:
 
-**Location:** `data/raw/`
+| Measure | Result |
+|---|---:|
+| Total output sessions | 360,129 |
+| Unique sessions | 360,129 |
+| Identified sessions | 10,246 |
+| Unidentified sessions | 349,883 |
+| CRM customers represented among identified sessions | 3,500 |
+| Identified records with missing CRM customer records | 0 |
+| Mismatched synthetic IDs in the validation checks | 0 |
 
-### Purpose
+Identified and unidentified sessions sum to the full output session count. These results describe the synthetic mapping exercise and should not be interpreted as real-world identity match performance.
 
-Represents customer information maintained by a CRM system.
+## 6. Other Synthetic Datasets
 
-### Expected Analytical Usage
+### CRM Customers
 
-- Customer profile development.
-- Customer identification.
-- Customer demographic analysis, where applicable.
-- Customer segmentation.
-- Customer 360 development.
+File: `synthetic_crm_customers.csv`  
+BigQuery table: `customer_360_raw.crm_customers`
 
-### Data Classification
+Represents synthetic customer records and CRM attributes used for customer profile enrichment.
 
-Synthetic data generated using Python.
+### Advertising Spend
 
-### Column-Level Documentation
+File: `synthetic_ad_spend.csv`
 
-To be populated after inspecting the CSV schema.
+Represents synthetic advertising campaign and spending information. Its downstream warehouse table and schema should be documented when that dataset is ingested for attribution modelling.
 
-## 5. Synthetic Advertising Spend Dataset
+### Identity Mapping
 
-**File:** `synthetic_ad_spend.csv`
+File: `identity_mapping.csv`  
+BigQuery table: `customer_360_raw.identity_mapping`
 
-**Location:** `data/raw/`
-
-### Purpose
-
-Represents advertising campaign and spending information.
-
-### Expected Analytical Usage
-
-- Campaign performance analysis.
-- Marketing channel analysis.
-- Advertising cost analysis.
-- Cost per acquisition calculations.
-- Marketing ROI calculations.
-
-### Data Classification
-
-Synthetic data generated using Python.
-
-### Column-Level Documentation
-
-To be populated after inspecting the CSV schema.
-
-## 6. Synthetic Identity Mapping Dataset
-
-**File:** `identity_mapping.csv`
-
-**Location:** `data/raw/`
-
-### Purpose
-
-Represents relationships between customer identifiers across different platforms.
-
-### Expected Analytical Usage
-
-- Identity matching.
-- Website-to-CRM identity resolution.
-- Customer profile consolidation.
-- Cross-platform customer journey analysis.
-
-### Data Classification
-
-Synthetic data generated using Python.
-
-### Column-Level Documentation
-
-To be populated after inspecting the CSV schema.
+Contains synthetic relationships between website-side identifiers and CRM customer identifiers. It is a simulated bridge used to develop and test identity resolution.
 
 ## 7. Data Layer Organization
 
-| BigQuery Dataset | Purpose |
-|---|---|
-| `customer_360_raw` | Original source datasets |
-| `customer_360_staging` | Cleaned and standardized datasets |
-| `customer_360_analytics` | Integrated and analytical datasets |
-
-These datasets represent the planned warehouse organization.
+| BigQuery Dataset | Purpose | Status |
+|---|---|---|
+| `customer_360_raw` | Source tables | Loaded and used in Phase 2 |
+| `customer_360_curated` | Integrated curated outputs | Identity-resolved session table created |
+| `customer_360_staging` | Cleaned and standardized transformation layer | Planned for subsequent modelling |
+| `customer_360_analytics` | Analytical outputs | Planned |
 
 ## 8. Data Dictionary Maintenance
 
-This document will be updated whenever:
-
-- A new data source is introduced.
-- A dataset is loaded into BigQuery.
-- New columns are created.
-- Existing columns are transformed.
-- Data types are modified.
-- Business definitions or calculations are introduced.
-
-Detailed column-level documentation will be maintained as the data integration and modelling phases progress.
+Update this document when new sources or tables are added, schemas change, columns are transformed, or business definitions are introduced. Use the live BigQuery schema to verify exact field names and data types.

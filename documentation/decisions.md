@@ -10,25 +10,11 @@ This document records important technical and architectural decisions made throu
 **Date:** 10 November 2026  
 **Status:** Accepted
 
-**Decision:**
+**Decision:** Use Google's publicly available GA4 ecommerce sample dataset hosted in BigQuery as the primary website behavioural data source.
 
-Use Google's publicly available GA4 ecommerce sample dataset hosted in BigQuery as the primary website and app behavioural data source.
+**Source:** `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
 
-**Source:**
-
-`bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
-
-**Reasoning:**
-
-- Provides realistic ecommerce event data.
-- Contains customer-related identifiers and session information.
-- Includes traffic source and campaign information.
-- Contains ecommerce purchase events.
-- Allows analysis of customer behaviour and marketing interactions.
-
-**Expected Benefits:**
-
-Provides the behavioural foundation required for customer journey analysis, identity resolution, and marketing attribution.
+**Reasoning:** It provides ecommerce event data, customer-related identifiers, session information, traffic source information and purchase events for behavioural and marketing analysis.
 
 ---
 
@@ -37,24 +23,11 @@ Provides the behavioural foundation required for customer journey analysis, iden
 **Date:** 10 November 2026  
 **Status:** Accepted
 
-**Decision:**
+**Decision:** Generate synthetic CRM customer records using Python rather than relying on real customer information.
 
-Generate synthetic CRM customer records using Python rather than relying on real customer information.
+**Dataset:** `synthetic_crm_customers.csv`
 
-**Dataset:**
-
-`synthetic_crm_customers.csv`
-
-**Reasoning:**
-
-- Avoids exposing personally identifiable customer information.
-- Provides control over customer attributes and identifiers.
-- Allows the creation of realistic customer records for analytical development.
-- Supports testing of identity resolution logic.
-
-**Expected Benefits:**
-
-Provides a simulated CRM source for building unified customer profiles.
+**Reasoning:** Synthetic records avoid using real customer information and provide controlled customer attributes and identifiers for analytical development and identity-resolution testing.
 
 ---
 
@@ -63,28 +36,11 @@ Provides a simulated CRM source for building unified customer profiles.
 **Date:** 10 November 2026  
 **Status:** Accepted
 
-**Decision:**
+**Decision:** Generate synthetic advertising spend data using Python.
 
-Generate synthetic advertising spend data using Python.
+**Dataset:** `synthetic_ad_spend.csv`
 
-**Dataset:**
-
-`synthetic_ad_spend.csv`
-
-**Reasoning:**
-
-The GA4 sample dataset does not provide a complete advertising cost dataset covering all the requirements of the planned marketing attribution analysis.
-
-Synthetic advertising data will provide campaign-level spending information for future analysis.
-
-**Expected Benefits:**
-
-Enables future calculations of:
-
-- Advertising ROI.
-- Cost per acquisition (CPA).
-- Campaign performance.
-- Marketing channel efficiency.
+**Reasoning:** The GA4 sample does not provide a complete advertising cost dataset for the planned marketing analysis. Synthetic campaign spending data will support later campaign performance, CPA and ROAS analysis.
 
 ---
 
@@ -93,28 +49,13 @@ Enables future calculations of:
 **Date:** 10 November 2026  
 **Status:** Accepted
 
-**Decision:**
+**Decision:** Maintain a separate synthetic identity mapping dataset.
 
-Maintain a separate synthetic identity mapping dataset.
+**Dataset:** `identity_mapping.csv`
 
-**Dataset:**
+**Reasoning:** Website identifiers and CRM identifiers differ across systems. A dedicated mapping dataset provides a controlled bridge for testing cross-platform identity resolution.
 
-`identity_mapping.csv`
-
-**Reasoning:**
-
-Website identifiers and CRM customer identifiers may differ across platforms.
-
-A dedicated mapping dataset provides a structured foundation for connecting these identities.
-
-**Expected Benefits:**
-
-- Connect website sessions with CRM customers.
-- Support cross-platform identity resolution.
-- Build unified customer profiles.
-- Enable customer journey analysis.
-
-The mapping dataset will be used as an input to the identity resolution process rather than treated as the final identity resolution output.
+**Important qualification:** The mappings are synthetic. A successful match validates the implemented logic against the generated mapping data; it does not establish that the identities represent real people or demonstrate production-grade identity accuracy.
 
 ---
 
@@ -123,24 +64,9 @@ The mapping dataset will be used as an input to the identity resolution process 
 **Date:** 10 November 2026  
 **Status:** Accepted
 
-**Decision:**
+**Decision:** Use Google BigQuery as the central warehouse for integrating GA4, CRM, advertising and identity mapping data.
 
-Use Google BigQuery as the central data warehouse for integrating the GA4, CRM, advertising, and identity mapping datasets.
-
-**Reasoning:**
-
-- GA4 sample data is already hosted in BigQuery.
-- Supports SQL-based data analysis and transformations.
-- Provides a suitable environment for managing multiple datasets.
-- Integrates with dbt and other analytical tools.
-
-**Planned Dataset Organization:**
-
-- `customer_360_raw`
-- `customer_360_staging`
-- `customer_360_analytics`
-
-These datasets will separate source data, transformed data, and analytical outputs.
+**Dataset organization:** `customer_360_raw` for source data and `customer_360_curated` for the Phase 2 integrated identity-resolution output. Staging and analytics datasets remain part of the planned downstream architecture.
 
 ---
 
@@ -149,15 +75,9 @@ These datasets will separate source data, transformed data, and analytical outpu
 **Date:** 10 November 2026  
 **Status:** Accepted
 
-**Decision:**
+**Decision:** Store generated source CSV files under `data/raw/` and reserve `data/processed/` for future transformed local datasets.
 
-Organize source CSV files under `data/raw/` and reserve `data/processed/` for future transformed datasets.
-
-**Reasoning:**
-
-Maintaining separate raw and processed data locations improves project organization and traceability.
-
-Original generated datasets will remain separate from future cleaned and transformed outputs.
+**Reasoning:** Separating original inputs from transformed outputs improves traceability and reproducibility.
 
 ---
 
@@ -166,29 +86,36 @@ Original generated datasets will remain separate from future cleaned and transfo
 **Date:** 10 November 2026  
 **Status:** Accepted
 
-**Decision:**
+**Decision:** Use Git and GitHub for version control and maintain separate project documentation.
 
-Use Git and GitHub for version control and maintain separate project documentation.
+**Reasoning:** This provides a traceable record of implementation progress, architecture and technical decisions.
 
-**Documentation Files:**
+---
 
-- `project_journal.md`
-- `decisions.md`
-- `architecture.md`
-- `data_dictionary.md`
-- `methodology.md`
-- `testing.md`
+## Decision 008 – Preserve Every GA4 Session During Identity Resolution
 
-**Reasoning:**
+**Status:** Accepted and Implemented
 
-Maintaining documentation throughout development improves project traceability, reproducibility, and maintainability.
+**Decision:** Use LEFT JOIN-based identity enrichment so that every source GA4 session remains in the final identity-resolution output, whether or not a mapping is found.
 
-It also provides a clear record of implementation progress and technical decisions.
+**Output:** `customer_360_curated.identity_resolved_sessions`
+
+**Reasoning:** Dropping unmatched sessions would remove behavioural data from subsequent customer journey analysis. Retaining them and assigning an explicit identity status preserves the complete session population while distinguishing identified from unidentified sessions.
+
+---
+
+## Decision 009 – Treat Identity Mapping as Synthetic Test Data
+
+**Status:** Accepted
+
+**Decision:** Interpret identity-resolution matches as matches against the project's generated synthetic mapping dataset, not as verified real-world identity links.
+
+**Reasoning:** The identity mapping was deliberately generated for this project. Validation can confirm referential consistency and correct application of the mapping rules, but cannot establish real-world identity accuracy.
+
+**Reporting implication:** The identified-session count and match rate must be labelled as results from a synthetic test dataset.
 
 ---
 
 ## Decision Review
 
-The above decisions establish the initial data architecture and development approach.
-
-Additional decisions will be documented as the project progresses through identity resolution, data modelling, customer analytics, marketing attribution, and dashboard development.
+Phase 2 implemented the identity-resolution design and created the curated session-level output. Further decisions will be recorded as dbt modelling, customer analytics, attribution and dashboard development progress.

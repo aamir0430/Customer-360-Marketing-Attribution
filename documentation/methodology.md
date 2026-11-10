@@ -3,46 +3,61 @@
 
 ## 1. Overview
 
-This document describes the analytical methodologies planned for developing the Customer 360 and Marketing Attribution platform.
-
-The project combines data integration, identity resolution, customer analytics and marketing attribution to understand customer behaviour and evaluate marketing performance.
+This document describes the analytical methods used and planned for the Customer 360 & Marketing Attribution platform. The project combines data integration, identity resolution, customer analytics and marketing attribution.
 
 ## 2. Data Integration
 
-Data will be collected from four sources:
-
-- GA4 ecommerce behavioural data.
+The project uses:
+- GA4 ecommerce behavioural and session data.
 - Synthetic CRM customer records.
 - Synthetic advertising spend data.
 - Synthetic identity mapping records.
 
-The datasets will be integrated into Google BigQuery.
-
-The integration process will include:
-
-1. Source data ingestion.
-2. Schema inspection.
-3. Data quality assessment.
-4. Data standardization.
-5. Identity resolution.
-6. Customer profile consolidation.
+The data is integrated in Google BigQuery. Source data is held in the raw layer, while the completed Phase 2 identity-resolution output is stored in a curated dataset.
 
 ## 3. Customer Identity Resolution
 
 ### Objective
 
-Connect customer identifiers across website behavioural data and CRM records.
+Connect GA4 website sessions with CRM customer records wherever a corresponding identity mapping exists, while preserving sessions that cannot be identified.
 
-### Planned Approach
+### Implemented workflow – Phase 2
 
-- Identify available anonymous and authenticated identifiers.
-- Examine the synthetic identity mapping dataset.
-- Develop matching logic using appropriate customer identifiers.
-- Connect website sessions with corresponding CRM customer records.
-- Validate identity matches and unmatched records.
-- Develop a unified customer identifier.
+1. Prepared and loaded the required GA4 session, CRM customer and identity mapping tables into BigQuery.
+2. Inspected the identity mapping records and checked mapping quality.
+3. Previewed the joins between GA4 sessions, identity mapping and CRM customer records.
+4. Validated the proposed identity-resolution output, including session coverage and CRM linkage.
+5. Created the final curated table: `customer_360_curated.identity_resolved_sessions`.
+6. Executed final validation checks on the created table.
 
-The matching strategy will depend on the actual source schemas and available identifiers.
+### Join and matching approach
+
+The final session-level output uses LEFT JOIN logic from the GA4 session population to the synthetic identity mapping and then to CRM customer records. This preserves all source GA4 sessions even when no matching identity is available.
+
+The output includes GA4 session fields, available mapping attributes, CRM profile attributes when a match exists, and an `identity_resolution_status` field.
+
+### Identity status
+
+- `IDENTIFIED`: a session was connected to a CRM customer through the synthetic mapping.
+- `UNIDENTIFIED`: no matching mapping was available for that session.
+
+### Phase 2 validation results
+
+| Measure | Result |
+|---|---:|
+| Total sessions in output | 360,129 |
+| Unique sessions | 360,129 |
+| Identified sessions | 10,246 |
+| Unidentified sessions | 349,883 |
+| CRM customers represented among identified sessions | 3,500 |
+| Missing CRM customer records in identified output | 0 |
+| Mismatched synthetic IDs in validation | 0 |
+
+The identified and unidentified session counts reconcile to the full session population.
+
+### Interpretation and limitation
+
+The mapping data is synthetic. These results demonstrate that the SQL workflow correctly applied the generated mapping and passed the recorded consistency checks. They must not be interpreted as real-world identity resolution accuracy or as proof of actual customer identities.
 
 ## 4. Customer 360 Development
 
@@ -58,115 +73,45 @@ Develop a consolidated customer profile containing information from multiple pla
 - Ecommerce purchase information.
 - Marketing interaction information.
 
-The resulting customer profile will provide a unified view of customer activity.
+The identity-resolved session table provides an input for the subsequent customer profile models.
 
 ## 5. RFM Customer Segmentation
 
-RFM analysis will be used to classify customers according to:
-
+RFM analysis will classify customers according to:
 - **Recency:** How recently a customer made a purchase.
 - **Frequency:** How frequently a customer purchased.
 - **Monetary:** How much a customer spent.
 
-Customers will be assigned appropriate RFM scores and grouped into meaningful customer segments.
-
-Potential segments include:
-
-- Champions.
-- Loyal Customers.
-- Potential Loyalists.
-- At Risk.
-- Hibernating.
-- New Customers.
-
-Final segmentation rules and thresholds will be established after examining the transaction data.
+Final scoring rules, thresholds and segments will be established after examining the transaction data.
 
 ## 6. Customer Lifetime Value
 
-Historical Customer Lifetime Value analysis will estimate the revenue generated by customers over their observed purchasing history.
-
-The methodology will consider:
-
-- Customer purchase history.
-- Total revenue.
-- Purchase frequency.
-- Average order value.
-- Customer-level revenue contribution.
-
-The final CLV definition and calculation will be documented after examining the available transaction fields.
+Historical Customer Lifetime Value analysis will estimate customer revenue over the observed purchasing history. The final definition and calculation will be documented after the transaction fields and business rules are established.
 
 ## 7. Marketing Attribution
 
-### Objective
+The project plans to compare:
+- **First-touch attribution:** credits the first eligible touchpoint.
+- **Last-touch attribution:** credits the final eligible touchpoint before conversion.
+- **Linear attribution:** distributes credit equally across eligible touchpoints.
+- **Time-decay attribution:** gives greater credit to touchpoints closer to conversion.
 
-Understand how different marketing channels contribute to customer conversions and revenue.
-
-The project plans to implement multiple attribution approaches.
-
-### First-Touch Attribution
-
-Assigns conversion credit to the first identifiable marketing touchpoint in the customer journey.
-
-### Last-Touch Attribution
-
-Assigns conversion credit to the final identifiable marketing touchpoint before conversion.
-
-### Linear Attribution
-
-Distributes conversion credit equally across eligible touchpoints.
-
-### Time-Decay Attribution
-
-Assigns greater conversion credit to touchpoints closer to the conversion event.
-
-The implementation will require reliable customer journey, timestamp, channel and conversion information.
+Implementation requires reliable customer journey, timestamp, channel and conversion information.
 
 ## 8. Marketing Performance Measurement
 
-The project will evaluate marketing effectiveness using metrics such as:
-
-- Total advertising spend.
-- Attributed revenue.
-- Return on Advertising Spend (ROAS).
-- Customer Acquisition Cost (CAC).
-- Cost Per Acquisition (CPA).
-- Conversion rate.
-- Channel-level revenue contribution.
-
-Metric definitions and calculation rules will be documented before final reporting.
+Planned metrics include total advertising spend, attributed revenue, ROAS, CAC, CPA, conversion rate and channel-level revenue contribution. Metric definitions will be documented before reporting.
 
 ## 9. Visualization
 
-Tableau will be used to develop interactive dashboards.
-
-Planned dashboard areas include:
-
-- Executive Customer 360 Overview.
-- Customer Segmentation.
-- Customer Lifetime Value.
-- Marketing Channel Performance.
-- Attribution Model Comparison.
-- Campaign ROI Analysis.
+Tableau is planned for dashboards covering Customer 360, customer segmentation, CLV, channel performance, attribution comparison and campaign ROI.
 
 ## 10. Methodology Validation
 
-Each analytical component will undergo validation.
-
-Validation will include:
-
-- Identity matching accuracy.
-- Data completeness.
-- Duplicate detection.
-- Referential integrity.
-- RFM calculation verification.
-- CLV calculation verification.
-- Attribution credit reconciliation.
-- Marketing KPI validation.
+Validation will include identity matching consistency, data completeness, duplicate detection, referential integrity, RFM and CLV calculation checks, attribution reconciliation and marketing KPI validation.
 
 ## 11. Implementation Status
 
-The methodology described above represents the planned analytical approach.
+**Completed:** Phase 1 data source setup and synthetic dataset generation; Phase 2 identity resolution through creation and validation of `customer_360_curated.identity_resolved_sessions`.
 
-Phase 1 has established the initial data sources and synthetic datasets.
-
-The remaining methodologies will be implemented, tested and refined during subsequent project phases.
+**Next:** Build dbt models for sessions, orders and customer profiles. RFM, CLV, marketing attribution and dashboards remain future implementation work.
