@@ -1,0 +1,84 @@
+table_schema,table_name,column_name,data_type,ordinal_position
+customer_360_curated,identity_resolved_sessions,user_pseudo_id,STRING,1
+customer_360_curated,identity_resolved_sessions,ga_session_id,STRING,2
+customer_360_curated,identity_resolved_sessions,session_event_date,DATE,3
+customer_360_curated,identity_resolved_sessions,session_first_event_timestamp_utc,STRING,4
+customer_360_curated,identity_resolved_sessions,events_in_session,INT64,5
+customer_360_curated,identity_resolved_sessions,purchase_events,INT64,6
+customer_360_curated,identity_resolved_sessions,observed_event_source,STRING,7
+customer_360_curated,identity_resolved_sessions,observed_event_medium,STRING,8
+customer_360_curated,identity_resolved_sessions,observed_event_campaign,STRING,9
+customer_360_curated,identity_resolved_sessions,first_user_source,STRING,10
+customer_360_curated,identity_resolved_sessions,first_user_medium,STRING,11
+customer_360_curated,identity_resolved_sessions,first_user_campaign,STRING,12
+customer_360_curated,identity_resolved_sessions,synthetic_user_id,STRING,13
+customer_360_curated,identity_resolved_sessions,customer_id,STRING,14
+customer_360_curated,identity_resolved_sessions,match_method,STRING,15
+customer_360_curated,identity_resolved_sessions,mapping_is_synthetic,BOOL,16
+customer_360_curated,identity_resolved_sessions,ga4_purchase_events_at_export,INT64,17
+customer_360_curated,identity_resolved_sessions,ga4_first_seen_date,DATE,18
+customer_360_curated,identity_resolved_sessions,first_name,STRING,19
+customer_360_curated,identity_resolved_sessions,last_name,STRING,20
+customer_360_curated,identity_resolved_sessions,email,STRING,21
+customer_360_curated,identity_resolved_sessions,gender,STRING,22
+customer_360_curated,identity_resolved_sessions,city,STRING,23
+customer_360_curated,identity_resolved_sessions,country,STRING,24
+customer_360_curated,identity_resolved_sessions,registration_date,DATE,25
+customer_360_curated,identity_resolved_sessions,customer_status,STRING,26
+customer_360_curated,identity_resolved_sessions,loyalty_tier,STRING,27
+customer_360_curated,identity_resolved_sessions,crm_data_origin,STRING,28
+customer_360_curated,identity_resolved_sessions,identity_resolution_status,STRING,29
+customer_360_raw,crm_customers,customer_id,STRING,1
+customer_360_raw,crm_customers,synthetic_user_id,STRING,2
+customer_360_raw,crm_customers,first_name,STRING,3
+customer_360_raw,crm_customers,last_name,STRING,4
+customer_360_raw,crm_customers,email,STRING,5
+customer_360_raw,crm_customers,gender,STRING,6
+customer_360_raw,crm_customers,city,STRING,7
+customer_360_raw,crm_customers,country,STRING,8
+customer_360_raw,crm_customers,registration_date,DATE,9
+customer_360_raw,crm_customers,customer_status,STRING,10
+customer_360_raw,crm_customers,loyalty_tier,STRING,11
+customer_360_raw,crm_customers,data_origin,STRING,12
+customer_360_raw,ga4_events,event_date,STRING,1
+customer_360_raw,ga4_events,event_timestamp,INT64,2
+customer_360_raw,ga4_events,event_name,STRING,3
+customer_360_raw,ga4_events,event_params,"ARRAY<STRUCT<key STRING, value STRUCT<string_value STRING, int_value INT64, float_value FLOAT64, double_value FLOAT64>>>",4
+customer_360_raw,ga4_events,event_previous_timestamp,INT64,5
+customer_360_raw,ga4_events,event_value_in_usd,FLOAT64,6
+customer_360_raw,ga4_events,event_bundle_sequence_id,INT64,7
+customer_360_raw,ga4_events,event_server_timestamp_offset,INT64,8
+customer_360_raw,ga4_events,user_id,STRING,9
+customer_360_raw,ga4_events,user_pseudo_id,STRING,10
+customer_360_raw,ga4_events,privacy_info,"STRUCT<analytics_storage INT64, ads_storage INT64, uses_transient_token STRING>",11
+customer_360_raw,ga4_events,user_properties,"ARRAY<STRUCT<key INT64, value STRUCT<string_value INT64, int_value INT64, float_value INT64, double_value INT64, set_timestamp_micros INT64>>>",12
+customer_360_raw,ga4_events,user_first_touch_timestamp,INT64,13
+customer_360_raw,ga4_events,user_ltv,"STRUCT<revenue FLOAT64, currency STRING>",14
+customer_360_raw,ga4_events,device,"STRUCT<category STRING, mobile_brand_name STRING, mobile_model_name STRING, mobile_marketing_name STRING, mobile_os_hardware_model INT64, operating_system STRING, operating_system_version STRING, vendor_id INT64, advertising_id INT64, language STRING, is_limited_ad_tracking STRING, time_zone_offset_seconds INT64, web_info STRUCT<browser STRING, browser_version STRING>>",15
+customer_360_raw,ga4_events,geo,"STRUCT<continent STRING, sub_continent STRING, country STRING, region STRING, city STRING, metro STRING>",16
+customer_360_raw,ga4_events,app_info,"STRUCT<id STRING, version STRING, install_store STRING, firebase_app_id STRING, install_source STRING>",17
+customer_360_raw,ga4_events,traffic_source,"STRUCT<medium STRING, name STRING, source STRING>",18
+customer_360_raw,ga4_events,stream_id,INT64,19
+customer_360_raw,ga4_events,platform,STRING,20
+customer_360_raw,ga4_events,event_dimensions,STRUCT<hostname STRING>,21
+customer_360_raw,ga4_events,ecommerce,"STRUCT<total_item_quantity INT64, purchase_revenue_in_usd FLOAT64, purchase_revenue FLOAT64, refund_value_in_usd FLOAT64, refund_value FLOAT64, shipping_value_in_usd FLOAT64, shipping_value FLOAT64, tax_value_in_usd FLOAT64, tax_value FLOAT64, unique_items INT64, transaction_id STRING>",22
+customer_360_raw,ga4_events,items,"ARRAY<STRUCT<item_id STRING, item_name STRING, item_brand STRING, item_variant STRING, item_category STRING, item_category2 STRING, item_category3 STRING, item_category4 STRING, item_category5 STRING, price_in_usd FLOAT64, price FLOAT64, quantity INT64, item_revenue_in_usd FLOAT64, item_revenue FLOAT64, item_refund_in_usd FLOAT64, item_refund FLOAT64, coupon STRING, affiliation STRING, location_id STRING, item_list_id STRING, item_list_name STRING, item_list_index STRING, promotion_id STRING, promotion_name STRING, creative_name STRING, creative_slot STRING>>",23
+customer_360_raw,ga4_sessions,user_pseudo_id,STRING,1
+customer_360_raw,ga4_sessions,ga_session_id,STRING,2
+customer_360_raw,ga4_sessions,session_event_date,DATE,3
+customer_360_raw,ga4_sessions,session_first_event_timestamp_utc,STRING,4
+customer_360_raw,ga4_sessions,events_in_session,INT64,5
+customer_360_raw,ga4_sessions,purchase_events,INT64,6
+customer_360_raw,ga4_sessions,observed_event_source,STRING,7
+customer_360_raw,ga4_sessions,observed_event_medium,STRING,8
+customer_360_raw,ga4_sessions,observed_event_campaign,STRING,9
+customer_360_raw,ga4_sessions,first_user_source,STRING,10
+customer_360_raw,ga4_sessions,first_user_medium,STRING,11
+customer_360_raw,ga4_sessions,first_user_campaign,STRING,12
+customer_360_raw,identity_mapping,user_pseudo_id,STRING,1
+customer_360_raw,identity_mapping,synthetic_user_id,STRING,2
+customer_360_raw,identity_mapping,customer_id,STRING,3
+customer_360_raw,identity_mapping,match_method,STRING,4
+customer_360_raw,identity_mapping,mapping_is_synthetic,BOOL,5
+customer_360_raw,identity_mapping,ga4_purchase_events_at_export,INT64,6
+customer_360_raw,identity_mapping,ga4_first_seen_date,DATE,7

@@ -3,59 +3,41 @@
 
 ## 1. Overview
 
-This document describes the source and curated datasets used in the Customer 360 & Marketing Attribution Programme. It records their purposes, locations and roles in the analytical architecture.
+This document inventories the source datasets, curated outputs, and dbt models used in the project. Exact column names and data types must be verified against the live BigQuery schemas and current dbt model SQL/YAML. This document does not infer undocumented columns.
 
-The BigQuery table schema remains the authoritative source for exact column names and data types. Column-level definitions should be expanded from the live schema when documenting downstream models.
+## 2. Source Data Inventory
 
-## 2. Data Source Inventory
+| Source | Location | Purpose |
+|---|---|---|
+| GA4 ecommerce events | `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*` | Website interaction and ecommerce event data |
+| GA4 sessions | `customer_360_raw.ga4_sessions` | Prepared session-level data |
+| CRM customers | `customer_360_raw.crm_customers` | Synthetic CRM customer records |
+| Identity mapping | `customer_360_raw.identity_mapping` | Synthetic mapping between website and CRM identifiers |
+| Advertising spend | `synthetic_ad_spend.csv` | Synthetic campaign and advertising expenditure data |
+| Identity-resolved sessions | `customer_360_curated.identity_resolved_sessions` | Session records enriched with CRM identity/profile data where a mapping exists |
 
-| Data Source | File / BigQuery table | Data Type | Purpose |
-|---|---|---|---|
-| GA4 Ecommerce | `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*` | Public sample data | Website behavioural and ecommerce events |
-| GA4 Sessions | `customer_360_raw.ga4_sessions` | Prepared GA4 data | Session-level behavioural records |
-| CRM Customers | `customer_360_raw.crm_customers` | Synthetic | Customer profile and CRM identifiers |
-| Advertising Spend | `synthetic_ad_spend.csv` | Synthetic | Advertising campaign and spending information |
-| Identity Mapping | `customer_360_raw.identity_mapping` | Synthetic | Mapping between website-side and CRM identifiers |
-| Identity-Resolved Sessions | `customer_360_curated.identity_resolved_sessions` | Curated integration output | GA4 sessions enriched with mapped CRM identities and profile attributes |
+## 3. BigQuery Datasets
 
-## 3. Raw BigQuery Tables
+| Dataset | Purpose | Status |
+|---|---|---|
+| `customer_360_raw` | Raw/prepared source tables | Created and used |
+| `customer_360_curated` | Curated identity-resolution output | Created and used |
+| `customer_360_dbt_dev` | dbt development model outputs | Created and used in Phase 3 |
 
-Project: `customer360-mta`  
-Dataset: `customer_360_raw`
+Google Cloud project: `customer360-mta`.
 
-| Table | Purpose |
-|---|---|
-| `ga4_sessions` | Prepared GA4 session-level data |
-| `crm_customers` | Synthetic CRM customer records |
-| `identity_mapping` | Synthetic cross-platform identity mappings |
+## 4. Curated Identity-Resolution Table
 
-## 4. Curated Identity Resolution Table
+**Table:** `customer_360_curated.identity_resolved_sessions`
 
-**Fully qualified table:** `customer360-mta.customer_360_curated.identity_resolved_sessions`
+**Purpose:** Retain the GA4 session population and attach synthetic mapping and CRM customer information wherever an identity mapping is available.
 
-**Purpose:** Provides a session-level dataset that retains GA4 sessions and attaches CRM identity and profile information where a corresponding synthetic mapping exists.
+**Important field:** `identity_resolution_status`
 
-### Content groups
+- `IDENTIFIED`: the session was connected to a CRM record through the synthetic identity mapping.
+- `UNIDENTIFIED`: no corresponding mapping was available. The session remains in the output.
 
-| Content group | Description |
-|---|---|
-| GA4 session fields | Session identifiers and available session-level behavioural/traffic attributes |
-| Identity mapping fields | Synthetic user identifier, CRM customer identifier, match method, synthetic-mapping indicator and available mapping metadata |
-| CRM profile fields | Customer attributes from the matching CRM record |
-| Identity status | `identity_resolution_status`, with `IDENTIFIED` or `UNIDENTIFIED` values |
-
-Refer to the actual BigQuery schema for the complete field list and data types.
-
-### Identity status interpretation
-
-- `IDENTIFIED`: the GA4 session was connected to a CRM customer through the project's synthetic mapping data.
-- `UNIDENTIFIED`: no corresponding identity mapping was available for that session.
-
-An unidentified session is retained in the output; it is not discarded.
-
-## 5. Phase 2 Validation Counts
-
-Recorded final validation results for `identity_resolved_sessions`:
+Recorded Phase 2 validation:
 
 | Measure | Result |
 |---|---:|
@@ -64,42 +46,67 @@ Recorded final validation results for `identity_resolved_sessions`:
 | Identified sessions | 10,246 |
 | Unidentified sessions | 349,883 |
 | CRM customers represented among identified sessions | 3,500 |
-| Identified records with missing CRM customer records | 0 |
-| Mismatched synthetic IDs in the validation checks | 0 |
+| Identified records missing CRM customer records | 0 |
+| Mismatched synthetic IDs | 0 |
 
-Identified and unidentified sessions sum to the full output session count. These results describe the synthetic mapping exercise and should not be interpreted as real-world identity match performance.
+These figures describe the synthetic identity-mapping exercise, not real-world identity match accuracy.
 
-## 6. Other Synthetic Datasets
+## 5. dbt Source Inventory – Phase 3
 
-### CRM Customers
+The dbt project is named `customer_360`. Its configured source inventory includes:
+
+| dbt source name | Upstream role |
+|---|---|
+| `ga4_sessions` | Prepared GA4 session-level source |
+| `ga4_events` | GA4 event-level source with ecommerce event data |
+| `crm_customers` | Synthetic CRM customer source |
+| `identity_mapping` | Synthetic cross-platform identity bridge |
+| `identity_resolved_sessions` | Curated session-to-CRM enrichment output |
+
+## 6. dbt Staging Models
+
+| Model | Purpose | Materialization |
+|---|---|---|
+| `stg_ga4_sessions` | Standardizes GA4 session source fields | View |
+| `stg_ga4_events` | Standardizes GA4 event data for downstream transformations | View |
+| `stg_crm_customers` | Standardizes CRM customer records | View |
+| `stg_identity_mapping` | Standardizes identity mapping records | View |
+| `stg_identity_resolved_sessions` | Standardizes curated identity-resolved sessions | View |
+
+The GA4 event staging model retains nested ecommerce/item structures required by downstream purchase-related modelling.
+
+## 7. Core dbt Marts
+
+| Model | Model role | Purpose | Validation |
+|---|---|---|---|
+| `fct_sessions` | Fact | Session-level analytical output | Confirmed validated |
+| `fct_orders` | Fact | Order-level analytical output | Confirmed validated |
+| `dim_customer_profile` | Dimension | Consolidated customer-profile output | Confirmed validated |
+
+The three marts were created in `customer_360_dbt_dev`. Refer to the model SQL/YAML and live BigQuery schema for exact grain, columns, data types, and tests.
+
+## 8. Synthetic Dataset Notes
+
+### CRM customers
 
 File: `synthetic_crm_customers.csv`  
 BigQuery table: `customer_360_raw.crm_customers`
 
-Represents synthetic customer records and CRM attributes used for customer profile enrichment.
+Contains generated CRM customer records for identity enrichment and profile modelling.
 
-### Advertising Spend
+### Advertising spend
 
 File: `synthetic_ad_spend.csv`
 
-Represents synthetic advertising campaign and spending information. Its downstream warehouse table and schema should be documented when that dataset is ingested for attribution modelling.
+Contains generated advertising campaign and spend information. Its downstream warehouse model should be added to this dictionary when implemented.
 
-### Identity Mapping
+### Identity mapping
 
 File: `identity_mapping.csv`  
 BigQuery table: `customer_360_raw.identity_mapping`
 
-Contains synthetic relationships between website-side identifiers and CRM customer identifiers. It is a simulated bridge used to develop and test identity resolution.
+Contains synthetic relationships between website-side identifiers and CRM customer identifiers.
 
-## 7. Data Layer Organization
+## 9. Maintenance
 
-| BigQuery Dataset | Purpose | Status |
-|---|---|---|
-| `customer_360_raw` | Source tables | Loaded and used in Phase 2 |
-| `customer_360_curated` | Integrated curated outputs | Identity-resolved session table created |
-| `customer_360_staging` | Cleaned and standardized transformation layer | Planned for subsequent modelling |
-| `customer_360_analytics` | Analytical outputs | Planned |
-
-## 8. Data Dictionary Maintenance
-
-Update this document when new sources or tables are added, schemas change, columns are transformed, or business definitions are introduced. Use the live BigQuery schema to verify exact field names and data types.
+Update this dictionary whenever sources, models, schemas, column definitions, materializations, or business rules change. Use dbt model YAML and live BigQuery schemas as the authoritative references for exact field definitions.

@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+
+  - name: customer_360_raw
+    description: "Raw source datasets for the Customer 360 and Marketing Attribution Programme."
+
+    database: customer-360-mta
+    schema: customer_360_raw
+
+    tables:
+
+      - name: ga4_events
+        description: "Raw Google Analytics 4 event-level data, including purchase events and ecommerce information."
+
+      - name: ga4_sessions
+        description: "Session-level GA4 data aggregated by user and session."
+
+      - name: crm_customers
+        description: "Synthetic CRM customer records generated for the Customer 360 project."
+
+      - name: identity_mapping
+        description: "Synthetic mapping between GA4 pseudonymous users and CRM customer records."
+
+  - name: customer_360_curated
+    description: "Curated datasets containing identity-resolved customer and session information."
+
+    database: customer-360-mta
+    schema: customer_360_curated
+
+    tables:
+
+      - name: identity_resolved_sessions
+        description: "GA4 sessions enriched with synthetic identity mappings and CRM customer attributes."

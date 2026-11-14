@@ -1,94 +1,92 @@
 # Technical Decision Log
 ## Customer 360 & Marketing Attribution Programme
 
-This document records important technical and architectural decisions made throughout the project.
+This document records key technical and architectural decisions made during the project.
 
 ---
 
-## Decision 001 – Selection of GA4 Public Ecommerce Dataset
+## Decision 001 – Use the GA4 Public Ecommerce Sample
 
-**Date:** 10 November 2026  
 **Status:** Accepted
 
-**Decision:** Use Google's publicly available GA4 ecommerce sample dataset hosted in BigQuery as the primary website behavioural data source.
+**Decision:** Use Google's public GA4 ecommerce sample hosted in BigQuery as the primary website behavioural data source.
 
 **Source:** `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
 
-**Reasoning:** It provides ecommerce event data, customer-related identifiers, session information, traffic source information and purchase events for behavioural and marketing analysis.
+**Reasoning:** It provides ecommerce event, session, traffic-source, and purchase-related data for behavioural analysis.
 
 ---
 
-## Decision 002 – Use Synthetic CRM Customer Data
+## Decision 002 – Generate Synthetic CRM Data
 
-**Date:** 10 November 2026  
-**Status:** Accepted
+**Status:** Accepted and Implemented
 
-**Decision:** Generate synthetic CRM customer records using Python rather than relying on real customer information.
+**Decision:** Generate synthetic CRM customer records using Python.
 
 **Dataset:** `synthetic_crm_customers.csv`
 
-**Reasoning:** Synthetic records avoid using real customer information and provide controlled customer attributes and identifiers for analytical development and identity-resolution testing.
+**Reasoning:** Synthetic records avoid using real customer information and provide controlled inputs for identity resolution and customer analytics.
 
 ---
 
 ## Decision 003 – Generate Synthetic Advertising Spend Data
 
-**Date:** 10 November 2026  
-**Status:** Accepted
+**Status:** Accepted and Implemented
 
-**Decision:** Generate synthetic advertising spend data using Python.
+**Decision:** Generate synthetic advertising campaign and spend data using Python.
 
 **Dataset:** `synthetic_ad_spend.csv`
 
-**Reasoning:** The GA4 sample does not provide a complete advertising cost dataset for the planned marketing analysis. Synthetic campaign spending data will support later campaign performance, CPA and ROAS analysis.
+**Reasoning:** Advertising expenditure is required for planned campaign-performance and ROI analysis.
 
 ---
 
-## Decision 004 – Create a Separate Identity Mapping Dataset
+## Decision 004 – Maintain a Separate Synthetic Identity Mapping Dataset
 
-**Date:** 10 November 2026  
-**Status:** Accepted
+**Status:** Accepted and Implemented
 
-**Decision:** Maintain a separate synthetic identity mapping dataset.
+**Decision:** Use a dedicated synthetic mapping dataset to bridge website-side identifiers and CRM customer identifiers.
 
 **Dataset:** `identity_mapping.csv`
 
-**Reasoning:** Website identifiers and CRM identifiers differ across systems. A dedicated mapping dataset provides a controlled bridge for testing cross-platform identity resolution.
+**Reasoning:** The identifiers differ across platforms. A separate mapping bridge allows controlled development and validation of identity-resolution logic.
 
-**Important qualification:** The mappings are synthetic. A successful match validates the implemented logic against the generated mapping data; it does not establish that the identities represent real people or demonstrate production-grade identity accuracy.
-
----
-
-## Decision 005 – Use BigQuery as the Central Data Warehouse
-
-**Date:** 10 November 2026  
-**Status:** Accepted
-
-**Decision:** Use Google BigQuery as the central warehouse for integrating GA4, CRM, advertising and identity mapping data.
-
-**Dataset organization:** `customer_360_raw` for source data and `customer_360_curated` for the Phase 2 integrated identity-resolution output. Staging and analytics datasets remain part of the planned downstream architecture.
+**Qualification:** Matches validate the implemented logic against generated data; they do not establish real-world identity accuracy.
 
 ---
 
-## Decision 006 – Maintain Synthetic and Raw Data Separately
+## Decision 005 – Use BigQuery as the Central Warehouse
 
-**Date:** 10 November 2026  
-**Status:** Accepted
+**Status:** Accepted and Implemented
 
-**Decision:** Store generated source CSV files under `data/raw/` and reserve `data/processed/` for future transformed local datasets.
+**Decision:** Use Google BigQuery for source data, curated identity-resolution outputs, and dbt development models.
 
-**Reasoning:** Separating original inputs from transformed outputs improves traceability and reproducibility.
+**Datasets:**
+- `customer_360_raw`
+- `customer_360_curated`
+- `customer_360_dbt_dev`
+
+**Reasoning:** A cloud warehouse provides a common environment for source integration, transformation, and analytical modelling.
 
 ---
 
-## Decision 007 – Maintain Version Control and Technical Documentation
+## Decision 006 – Separate Raw Inputs from Processed Data
 
-**Date:** 10 November 2026  
 **Status:** Accepted
 
-**Decision:** Use Git and GitHub for version control and maintain separate project documentation.
+**Decision:** Keep original generated source files under `data/raw/` and reserve `data/processed/` for transformed local outputs.
 
-**Reasoning:** This provides a traceable record of implementation progress, architecture and technical decisions.
+**Reasoning:** This separation improves traceability and reproducibility.
+
+---
+
+## Decision 007 – Use Git and Maintain Project Documentation
+
+**Status:** Accepted and Implemented
+
+**Decision:** Use Git/GitHub for version control and maintain separate technical documentation.
+
+**Reasoning:** This provides a traceable history of implementation, decisions, architecture, and validation.
 
 ---
 
@@ -96,11 +94,11 @@ This document records important technical and architectural decisions made throu
 
 **Status:** Accepted and Implemented
 
-**Decision:** Use LEFT JOIN-based identity enrichment so that every source GA4 session remains in the final identity-resolution output, whether or not a mapping is found.
+**Decision:** Use LEFT JOIN-based identity enrichment so every source GA4 session remains in the final output, whether or not a mapping is found.
 
 **Output:** `customer_360_curated.identity_resolved_sessions`
 
-**Reasoning:** Dropping unmatched sessions would remove behavioural data from subsequent customer journey analysis. Retaining them and assigning an explicit identity status preserves the complete session population while distinguishing identified from unidentified sessions.
+**Reasoning:** Dropping unmatched sessions would remove behavioural data. Retaining them with an explicit identity status preserves the session population.
 
 ---
 
@@ -108,14 +106,34 @@ This document records important technical and architectural decisions made throu
 
 **Status:** Accepted
 
-**Decision:** Interpret identity-resolution matches as matches against the project's generated synthetic mapping dataset, not as verified real-world identity links.
+**Decision:** Interpret identity matches as matches against the generated synthetic mapping dataset, not as verified real-world identity links.
 
-**Reasoning:** The identity mapping was deliberately generated for this project. Validation can confirm referential consistency and correct application of the mapping rules, but cannot establish real-world identity accuracy.
+**Reasoning:** Validation can confirm referential consistency and correct application of the generated mapping rules, but cannot establish real-world identity accuracy.
 
-**Reporting implication:** The identified-session count and match rate must be labelled as results from a synthetic test dataset.
+---
+
+## Decision 010 – Use dbt Core for the Transformation Layer
+
+**Status:** Accepted and Implemented in Phase 3
+
+**Decision:** Use dbt Core with BigQuery to organize source-aligned staging transformations and reusable analytical models.
+
+**Implementation:**
+- dbt project: `customer_360`.
+- Configure upstream sources for GA4 sessions, GA4 events, CRM customers, identity mapping, and curated identity-resolved sessions.
+- Materialize staging models as views.
+- Use ephemeral materialization for intermediate transformations where configured.
+- Build `fct_sessions`, `fct_orders`, and `dim_customer_profile`.
+- Use `customer_360_dbt_dev` as the development target dataset.
+
+**Reasoning:** Separating source cleanup from analytical outputs improves model organization, reuse, lineage, and maintainability. It creates a consistent foundation for downstream customer analytics and marketing attribution.
+
+**Validation:** dbt diagnostics and parsing completed successfully, documentation was generated, and the three core marts were validated in BigQuery.
+
+**Evidence boundary:** Exact automated dbt test/build totals and individual mart row counts should be added only from saved command output or query evidence.
 
 ---
 
 ## Decision Review
 
-Phase 2 implemented the identity-resolution design and created the curated session-level output. Further decisions will be recorded as dbt modelling, customer analytics, attribution and dashboard development progress.
+Phases 1–3 established the synthetic data foundation, BigQuery identity-resolution output, and dbt staging/core marts. New decisions will be recorded as customer analytics, attribution, and dashboard development progress.

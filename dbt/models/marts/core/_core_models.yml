@@ -1,0 +1,71 @@
+version: 2
+
+models:
+
+  - name: fct_sessions
+    description: "Session-level fact table containing GA4 activity and identity resolution information."
+
+    columns:
+      - name: session_key
+        data_tests:
+          - not_null
+          - unique
+
+      - name: user_pseudo_id
+        data_tests:
+          - not_null
+
+      - name: identity_resolution_status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['IDENTIFIED', 'UNIDENTIFIED']
+
+  - name: fct_orders
+    description: "Order-level fact table containing distinct GA4 transactions and revenue information."
+
+    columns:
+      - name: transaction_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: order_date
+        data_tests:
+          - not_null
+
+      - name: customer_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_crm_customers')
+                field: customer_id
+
+  - name: dim_customer_profile
+    description: "Customer-level dimension combining CRM information, website engagement and purchase metrics."
+
+    columns:
+      - name: customer_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_segment
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - 'NO SESSIONS'
+                  - 'BROWSING CUSTOMER'
+                  - 'PURCHASING CUSTOMER'
+
+      - name: purchase_status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - 'PURCHASER'
+                  - 'NON-PURCHASER'

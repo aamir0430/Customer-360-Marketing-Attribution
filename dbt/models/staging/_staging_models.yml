@@ -1,0 +1,28 @@
+version: 2
+
+models:
+
+  - name: stg_ga4_sessions
+    description: >
+      Standardised GA4 session-level data containing session identifiers,
+      engagement metrics and traffic acquisition information.
+
+  - name: stg_ga4_events
+    description: >
+      Standardised GA4 event-level data preserving nested event parameters,
+      ecommerce information, device information and item details.
+
+  - name: stg_crm_customers
+    description: >
+      Standardised synthetic CRM customer records containing customer
+      identifiers, demographic information and registration details.
+
+  - name: stg_identity_mapping
+    description: >
+      Standardised synthetic identity mapping records connecting GA4
+      pseudonymous users with CRM customer records.
+
+  - name: stg_identity_resolved_sessions
+    description: >
+      Standardised curated GA4 sessions enriched with synthetic identity
+      mapping information and CRM customer attributes.

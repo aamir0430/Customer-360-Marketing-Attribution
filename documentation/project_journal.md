@@ -7,21 +7,14 @@
 
 **Status:** Completed
 
-### Objective
+### Work completed
 
-Establish the initial project data sources and generate the synthetic datasets required for the Customer 360 and Marketing Attribution platform.
-
-### Work Completed
-
-- Selected Google's public GA4 ecommerce sample dataset in BigQuery: `bigquery-public-data.ga4_obfuscated_sample_ecommerce`.
-- Inspected GA4 event data, identifiers, session information, traffic sources and ecommerce purchase information.
-- Generated the synthetic CRM customer dataset: `synthetic_crm_customers.csv`.
-- Generated the synthetic advertising spend dataset: `synthetic_ad_spend.csv`.
-- Generated the synthetic identity mapping dataset: `identity_mapping.csv`.
-
-### Phase 1 Deliverables
-
-The three synthetic CSV datasets were generated and organized under `data/raw/`. The GA4 public ecommerce sample was selected as the behavioural data source.
+- Selected Google's public GA4 ecommerce sample in BigQuery: `bigquery-public-data.ga4_obfuscated_sample_ecommerce`.
+- Inspected GA4 event data, identifiers, session information, traffic sources, and ecommerce purchase information.
+- Generated `synthetic_crm_customers.csv`.
+- Generated `synthetic_ad_spend.csv`.
+- Generated `identity_mapping.csv`.
+- Organized the synthetic source files under `data/raw/`.
 
 **Phase 1 status: Completed.**
 
@@ -33,48 +26,22 @@ The three synthetic CSV datasets were generated and organized under `data/raw/`.
 
 ### Objective
 
-Prepare the source data and build a usable BigQuery dataset that links GA4 sessions to CRM customer profiles wherever a corresponding synthetic identity mapping exists.
+Build a BigQuery dataset that links GA4 sessions to CRM customer profiles wherever a corresponding synthetic identity mapping exists.
 
-### Step 2.1 – Prepare and Load Data into BigQuery
+### Work completed
 
-- Prepared and loaded the required source data into the `customer_360_raw` dataset.
-- Used the source tables `ga4_sessions`, `crm_customers` and `identity_mapping`.
-- Verified that the three expected raw tables were present and checked their row counts.
+1. Prepared and loaded GA4 sessions, CRM customers, and identity mapping into `customer_360_raw`.
+2. Verified source table presence and row counts.
+3. Inspected the synthetic identity mapping and relevant identifiers.
+4. Previewed joins between sessions, mapping records, and CRM customers.
+5. Used LEFT JOIN logic to preserve the full GA4 session population.
+6. Created `customer_360_curated.identity_resolved_sessions`.
+7. Added `identity_resolution_status` to distinguish identified and unidentified sessions.
+8. Executed final validation queries.
 
-### Step 2.2 – Inspect and Validate Identity Mapping
+### Recorded validation results
 
-- Examined the synthetic identity mapping data.
-- Reviewed the identifiers and mapping fields required to connect GA4 sessions to CRM records.
-- Performed mapping quality checks before using the mapping in joins.
-
-### Step 2.3 – Preview the Identity Resolution Join
-
-- Previewed the joins between GA4 sessions, identity mapping and CRM customer records.
-- Checked the relationship between session identifiers, synthetic user identifiers and CRM customer identifiers.
-- Used LEFT JOIN logic to retain the complete GA4 session population.
-
-### Step 2.4 – Validate the Identity Resolution Output
-
-- Checked session coverage and uniqueness.
-- Checked identified and unidentified session counts.
-- Checked that identified mappings resolve to CRM customer records.
-- Checked synthetic identifier consistency.
-
-### Step 2.5 – Create the Final Identity Resolution Table
-
-Created the curated BigQuery table:
-
-`customer_360_curated.identity_resolved_sessions`
-
-The table combines GA4 session fields with available synthetic mapping fields and CRM profile attributes. It includes `identity_resolution_status` to distinguish identified and unidentified sessions.
-
-### Step 2.6 – Verify the Final Curated Table
-
-Executed the final validation query successfully.
-
-Recorded validation results:
-
-| Validation measure | Result |
+| Measure | Result |
 |---|---:|
 | Total sessions | 360,129 |
 | Unique sessions | 360,129 |
@@ -84,30 +51,107 @@ Recorded validation results:
 | Missing CRM customer records | 0 |
 | Mismatched synthetic IDs | 0 |
 
-All source sessions were retained in the final output. Identified and unidentified session counts reconcile to 360,129.
+All source sessions were retained. The identified and unidentified counts reconcile to 360,129.
 
-### Phase 2 Deliverables
+### Limitation
 
-- Raw GA4 session, CRM customer and identity mapping tables available in BigQuery.
-- Identity mapping inspected and validated.
-- Session-to-mapping-to-CRM join logic previewed and checked.
-- Curated table `customer_360_curated.identity_resolved_sessions` created.
-- Final validation query executed successfully.
-- Identity status available to distinguish identified and unidentified sessions.
-
-### Important Limitation
-
-The identity mapping dataset is synthetic. The validation confirms the consistency of the implemented joins against the generated mapping data; it does not establish real-world identity accuracy.
+The identity mapping is synthetic. The checks establish consistency against the generated mappings, not real-world identity accuracy.
 
 **Phase 2 status: Completed.**
 
 ---
 
-## Next Phase – Customer 360 Data Modelling with dbt
+## Phase 3 – dbt Data Modelling: Sessions, Orders, and Customer Profiles
 
-The next phase is to create dbt models for:
-1. Sessions.
-2. Orders.
-3. Customer profiles.
+**Status:** Completed
 
-These models will build on the source and identity-resolution work completed in Phases 1 and 2.
+### Objective
+
+Build a dbt transformation layer on top of the BigQuery raw and curated data, producing reusable session, order, and customer-profile models for downstream analytics.
+
+### Step 3.1 – Configure the dbt Environment
+
+- Set up the dbt project named `customer_360`.
+- Configure the BigQuery connection and development target.
+- Resolve a local Python package compatibility issue encountered during dbt diagnostics.
+- Re-run `dbt debug` and confirm that all checks passed.
+
+### Step 3.2 – Validate the dbt Project
+
+- Run `dbt parse` successfully.
+- Review project configuration warnings.
+- Inspect the available BigQuery datasets and tables before defining sources and models.
+
+### Step 3.3 – Configure dbt Sources
+
+Configure the upstream sources required by the modelling workflow:
+
+- `ga4_sessions`
+- `ga4_events`
+- `crm_customers`
+- `identity_mapping`
+- `identity_resolved_sessions`
+
+These sources span the existing raw and curated BigQuery layers.
+
+### Step 3.4 – Build the Staging Layer
+
+Create the following staging models:
+
+- `stg_ga4_sessions.sql`
+- `stg_ga4_events.sql`
+- `stg_crm_customers.sql`
+- `stg_identity_mapping.sql`
+- `stg_identity_resolved_sessions.sql`
+
+The staging layer standardizes source data for downstream transformations. GA4 event staging retains nested ecommerce and item structures required for purchase-related modelling. Staging models are configured as views.
+
+### Step 3.5 – Build Core Analytical Models
+
+Create the three core marts:
+
+- `fct_sessions.sql`
+- `fct_orders.sql`
+- `dim_customer_profile.sql`
+
+The models provide session-level, order-level, and consolidated customer-profile outputs. Intermediate reusable transformations are configured as ephemeral models where appropriate.
+
+### Step 3.6 – Configure Model Metadata
+
+Maintain dbt source/model YAML metadata and documentation for the source declarations, staging models, and core models.
+
+### Step 3.7 – Build and Validate BigQuery Outputs
+
+- Build dbt outputs in the development target dataset `customer_360_dbt_dev`.
+- Validate the `fct_sessions` output.
+- Validate the `fct_orders` output.
+- Validate the `dim_customer_profile` output.
+
+The project owner confirmed that all three core mart validations were successful.
+
+### Step 3.8 – Generate dbt Documentation
+
+- Run `dbt docs generate` successfully.
+- Generate the catalog at `dbt/target/catalog.json`.
+- Note that non-fatal `agate` `table_owner` warnings appeared during generation; catalog generation completed.
+
+### Phase 3 Deliverables
+
+- Configured dbt project `customer_360`.
+- Configured five upstream BigQuery sources.
+- Created five staging models.
+- Created `fct_sessions`, `fct_orders`, and `dim_customer_profile`.
+- Configured staging views and ephemeral intermediate transformations where appropriate.
+- Created and validated the three core mart outputs in `customer_360_dbt_dev`.
+- Completed dbt diagnostics and project parsing.
+- Generated dbt documentation and catalog.
+
+**Evidence note:** Exact final automated test/build totals and individual mart row counts are not included because those numerical outputs are not available in the completion record. They should be added only from saved command output or query evidence.
+
+**Phase 3 status: Completed.**
+
+---
+
+## Next Phase – Customer Analytics
+
+Phase 4 will use the completed dbt models to develop customer analytics, including RFM segmentation and historical Customer Lifetime Value (CLV). Marketing attribution, campaign ROI/CPA analysis, and Tableau dashboards remain later phases.

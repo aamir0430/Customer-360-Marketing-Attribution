@@ -51,3 +51,14 @@ dist/
 # Coverage
 .coverage
 htmlcov/
+
+# Python virtual environment
+.venv/
+
+# dbt generated files
+target/
+dbt_packages/
+logs/
+
+# dbt credentials
+profiles.yml

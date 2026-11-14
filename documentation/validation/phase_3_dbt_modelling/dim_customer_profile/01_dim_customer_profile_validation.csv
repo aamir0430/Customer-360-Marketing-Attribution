@@ -1,0 +1,2 @@
+total_customers,unique_customers,customers_with_sessions,customers_with_orders,customers_without_orders,total_sessions,total_orders,total_customer_revenue_usd,average_customer_revenue_usd
+5000,5000,3500,2091,2909,10246,2504,169649.0,33.929799999999958
