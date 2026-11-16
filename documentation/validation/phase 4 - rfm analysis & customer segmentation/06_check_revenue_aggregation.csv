@@ -1,0 +1,2 @@
+total_rows,distinct_transactions,total_revenue,distinct_revenue_values_sum,average_order_value,zero_value_orders,negative_value_orders,null_revenue_orders
+4452,4452,307868.0,70768.0,69.152740341419658,1,0,0

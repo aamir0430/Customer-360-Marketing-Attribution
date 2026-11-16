@@ -1,0 +1,277 @@
+version: 2
+
+models:
+
+  - name: fct_customer_rfm
+
+    description: >
+      Customer-level RFM metrics calculated from identified
+      GA4 purchase transactions. Preserves all CRM customers,
+      including customers without identified purchases.
+
+    columns:
+
+      - name: customer_id
+        description: Unique CRM customer identifier.
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('dim_customer_profile')
+                field: customer_id
+
+      - name: analysis_date
+        description: >
+          Historical RFM reference date, calculated as
+          one day after the latest identified purchase date.
+        tests:
+          - not_null
+
+      - name: first_purchase_date
+        description: Customer's earliest identified purchase date.
+
+      - name: last_purchase_date
+        description: Customer's most recent identified purchase date.
+
+      - name: recency_days
+        description: >
+          Number of days between the historical analysis date
+          and the customer's last identified purchase date.
+
+      - name: frequency
+        description: Number of distinct identified transactions.
+        tests:
+          - not_null
+
+      - name: monetary_value
+        description: >
+          Total identified purchase revenue in USD for the customer.
+        tests:
+          - not_null
+
+      - name: rfm_eligibility_status
+        description: >
+          Indicates whether the customer has at least one
+          identified purchase transaction.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - PURCHASER
+                  - NO_PURCHASE
+
+  - name: fct_customer_rfm_scores
+
+    description: >
+        Customer-level RFM scoring model. Assigns recency,
+        frequency and monetary scores from 1 to 5 to identified
+        purchasing customers. Customers without purchases
+        retain NULL RFM scores.
+
+    columns:
+
+        - name: customer_id
+          description: Unique CRM customer identifier.
+          tests:
+            - not_null
+            - unique
+            - relationships:
+                arguments:
+                  to: ref('dim_customer_profile')
+                  field: customer_id
+
+        - name: recency_score
+          description: Recency score from 1 to 5.
+
+        - name: frequency_score
+          description: Frequency score from 1 to 5.
+
+        - name: monetary_score
+          description: Monetary score from 1 to 5.
+
+        - name: rfm_score
+          description: Three-digit combined RFM score.
+
+        - name: rfm_score_total
+          description: Sum of the three individual RFM scores.
+
+        - name: rfm_eligibility_status
+          description: Customer RFM scoring eligibility.
+          tests:
+            - accepted_values:
+                arguments:
+                  values:
+                    - PURCHASER
+                    - NO_PURCHASE
+                  
+  - name: dim_customer_segments
+
+    description: >
+      Customer segmentation model based on recency, frequency
+      and monetary scores. Classifies all CRM customers into
+      actionable marketing segments, including customers
+      without identified purchases.
+
+    columns:
+
+      - name: customer_id
+        description: Unique CRM customer identifier.
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('dim_customer_profile')
+                field: customer_id
+
+      - name: customer_segment
+        description: RFM-based customer segment.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - Champions
+                  - Loyal Customers
+                  - Potential Loyalists
+                  - Recent Customers
+                  - Promising Customers
+                  - Customers Needing Attention
+                  - Cannot Lose Them
+                  - At Risk
+                  - Hibernating
+                  - Lost
+                  - No Purchase
+
+      - name: segment_description
+        description: Business interpretation of the customer segment.
+        tests:
+          - not_null
+
+      - name: recommended_marketing_action
+        description: Recommended marketing strategy for the segment.
+        tests:
+          - not_null
+
+  - name: fct_customer_clv
+
+    description: >
+      Historical customer lifetime value model calculating
+      observed identified customer revenue, order frequency,
+      average order value, customer lifespan and historical
+      customer value segments. This is not predictive CLV.
+
+    columns:
+
+      - name: customer_id
+        description: Unique CRM customer identifier.
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('dim_customer_profile')
+                field: customer_id
+
+      - name: total_orders
+        description: Number of distinct identified transactions.
+        tests:
+          - not_null
+
+      - name: historical_clv
+        description: Total historical identified revenue in USD.
+        tests:
+          - not_null
+
+      - name: average_order_value
+        description: Average historical revenue per identified transaction.
+        tests:
+          - not_null
+
+      - name: historical_value_segment
+        description: Relative historical customer value category.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - High Value
+                  - Medium Value
+                  - Low Value
+                  - Very Low Value
+                  - No Purchase
+
+      - name: clv_eligibility_status
+        description: Indicates whether the customer has identified purchases.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - PURCHASER
+                  - NO_PURCHASE
+
+  - name: dim_customer_360_analytics
+    description: >
+      Unified Customer 360 Analytics model combining customer-level
+      RFM metrics, RFM scoring, customer segmentation, historical
+      customer lifetime value and historical customer value segments.
+      Retains the complete CRM customer population, including
+      customers without identified purchases. Historical CLV is
+      descriptive and is not a predictive lifetime value forecast.
+
+    columns:
+      - name: customer_id
+        description: Unique CRM customer identifier.
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('dim_customer_profile')
+                field: customer_id
+
+      - name: customer_segment
+        description: RFM-based customer segment.
+        tests:
+          - not_null
+
+      - name: historical_clv
+        description: Total historical identified customer revenue in USD.
+        tests:
+          - not_null
+
+      - name: historical_value_segment
+        description: Historical customer value category.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - High Value
+                  - Medium Value
+                  - Low Value
+                  - Very Low Value
+                  - No Purchase
+
+      - name: rfm_eligibility_status
+        description: Indicates whether the customer has identified purchases.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - PURCHASER
+                  - NO_PURCHASE
+
+      - name: clv_eligibility_status
+        description: Indicates whether the customer has identified purchases.
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - PURCHASER
+                  - NO_PURCHASE

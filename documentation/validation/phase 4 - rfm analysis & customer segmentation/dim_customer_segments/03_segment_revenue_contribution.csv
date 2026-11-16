@@ -1,0 +1,12 @@
+customer_segment,customer_count,total_segment_revenue,revenue_contribution_percentage
+Customers Needing Attention,395,34824.0,20.53
+Hibernating,414,32939.0,19.42
+Lost,387,28981.0,17.08
+Promising Customers,372,24943.0,14.7
+Recent Customers,381,24255.0,14.3
+Potential Loyalists,99,13296.0,7.84
+Champions,15,4247.0,2.5
+Loyal Customers,12,2264.0,1.33
+Cannot Lose Them,7,2180.0,1.29
+At Risk,9,1720.0,1.01
+No Purchase,2909,0.0,0.0

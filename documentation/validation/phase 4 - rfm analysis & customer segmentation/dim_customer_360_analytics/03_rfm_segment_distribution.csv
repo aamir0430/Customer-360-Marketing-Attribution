@@ -1,0 +1,12 @@
+customer_segment,customer_count,total_historical_clv,customer_percentage
+No Purchase,2909,0.0,58.18
+Hibernating,414,32939.0,8.28
+Customers Needing Attention,395,34824.0,7.9
+Lost,387,28981.0,7.74
+Recent Customers,381,24255.0,7.62
+Promising Customers,372,24943.0,7.44
+Potential Loyalists,99,13296.0,1.98
+Champions,15,4247.0,0.3
+Loyal Customers,12,2264.0,0.24
+At Risk,9,1720.0,0.18
+Cannot Lose Them,7,2180.0,0.14

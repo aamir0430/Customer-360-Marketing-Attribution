@@ -1,0 +1,21 @@
+customer_id,total_orders,historical_clv,average_order_value,customer_lifespan_days,revenue_per_active_day,historical_value_segment
+CUST000664,1,1530.0,1530.0,0,,High Value
+CUST002168,1,1170.0,1170.0,0,,High Value
+CUST000672,5,1121.0,224.2,0,,High Value
+CUST003059,2,817.0,408.5,8,102.125,High Value
+CUST001871,1,784.0,784.0,0,,High Value
+CUST000270,2,771.0,385.5,0,,High Value
+CUST003357,2,758.0,379.0,0,,High Value
+CUST002161,13,752.0,57.84615384615384,0,,High Value
+CUST000982,4,744.0,186.0,0,,High Value
+CUST003479,1,712.0,712.0,0,,High Value
+CUST000890,1,656.0,656.0,0,,High Value
+CUST001559,1,588.0,588.0,0,,High Value
+CUST001810,1,551.0,551.0,0,,High Value
+CUST003350,16,544.0,34.0,1,544.0,High Value
+CUST000704,2,532.0,266.0,1,532.0,High Value
+CUST002184,2,529.0,264.5,7,75.571428571428569,High Value
+CUST003201,1,522.0,522.0,0,,High Value
+CUST003387,1,514.0,514.0,0,,High Value
+CUST001189,1,477.0,477.0,0,,High Value
+CUST002897,1,474.0,474.0,0,,High Value

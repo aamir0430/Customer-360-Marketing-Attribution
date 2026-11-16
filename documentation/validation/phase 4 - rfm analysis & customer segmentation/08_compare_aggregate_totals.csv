@@ -1,0 +1,2 @@
+profile_customer_rows,profile_purchasing_customers,profile_orders,fact_order_rows,distinct_orders,fact_purchasing_customers,fact_revenue,order_difference,revenue_difference
+5000,2091,2504,4452,4452,2091,307868.0,-1948,-138219.0
