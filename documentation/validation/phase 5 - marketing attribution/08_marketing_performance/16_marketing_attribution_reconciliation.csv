@@ -1,0 +1,5 @@
+attribution_model,channel_transaction_count,total_attribution_credit,total_attributed_revenue
+FIRST_TOUCH,4452,4452.0,307868.0
+LAST_TOUCH,4452,4452.0,307868.0
+LINEAR,7865,4452.0000000000091,307867.99999999983
+TIME_DECAY,7865,4452.0,307868.00000000012

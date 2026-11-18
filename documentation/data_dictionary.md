@@ -3,41 +3,44 @@
 
 ## 1. Overview
 
-This document inventories the source datasets, curated outputs, and dbt models used in the project. Exact column names and data types must be verified against the live BigQuery schemas and current dbt model SQL/YAML. This document does not infer undocumented columns.
+This document describes the source datasets, BigQuery tables, and analytical dbt models used in the project.
 
-## 2. Source Data Inventory
+Exact column names and data types should be verified against the live BigQuery schemas and dbt model SQL/YAML files. This dictionary documents known model purposes and business meaning without inventing undocumented column definitions.
 
-| Source | Location | Purpose |
+## 2. BigQuery Environment
+
+| Configuration | Value |
+|---|---|
+| Project ID | `customer-360-mta` |
+| Location | `US` |
+| Raw dataset | `customer_360_raw` |
+| Curated dataset | `customer_360_curated` |
+| dbt development dataset | `customer_360_dbt_dev` |
+
+## 3. Source Data Inventory
+
+| Source | BigQuery table / source | Purpose |
 |---|---|---|
-| GA4 ecommerce events | `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*` | Website interaction and ecommerce event data |
+| GA4 events | `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*` | Website and ecommerce event data |
 | GA4 sessions | `customer_360_raw.ga4_sessions` | Prepared session-level data |
-| CRM customers | `customer_360_raw.crm_customers` | Synthetic CRM customer records |
-| Identity mapping | `customer_360_raw.identity_mapping` | Synthetic mapping between website and CRM identifiers |
-| Advertising spend | `synthetic_ad_spend.csv` | Synthetic campaign and advertising expenditure data |
-| Identity-resolved sessions | `customer_360_curated.identity_resolved_sessions` | Session records enriched with CRM identity/profile data where a mapping exists |
-
-## 3. BigQuery Datasets
-
-| Dataset | Purpose | Status |
-|---|---|---|
-| `customer_360_raw` | Raw/prepared source tables | Created and used |
-| `customer_360_curated` | Curated identity-resolution output | Created and used |
-| `customer_360_dbt_dev` | dbt development model outputs | Created and used in Phase 3 |
-
-Google Cloud project: `customer360-mta`.
+| CRM customers | `customer_360_raw.crm_customers` | Synthetic customer records |
+| Identity mapping | `customer_360_raw.identity_mapping` | Synthetic identity relationships |
+| Advertising spend | `customer_360_raw.ad_spend_unpartitioned` | Synthetic campaign-date spend data |
 
 ## 4. Curated Identity-Resolution Table
 
 **Table:** `customer_360_curated.identity_resolved_sessions`
 
-**Purpose:** Retain the GA4 session population and attach synthetic mapping and CRM customer information wherever an identity mapping is available.
+**Purpose:** Preserve GA4 session records and enrich them with CRM customer information wherever a synthetic identity mapping is available.
 
-**Important field:** `identity_resolution_status`
+Important status field:
 
-- `IDENTIFIED`: the session was connected to a CRM record through the synthetic identity mapping.
-- `UNIDENTIFIED`: no corresponding mapping was available. The session remains in the output.
+| Value | Meaning |
+|---|---|
+| `IDENTIFIED` | Session linked to a CRM customer through the synthetic identity mapping |
+| `UNIDENTIFIED` | No matching identity mapping was available |
 
-Recorded Phase 2 validation:
+Recorded validation:
 
 | Measure | Result |
 |---|---:|
@@ -46,67 +49,124 @@ Recorded Phase 2 validation:
 | Identified sessions | 10,246 |
 | Unidentified sessions | 349,883 |
 | CRM customers represented among identified sessions | 3,500 |
-| Identified records missing CRM customer records | 0 |
+| Missing CRM customer records among identified output | 0 |
 | Mismatched synthetic IDs | 0 |
 
-These figures describe the synthetic identity-mapping exercise, not real-world identity match accuracy.
+These results validate consistency against generated identity mappings, not real-world identity accuracy.
 
-## 5. dbt Source Inventory – Phase 3
+## 5. dbt Staging Models
 
-The dbt project is named `customer_360`. Its configured source inventory includes:
-
-| dbt source name | Upstream role |
+| Model | Purpose |
 |---|---|
-| `ga4_sessions` | Prepared GA4 session-level source |
-| `ga4_events` | GA4 event-level source with ecommerce event data |
-| `crm_customers` | Synthetic CRM customer source |
-| `identity_mapping` | Synthetic cross-platform identity bridge |
-| `identity_resolved_sessions` | Curated session-to-CRM enrichment output |
+| `stg_ga4_sessions` | Standardizes GA4 session records |
+| `stg_ga4_events` | Standardizes GA4 event records and required ecommerce structures |
+| `stg_crm_customers` | Standardizes synthetic CRM records |
+| `stg_identity_mapping` | Standardizes synthetic identity mapping records |
+| `stg_identity_resolved_sessions` | Standardizes curated identity-resolved sessions |
 
-## 6. dbt Staging Models
+## 6. Core Analytical Models
 
-| Model | Purpose | Materialization |
+| Model | Type | Purpose |
 |---|---|---|
-| `stg_ga4_sessions` | Standardizes GA4 session source fields | View |
-| `stg_ga4_events` | Standardizes GA4 event data for downstream transformations | View |
-| `stg_crm_customers` | Standardizes CRM customer records | View |
-| `stg_identity_mapping` | Standardizes identity mapping records | View |
-| `stg_identity_resolved_sessions` | Standardizes curated identity-resolved sessions | View |
+| `fct_sessions` | Fact | Session-level analytical records |
+| `fct_orders` | Fact | Order-level ecommerce records |
+| `dim_customer_profile` | Dimension | Consolidated customer profile information |
 
-The GA4 event staging model retains nested ecommerce/item structures required by downstream purchase-related modelling.
+## 7. Customer Analytics Models
 
-## 7. Core dbt Marts
+| Model | Type | Purpose |
+|---|---|---|
+| `fct_customer_rfm` | Fact | Customer recency, frequency, and monetary metrics |
+| `fct_customer_rfm_scores` | Fact | RFM scoring results |
+| `dim_customer_segments` | Dimension | Customer segment classifications |
+| `fct_customer_clv` | Fact | Historical customer lifetime value metrics |
+| `dim_customer_360_analytics` | Dimension / analytical mart | Unified customer-level analytical output |
 
-| Model | Model role | Purpose | Validation |
-|---|---|---|---|
-| `fct_sessions` | Fact | Session-level analytical output | Confirmed validated |
-| `fct_orders` | Fact | Order-level analytical output | Confirmed validated |
-| `dim_customer_profile` | Dimension | Consolidated customer-profile output | Confirmed validated |
+The unified Customer 360 model retains 5,000 CRM customers.
 
-The three marts were created in `customer_360_dbt_dev`. Refer to the model SQL/YAML and live BigQuery schema for exact grain, columns, data types, and tests.
+## 8. Marketing Attribution Models
 
-## 8. Synthetic Dataset Notes
+| Model | Purpose |
+|---|---|
+| `fct_conversion_journeys` | Connects purchase transactions with eligible preceding touchpoints |
+| `fct_first_last_touch_attribution` | Stores first-touch and last-touch credit allocation |
+| `fct_linear_attribution` | Allocates equal credit across eligible touchpoints |
+| `fct_time_decay_attribution` | Allocates normalized credit using a time-decay weighting approach |
+| `fct_attribution_comparison` | Consolidates attribution results for model comparison |
 
-### CRM customers
+### Conversion journey concepts
 
-File: `synthetic_crm_customers.csv`  
-BigQuery table: `customer_360_raw.crm_customers`
+| Field / Concept | Meaning |
+|---|---|
+| Transaction ID | Identifier for the ecommerce purchase transaction |
+| Customer ID | Resolved CRM customer identifier where available |
+| User pseudo ID | GA4 pseudonymous user identifier |
+| Order date | Date associated with the purchase |
+| Conversion timestamp | Timestamp of the purchase event |
+| Order revenue | Revenue associated with the purchase |
+| Touchpoint session key | Identifier for the session associated with a journey touchpoint |
+| Touchpoint timestamp | Time of the touchpoint |
+| Touchpoint source | Traffic source associated with the touchpoint |
+| Touchpoint medium | Traffic medium associated with the touchpoint |
+| Touchpoint campaign | Campaign value available in the source data |
+| Eligible touchpoint count | Number of touchpoints considered for attribution |
+| Seconds before conversion | Time difference between touchpoint and conversion |
 
-Contains generated CRM customer records for identity enrichment and profile modelling.
+Exact physical column names must be checked against the actual model SQL.
 
-### Advertising spend
+## 9. Advertising Performance Models
 
-File: `synthetic_ad_spend.csv`
+| Model | Purpose |
+|---|---|
+| `fct_ad_spend_performance` | Daily campaign advertising performance |
+| `fct_campaign_performance_summary` | Aggregated campaign-level advertising metrics |
+| `fct_channel_performance_summary` | Aggregated advertising channel metrics |
+| `fct_marketing_performance_reporting` | Consolidated reporting records from separate advertising and GA4 attribution sources |
 
-Contains generated advertising campaign and spend information. Its downstream warehouse model should be added to this dictionary when implemented.
+### Advertising data summary
 
-### Identity mapping
+| Metric | Result |
+|---|---:|
+| Campaigns | 8 |
+| Campaign-date records | 736 |
+| Dates | 92 |
+| Impressions | 9,246,272 |
+| Clicks | 186,706 |
+| Simulated conversions | 6,231 |
+| Advertising spend | $126,552.23 |
 
-File: `identity_mapping.csv`  
-BigQuery table: `customer_360_raw.identity_mapping`
+### Important distinction
 
-Contains synthetic relationships between website-side identifiers and CRM customer identifiers.
+The advertising dataset contains synthetic simulated conversions. These are not the same as GA4 ecommerce purchase transactions.
 
-## 9. Maintenance
+The advertising performance models must not be interpreted as verified campaign-level purchase revenue or actual GA4-based CPA.
 
-Update this dictionary whenever sources, models, schemas, column definitions, materializations, or business rules change. Use dbt model YAML and live BigQuery schemas as the authoritative references for exact field definitions.
+## 10. Consolidated Reporting Model
+
+**Model:** `fct_marketing_performance_reporting`
+
+Recorded model structure:
+
+| Reporting source | Record count |
+|---|---:|
+| `SYNTHETIC_AD_SPEND` / `ADVERTISING_PERFORMANCE` | 8 |
+| `GA4_SAMPLE_ECOMMERCE` / `GA4_ATTRIBUTION_PERFORMANCE` | 140 |
+| Total | 148 |
+
+The model uses separate source records rather than forcing an unsupported campaign-level join.
+
+## 11. Important Grain and Reconciliation Notes
+
+- `fct_orders` is order-level.
+- `fct_sessions` is session-level.
+- `dim_customer_360_analytics` is customer-level, with one row per CRM customer.
+- `fct_conversion_journeys` contains transaction-touchpoint relationships.
+- First-touch and last-touch attribution each produce one attributed record per transaction per model.
+- Linear and time-decay attribution produce touchpoint-level records.
+- The four attribution models are alternative allocations of the same purchase revenue, not four independent revenue streams.
+
+## 12. Maintenance
+
+Update this document when source tables, models, column definitions, materializations, or business rules change.
+
+Use the live BigQuery schema, dbt SQL, dbt YAML, and dbt documentation as authoritative references for exact physical column definitions.

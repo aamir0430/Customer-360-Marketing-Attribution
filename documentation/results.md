@@ -3,108 +3,287 @@
 
 ## 1. Overview
 
-This document records implementation results and validation evidence. Business insights will be added after the customer analytics and marketing attribution phases are completed.
+This document summarizes the implementation outcomes and recorded validation results for the completed project phases.
 
-## 2. Phase 1 – Data Source Setup and Dataset Generation
+The project combines Google's public GA4 ecommerce sample with synthetic CRM, identity mapping, and advertising datasets.
 
-**Status: Completed.**
+---
 
-Three synthetic datasets were generated:
+## 2. Phase 1 – Data Source Setup
 
-- `synthetic_crm_customers.csv`
-- `synthetic_ad_spend.csv`
-- `identity_mapping.csv`
+**Status: Completed**
 
-The GA4 public ecommerce sample was selected as the website behavioural data source.
+Data sources established:
+
+- GA4 public ecommerce sample.
+- Synthetic CRM customer dataset.
+- Synthetic identity mapping dataset.
+- Synthetic advertising spend dataset.
+
+GA4 source period:
+
+November 2020 – January 2021.
+
+---
 
 ## 3. Phase 2 – Identity Resolution
 
-**Status: Completed.**
+**Status: Completed**
 
-Created:
+Output:
 
-`customer360-mta.customer_360_curated.identity_resolved_sessions`
+`customer_360_curated.identity_resolved_sessions`
 
-LEFT JOIN-based enrichment retains sessions without a matching synthetic identity mapping.
-
-### 3.1 Final Validation Results
+### Validation results
 
 | Measure | Result |
 |---|---:|
-| Total sessions in output | 360,129 |
+| Total output sessions | 360,129 |
 | Unique sessions | 360,129 |
 | Identified sessions | 10,246 |
 | Unidentified sessions | 349,883 |
 | CRM customers represented among identified sessions | 3,500 |
-| Missing CRM customer records in identified output | 0 |
-| Mismatched synthetic IDs in validation | 0 |
+| Missing CRM customer records | 0 |
+| Mismatched synthetic IDs | 0 |
 
-The identified and unidentified counts reconcile:
+All source sessions were retained.
 
-`10,246 + 349,883 = 360,129`
+The identity mapping is synthetic, so these results demonstrate implementation consistency rather than real-world identity accuracy.
 
-### 3.2 Interpretation and Limitation
-
-The output preserves the complete GA4 session population. Identified sessions are linked to CRM customer records through the generated mapping dataset; all remaining sessions are retained as unidentified.
-
-The mappings are synthetic. The results demonstrate internal consistency against generated test data, not real-world identity-resolution accuracy.
+---
 
 ## 4. Phase 3 – dbt Data Modelling
 
-**Status: Completed.**
+**Status: Completed**
 
-Phase 3 established the dbt modelling layer on top of the BigQuery raw and curated sources.
+### Core models
 
-### 4.1 Project Configuration
-
-| Item | Result |
-|---|---|
-| dbt project | `customer_360` |
-| Warehouse | Google BigQuery |
-| Development target dataset | `customer_360_dbt_dev` |
-| Configured upstream sources | GA4 sessions, GA4 events, CRM customers, identity mapping, identity-resolved sessions |
-| Staging materialization | Views |
-| Intermediate materialization | Ephemeral models where configured |
-
-### 4.2 Models Created
-
-**Staging models**
-
-- `stg_ga4_sessions`
-- `stg_ga4_events`
-- `stg_crm_customers`
-- `stg_identity_mapping`
-- `stg_identity_resolved_sessions`
-
-**Core marts**
-
-| Model | Purpose | Validation status |
+| Model | Purpose | Status |
 |---|---|---|
 | `fct_sessions` | Session-level analytical output | Validated |
 | `fct_orders` | Order-level analytical output | Validated |
-| `dim_customer_profile` | Consolidated customer-profile output | Validated |
+| `dim_customer_profile` | Customer-profile output | Validated |
 
-The user confirmed successful validation of all three core marts in BigQuery.
+### dbt environment
 
-### 4.3 dbt Tooling Results
+| Item | Value |
+|---|---|
+| dbt project | `customer_360` |
+| dbt Core | 1.12.7 |
+| dbt-bigquery | 1.12.3 |
+| Development dataset | `customer_360_dbt_dev` |
 
-- `dbt debug`: all checks passed after resolving the local environment compatibility issue.
-- `dbt parse`: completed successfully.
-- `dbt docs generate`: completed successfully and generated `dbt/target/catalog.json`.
-- Documentation generation displayed non-fatal `agate` `table_owner` warnings; catalog generation completed.
+dbt diagnostics, parsing, and documentation generation completed successfully.
 
-### 4.4 Evidence Boundary
+---
 
-The available completion record confirms successful diagnostics, parsing, documentation generation, and validation of the three core marts. It does not contain exact final `dbt build`/`dbt test` totals or per-model row counts. Those figures should only be added from saved command output or BigQuery validation evidence.
+## 5. Phase 4 – Customer Analytics
 
-## 5. Next Analytical Work
+**Status: Completed**
 
-Phase 4 will implement RFM segmentation and historical CLV using the completed dbt models. Later work will cover marketing attribution, campaign performance metrics, and Tableau dashboards.
+### Models
 
-## 6. Business Insights
+- `fct_customer_rfm`
+- `fct_customer_rfm_scores`
+- `dim_customer_segments`
+- `fct_customer_clv`
+- `dim_customer_360_analytics`
 
-Business insights and recommendations will be documented after the customer analytics and marketing attribution phases have been implemented and validated.
+### Unified Customer 360 validation
 
-## 7. Final Project Summary
+| Measure | Result |
+|---|---:|
+| Total CRM customers | 5,000 |
+| Distinct customer IDs | 5,000 |
+| Purchasers | 2,091 |
+| Non-purchasers | 2,909 |
+| Identified customer orders | 2,504 |
+| Identified customer revenue | $169,649 |
+| Historical CLV revenue | $169,649 |
+| Frequency mismatches | 0 |
+| Revenue mismatches | 0 |
+| Missing customer IDs | 0 |
+| Missing customer segments | 0 |
+| Missing CLV records | 0 |
 
-To be completed after implementation and validation of all project phases.
+### RFM segment distribution
+
+| Segment | Customers | Revenue |
+|---|---:|---:|
+| No Purchase | 2,909 | $0 |
+| Hibernating | 414 | $32,939 |
+| Customers Needing Attention | 395 | $34,824 |
+| Lost | 387 | $28,981 |
+| Recent Customers | 381 | $24,255 |
+| Promising Customers | 372 | $24,943 |
+| Potential Loyalists | 99 | $13,296 |
+| Champions | 15 | $4,247 |
+| Loyal Customers | 12 | $2,264 |
+| At Risk | 9 | $1,720 |
+| Cannot Lose Them | 7 | $2,180 |
+
+### Historical value distribution
+
+| Segment | Customers | Historical Revenue |
+|---|---:|---:|
+| High Value | 424 | $89,551 |
+| Medium Value | 415 | $36,127 |
+| Low Value | 889 | $38,371 |
+| Very Low Value | 363 | $5,600 |
+| No Purchase | 2,909 | $0 |
+
+### Interpretation
+
+The unified model retains all 5,000 CRM customers.
+
+A total of 2,091 customers have identified purchases, while 2,909 have no identified purchase records in the resolved customer population.
+
+A total of 1,948 orders worth $138,219 do not have a resolved CRM customer ID. These orders are excluded from customer-level RFM and CLV rather than being assigned without evidence.
+
+Historical CLV is descriptive, not predictive.
+
+---
+
+## 6. Phase 5 – Marketing Attribution
+
+**Status: Completed**
+
+### Attribution models
+
+- First-touch.
+- Last-touch.
+- Linear.
+- Time-decay.
+
+### Conversion journey results
+
+| Measure | Result |
+|---|---:|
+| Purchase transactions | 4,452 |
+| Conversion journey rows | 11,496 |
+| Distinct touchpoint sessions | 9,144 |
+| Purchase revenue | $307,868 |
+
+### Attribution reconciliation
+
+| Model | Transactions | Total Credit | Attributed Revenue |
+|---|---:|---:|---:|
+| First Touch | 4,452 | 4,452 | $307,868 |
+| Last Touch | 4,452 | 4,452 | $307,868 |
+| Linear | 4,452 | 4,452 | $307,868 |
+| Time Decay | 4,452 | 4,452 | $307,868 |
+
+All four models reconcile to the same transaction population and purchase revenue.
+
+The time-decay model uses a seven-day half-life as a modelling assumption.
+
+### Channel attribution observations
+
+The leading source/medium combinations included:
+
+- `google / organic`
+- `shop.googlemerchandisestore.com / referral`
+- `<other> / referral`
+- `(direct) / (none)`
+
+The ranking of channels differs somewhat across attribution models, demonstrating that the choice of attribution methodology affects how credit is allocated.
+
+The results are descriptive of the GA4 sample dataset and should not be interpreted as actual advertising campaign profitability.
+
+---
+
+## 7. Phase 5 – Advertising Performance
+
+**Status: Completed**
+
+### Advertising dataset summary
+
+| Metric | Result |
+|---|---:|
+| Campaigns | 8 |
+| Campaign-date records | 736 |
+| Reporting dates | 92 |
+| Impressions | 9,246,272 |
+| Clicks | 186,706 |
+| Simulated conversions | 6,231 |
+| Advertising spend | $126,552.23 |
+
+### Models
+
+- `fct_ad_spend_performance`
+- `fct_campaign_performance_summary`
+- `fct_channel_performance_summary`
+
+### Calculated metrics
+
+- CTR.
+- CPC.
+- Simulated conversion rate.
+- Cost per simulated conversion.
+
+These are advertising-source metrics based on synthetic data.
+
+### Consolidated reporting model
+
+`fct_marketing_performance_reporting`
+
+| Source | Rows |
+|---|---:|
+| Synthetic advertising performance | 8 |
+| GA4 attribution performance | 140 |
+| Total | 148 |
+
+The model keeps the two sources separate.
+
+---
+
+## 8. Phase 5 – Testing Results
+
+| Test Category | Result |
+|---|---|
+| Marketing schema tests | 21 passed |
+| Singular tests | 5 passed |
+| Warnings | 0 |
+| Errors | 0 |
+| Reporting-model data-quality exceptions | 0 |
+| dbt documentation generation | Successful |
+| dbt lineage checks | Successful |
+
+The five singular tests are unique tests and were also included in the model-selected test run.
+
+---
+
+## 9. Outstanding Campaign Measurement Limitation
+
+The synthetic advertising campaigns could not be reliably mapped to GA4 purchase revenue at campaign-ID level.
+
+Only one exact source/medium match was found. It did not establish a verified mapping between GA4 campaign values and the synthetic campaign identifiers.
+
+Therefore:
+
+- Synthetic cost per simulated conversion is available.
+- Actual GA4-based campaign CPA is not yet established.
+- Campaign ROAS is not yet established.
+- Campaign ROI is not yet established.
+
+These metrics require a defensible relationship between advertising spend and the corresponding purchase conversions and revenue.
+
+This is the focus of Phase 6.
+
+---
+
+## 10. Remaining Project Work
+
+| Phase | Work | Status |
+|---|---|---|
+| Phase 6 | Campaign ROI, CPA, and marketing efficiency analysis | Pending |
+| Phase 7 | Tableau dashboards and marketing recommendations | Pending |
+| Phase 8 | Final testing, validation, and project completion | Pending |
+
+---
+
+## 11. Final Interpretation
+
+The completed work establishes a validated Customer 360 data foundation, customer segmentation and historical value analysis, four alternative marketing attribution models, and a separate synthetic advertising performance layer.
+
+The remaining work is to investigate whether campaign expenditure can be defensibly connected to GA4 purchase conversions, followed by Tableau visualization and final project validation.

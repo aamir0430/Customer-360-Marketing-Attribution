@@ -137,3 +137,76 @@ This document records key technical and architectural decisions made during the 
 ## Decision Review
 
 Phases 1–3 established the synthetic data foundation, BigQuery identity-resolution output, and dbt staging/core marts. New decisions will be recorded as customer analytics, attribution, and dashboard development progress.
+
+---
+
+## Decision 011 – Use Four Alternative Attribution Models
+
+**Status:** Accepted and Implemented
+
+**Decision:** Implement first-touch, last-touch, linear, and time-decay attribution models.
+
+**Models:**
+
+- `fct_first_last_touch_attribution`
+- `fct_linear_attribution`
+- `fct_time_decay_attribution`
+- `fct_attribution_comparison`
+
+**Reasoning:** Comparing different attribution approaches demonstrates how the allocation of purchase revenue changes depending on the attribution methodology.
+
+**Validation:** All four models reconcile to 4,452 transactions, 4,452 total attribution credit, and approximately $307,868 attributed revenue.
+
+---
+
+## Decision 012 – Use a Seven-Day Half-Life for Time-Decay Attribution
+
+**Status:** Accepted and Implemented
+
+**Decision:** Use a seven-day half-life for the time-decay attribution weighting formula.
+
+**Formula:**
+
+`Weight = 0.5 ^ (Seconds Before Conversion / (7 * 24 * 60 * 60))`
+
+**Reasoning:** This provides a consistent recency-weighting assumption for comparing touchpoints.
+
+**Qualification:** The seven-day half-life is a modelling assumption and was not empirically estimated.
+
+---
+
+## Decision 013 – Keep Synthetic Advertising and GA4 Attribution Separate
+
+**Status:** Accepted and Implemented
+
+**Decision:** Do not force a campaign-level join between synthetic advertising spend and GA4 attributed purchase revenue without verified campaign mapping.
+
+**Reasoning:** The source investigation did not establish a reliable campaign-ID relationship.
+
+**Implementation:** `fct_marketing_performance_reporting` retains separate advertising and GA4 attribution records.
+
+**Qualification:** Synthetic cost per simulated conversion is not equivalent to actual CPA based on GA4 purchases.
+
+---
+
+## Decision 014 – Validate Attribution Credit and Revenue Reconciliation
+
+**Status:** Accepted and Implemented
+
+**Decision:** Validate that each attribution model preserves the total transaction credit and underlying purchase revenue.
+
+**Reasoning:** Attribution models redistribute credit; they must not create or remove purchase revenue.
+
+**Validation:** All four models reconciled to the same transaction population and total revenue.
+
+---
+
+## Decision 015 – Report Campaign ROI and Actual CPA Only When Mapping Is Defensible
+
+**Status:** Accepted
+
+**Decision:** Campaign ROI, ROAS, and actual CPA will only be calculated when campaign expenditure can be reliably connected to the corresponding purchase conversions and revenue.
+
+**Reasoning:** Joining unrelated synthetic advertising metrics and GA4 purchase revenue would produce misleading business results.
+
+**Next step:** Investigate campaign mapping during Phase 6. If mapping remains unavailable, report the limitation explicitly and retain synthetic advertising efficiency metrics separately.

@@ -1,0 +1,109 @@
+table_name,column_name,field_path,data_type
+ga4_events,app_info,app_info,"STRUCT<id STRING, version STRING, install_store STRING, firebase_app_id STRING, install_source STRING>"
+ga4_events,app_info,app_info.firebase_app_id,STRING
+ga4_events,app_info,app_info.id,STRING
+ga4_events,app_info,app_info.install_source,STRING
+ga4_events,app_info,app_info.install_store,STRING
+ga4_events,app_info,app_info.version,STRING
+ga4_events,device,device,"STRUCT<category STRING, mobile_brand_name STRING, mobile_model_name STRING, mobile_marketing_name STRING, mobile_os_hardware_model INT64, operating_system STRING, operating_system_version STRING, vendor_id INT64, advertising_id INT64, language STRING, is_limited_ad_tracking STRING, time_zone_offset_seconds INT64, web_info STRUCT<browser STRING, browser_version STRING>>"
+ga4_events,device,device.advertising_id,INT64
+ga4_events,device,device.category,STRING
+ga4_events,device,device.is_limited_ad_tracking,STRING
+ga4_events,device,device.language,STRING
+ga4_events,device,device.mobile_brand_name,STRING
+ga4_events,device,device.mobile_marketing_name,STRING
+ga4_events,device,device.mobile_model_name,STRING
+ga4_events,device,device.mobile_os_hardware_model,INT64
+ga4_events,device,device.operating_system,STRING
+ga4_events,device,device.operating_system_version,STRING
+ga4_events,device,device.time_zone_offset_seconds,INT64
+ga4_events,device,device.vendor_id,INT64
+ga4_events,device,device.web_info,"STRUCT<browser STRING, browser_version STRING>"
+ga4_events,device,device.web_info.browser,STRING
+ga4_events,device,device.web_info.browser_version,STRING
+ga4_events,ecommerce,ecommerce,"STRUCT<total_item_quantity INT64, purchase_revenue_in_usd FLOAT64, purchase_revenue FLOAT64, refund_value_in_usd FLOAT64, refund_value FLOAT64, shipping_value_in_usd FLOAT64, shipping_value FLOAT64, tax_value_in_usd FLOAT64, tax_value FLOAT64, unique_items INT64, transaction_id STRING>"
+ga4_events,ecommerce,ecommerce.purchase_revenue,FLOAT64
+ga4_events,ecommerce,ecommerce.purchase_revenue_in_usd,FLOAT64
+ga4_events,ecommerce,ecommerce.refund_value,FLOAT64
+ga4_events,ecommerce,ecommerce.refund_value_in_usd,FLOAT64
+ga4_events,ecommerce,ecommerce.shipping_value,FLOAT64
+ga4_events,ecommerce,ecommerce.shipping_value_in_usd,FLOAT64
+ga4_events,ecommerce,ecommerce.tax_value,FLOAT64
+ga4_events,ecommerce,ecommerce.tax_value_in_usd,FLOAT64
+ga4_events,ecommerce,ecommerce.total_item_quantity,INT64
+ga4_events,ecommerce,ecommerce.transaction_id,STRING
+ga4_events,ecommerce,ecommerce.unique_items,INT64
+ga4_events,event_bundle_sequence_id,event_bundle_sequence_id,INT64
+ga4_events,event_date,event_date,STRING
+ga4_events,event_dimensions,event_dimensions,STRUCT<hostname STRING>
+ga4_events,event_dimensions,event_dimensions.hostname,STRING
+ga4_events,event_name,event_name,STRING
+ga4_events,event_params,event_params,"ARRAY<STRUCT<key STRING, value STRUCT<string_value STRING, int_value INT64, float_value FLOAT64, double_value FLOAT64>>>"
+ga4_events,event_params,event_params.key,STRING
+ga4_events,event_params,event_params.value,"STRUCT<string_value STRING, int_value INT64, float_value FLOAT64, double_value FLOAT64>"
+ga4_events,event_params,event_params.value.double_value,FLOAT64
+ga4_events,event_params,event_params.value.float_value,FLOAT64
+ga4_events,event_params,event_params.value.int_value,INT64
+ga4_events,event_params,event_params.value.string_value,STRING
+ga4_events,event_previous_timestamp,event_previous_timestamp,INT64
+ga4_events,event_server_timestamp_offset,event_server_timestamp_offset,INT64
+ga4_events,event_timestamp,event_timestamp,INT64
+ga4_events,event_value_in_usd,event_value_in_usd,FLOAT64
+ga4_events,geo,geo,"STRUCT<continent STRING, sub_continent STRING, country STRING, region STRING, city STRING, metro STRING>"
+ga4_events,geo,geo.city,STRING
+ga4_events,geo,geo.continent,STRING
+ga4_events,geo,geo.country,STRING
+ga4_events,geo,geo.metro,STRING
+ga4_events,geo,geo.region,STRING
+ga4_events,geo,geo.sub_continent,STRING
+ga4_events,items,items,"ARRAY<STRUCT<item_id STRING, item_name STRING, item_brand STRING, item_variant STRING, item_category STRING, item_category2 STRING, item_category3 STRING, item_category4 STRING, item_category5 STRING, price_in_usd FLOAT64, price FLOAT64, quantity INT64, item_revenue_in_usd FLOAT64, item_revenue FLOAT64, item_refund_in_usd FLOAT64, item_refund FLOAT64, coupon STRING, affiliation STRING, location_id STRING, item_list_id STRING, item_list_name STRING, item_list_index STRING, promotion_id STRING, promotion_name STRING, creative_name STRING, creative_slot STRING>>"
+ga4_events,items,items.affiliation,STRING
+ga4_events,items,items.coupon,STRING
+ga4_events,items,items.creative_name,STRING
+ga4_events,items,items.creative_slot,STRING
+ga4_events,items,items.item_brand,STRING
+ga4_events,items,items.item_category,STRING
+ga4_events,items,items.item_category2,STRING
+ga4_events,items,items.item_category3,STRING
+ga4_events,items,items.item_category4,STRING
+ga4_events,items,items.item_category5,STRING
+ga4_events,items,items.item_id,STRING
+ga4_events,items,items.item_list_id,STRING
+ga4_events,items,items.item_list_index,STRING
+ga4_events,items,items.item_list_name,STRING
+ga4_events,items,items.item_name,STRING
+ga4_events,items,items.item_refund,FLOAT64
+ga4_events,items,items.item_refund_in_usd,FLOAT64
+ga4_events,items,items.item_revenue,FLOAT64
+ga4_events,items,items.item_revenue_in_usd,FLOAT64
+ga4_events,items,items.item_variant,STRING
+ga4_events,items,items.location_id,STRING
+ga4_events,items,items.price,FLOAT64
+ga4_events,items,items.price_in_usd,FLOAT64
+ga4_events,items,items.promotion_id,STRING
+ga4_events,items,items.promotion_name,STRING
+ga4_events,items,items.quantity,INT64
+ga4_events,platform,platform,STRING
+ga4_events,privacy_info,privacy_info,"STRUCT<analytics_storage INT64, ads_storage INT64, uses_transient_token STRING>"
+ga4_events,privacy_info,privacy_info.ads_storage,INT64
+ga4_events,privacy_info,privacy_info.analytics_storage,INT64
+ga4_events,privacy_info,privacy_info.uses_transient_token,STRING
+ga4_events,stream_id,stream_id,INT64
+ga4_events,traffic_source,traffic_source,"STRUCT<medium STRING, name STRING, source STRING>"
+ga4_events,traffic_source,traffic_source.medium,STRING
+ga4_events,traffic_source,traffic_source.name,STRING
+ga4_events,traffic_source,traffic_source.source,STRING
+ga4_events,user_first_touch_timestamp,user_first_touch_timestamp,INT64
+ga4_events,user_id,user_id,STRING
+ga4_events,user_ltv,user_ltv,"STRUCT<revenue FLOAT64, currency STRING>"
+ga4_events,user_ltv,user_ltv.currency,STRING
+ga4_events,user_ltv,user_ltv.revenue,FLOAT64
+ga4_events,user_properties,user_properties,"ARRAY<STRUCT<key INT64, value STRUCT<string_value INT64, int_value INT64, float_value INT64, double_value INT64, set_timestamp_micros INT64>>>"
+ga4_events,user_properties,user_properties.key,INT64
+ga4_events,user_properties,user_properties.value,"STRUCT<string_value INT64, int_value INT64, float_value INT64, double_value INT64, set_timestamp_micros INT64>"
+ga4_events,user_properties,user_properties.value.double_value,INT64
+ga4_events,user_properties,user_properties.value.float_value,INT64
+ga4_events,user_properties,user_properties.value.int_value,INT64
+ga4_events,user_properties,user_properties.value.set_timestamp_micros,INT64
+ga4_events,user_properties,user_properties.value.string_value,INT64
+ga4_events,user_pseudo_id,user_pseudo_id,STRING

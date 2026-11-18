@@ -1,0 +1,21 @@
+dataset_name,table_name,table_type
+customer_360_curated,identity_resolved_sessions,BASE TABLE
+customer_360_dbt_dev,dim_customer_360_analytics,BASE TABLE
+customer_360_dbt_dev,dim_customer_profile,BASE TABLE
+customer_360_dbt_dev,dim_customer_segments,BASE TABLE
+customer_360_dbt_dev,fct_customer_clv,BASE TABLE
+customer_360_dbt_dev,fct_customer_rfm,BASE TABLE
+customer_360_dbt_dev,fct_customer_rfm_scores,BASE TABLE
+customer_360_dbt_dev,fct_customers_rfm_scores,BASE TABLE
+customer_360_dbt_dev,fct_orders,BASE TABLE
+customer_360_dbt_dev,fct_sessions,BASE TABLE
+customer_360_dbt_dev,stg_crm_customers,VIEW
+customer_360_dbt_dev,stg_ga4_events,VIEW
+customer_360_dbt_dev,stg_ga4_sessions,VIEW
+customer_360_dbt_dev,stg_identity_mapping,VIEW
+customer_360_dbt_dev,stg_identity_resolved_sessions,VIEW
+customer_360_raw,ad_spend,BASE TABLE
+customer_360_raw,crm_customers,BASE TABLE
+customer_360_raw,ga4_events,BASE TABLE
+customer_360_raw,ga4_sessions,BASE TABLE
+customer_360_raw,identity_mapping,BASE TABLE

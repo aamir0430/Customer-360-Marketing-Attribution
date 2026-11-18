@@ -1,0 +1,141 @@
+attribution_model,source,medium,campaign,attributed_transactions,total_attribution_credit,total_attributed_revenue
+FIRST_TOUCH,google,organic,(organic),1836,1836.0,123385.0
+FIRST_TOUCH,<other>,referral,(referral),1006,1006.0,69114.0
+FIRST_TOUCH,shop.googlemerchandisestore.com,referral,(referral),548,548.0,40845.0
+FIRST_TOUCH,(direct),(none),(direct),322,322.0,24675.0
+FIRST_TOUCH,<other>,<other>,<other>,238,238.0,15595.0
+FIRST_TOUCH,,,,114,114.0,7988.0
+FIRST_TOUCH,googlemerchandisestore.com,referral,(referral),81,81.0,5675.0
+FIRST_TOUCH,google,cpc,<other>,68,68.0,5087.0
+FIRST_TOUCH,<other>,organic,(organic),51,51.0,3255.0
+FIRST_TOUCH,sites.google.com,referral,(referral),30,30.0,1972.0
+FIRST_TOUCH,moma.corp.google.com,referral,(referral),34,34.0,1870.0
+FIRST_TOUCH,(data deleted),(data deleted),(data deleted),21,21.0,1514.0
+FIRST_TOUCH,shop.googlemerchandisestore.com,organic,(organic),14,14.0,1226.0
+FIRST_TOUCH,mail.google.com,referral,(referral),17,17.0,1070.0
+FIRST_TOUCH,(direct),organic,(organic),13,13.0,979.0
+FIRST_TOUCH,support.google.com,referral,(referral),15,15.0,711.0
+FIRST_TOUCH,bing,organic,(organic),8,8.0,624.0
+FIRST_TOUCH,perksatwork.com,referral,(referral),8,8.0,544.0
+FIRST_TOUCH,newsletter_november_2020,email,blackfriday_v2,6,6.0,446.0
+FIRST_TOUCH,newsletter_december_2020,email,holiday_v1,2,2.0,291.0
+FIRST_TOUCH,yahoo,organic,(organic),3,3.0,202.0
+FIRST_TOUCH,9to5google.com,referral,(referral),4,4.0,160.0
+FIRST_TOUCH,,organic,(organic),2,2.0,156.0
+FIRST_TOUCH,(data deleted),(data deleted),<other>,1,1.0,88.0
+FIRST_TOUCH,newsletter_january_2021,email,newyear_v2,1,1.0,78.0
+FIRST_TOUCH,newsletter_november_2020,email,blackfriday_v1,1,1.0,76.0
+FIRST_TOUCH,creatoracademy.youtube.com,referral,(referral),3,3.0,65.0
+FIRST_TOUCH,groups.google.com,referral,(referral),1,1.0,53.0
+FIRST_TOUCH,newsletter_december_2020,email,holiday_v2,1,1.0,46.0
+FIRST_TOUCH,,referral,(referral),1,1.0,39.0
+FIRST_TOUCH,partners,affiliate,data share promo,1,1.0,23.0
+FIRST_TOUCH,l.facebook.com,referral,(referral),1,1.0,16.0
+LAST_TOUCH,google,organic,(organic),1451,1451.0,93112.0
+LAST_TOUCH,shop.googlemerchandisestore.com,referral,(referral),1239,1239.0,92732.0
+LAST_TOUCH,<other>,referral,(referral),892,892.0,63211.0
+LAST_TOUCH,(direct),(none),(direct),276,276.0,20187.0
+LAST_TOUCH,(data deleted),(data deleted),(data deleted),182,182.0,10612.0
+LAST_TOUCH,<other>,<other>,<other>,114,114.0,7819.0
+LAST_TOUCH,googlemerchandisestore.com,referral,(referral),82,82.0,5789.0
+LAST_TOUCH,google,cpc,<other>,43,43.0,2960.0
+LAST_TOUCH,<other>,organic,(organic),27,27.0,1819.0
+LAST_TOUCH,sites.google.com,referral,(referral),23,23.0,1405.0
+LAST_TOUCH,shop.googlemerchandisestore.com,organic,(organic),20,20.0,1392.0
+LAST_TOUCH,mail.google.com,referral,(referral),16,16.0,919.0
+LAST_TOUCH,(direct),organic,(organic),11,11.0,915.0
+LAST_TOUCH,newsletter_november_2020,email,blackfriday_v2,9,9.0,840.0
+LAST_TOUCH,moma.corp.google.com,referral,(referral),10,10.0,646.0
+LAST_TOUCH,perksatwork.com,referral,(referral),10,10.0,617.0
+LAST_TOUCH,bing,organic,(organic),8,8.0,540.0
+LAST_TOUCH,newsletter_december_2020,email,holiday_v2,6,6.0,333.0
+LAST_TOUCH,newsletter_december_2020,email,holiday_v1,2,2.0,291.0
+LAST_TOUCH,,,,3,3.0,276.0
+LAST_TOUCH,yahoo,organic,(organic),2,2.0,224.0
+LAST_TOUCH,(data deleted),(data deleted),<other>,3,3.0,222.0
+LAST_TOUCH,partners,affiliate,data share promo,2,2.0,167.0
+LAST_TOUCH,9to5google.com,referral,(referral),4,4.0,160.0
+LAST_TOUCH,(data deleted),organic,(organic),3,3.0,123.0
+LAST_TOUCH,support.google.com,referral,(referral),4,4.0,122.0
+LAST_TOUCH,<other>,(data deleted),(data deleted),2,2.0,120.0
+LAST_TOUCH,newsletter_january_2021,email,newyear_v2,1,1.0,78.0
+LAST_TOUCH,newsletter_november_2020,email,blackfriday_v1,1,1.0,76.0
+LAST_TOUCH,groups.google.com,referral,(referral),1,1.0,39.0
+LAST_TOUCH,l.messenger.com,referral,(referral),1,1.0,38.0
+LAST_TOUCH,youtube.com,referral,(referral),1,1.0,34.0
+LAST_TOUCH,creatoracademy.youtube.com,referral,(referral),2,2.0,34.0
+LAST_TOUCH,l.facebook.com,referral,(referral),1,1.0,16.0
+LINEAR,google,organic,(organic),2335,1547.3074314574299,101233.98228715728
+LINEAR,shop.googlemerchandisestore.com,referral,(referral),1803,1003.5772005772116,73795.2775613275
+LINEAR,<other>,referral,(referral),1427,909.73113275613264,63851.94462481956
+LINEAR,(direct),(none),(direct),610,283.66053391053379,20532.455266955254
+LINEAR,<other>,<other>,<other>,331,156.43015873015844,10436.696825396815
+LINEAR,(data deleted),(data deleted),(data deleted),380,127.1703463203463,8309.3760461760485
+LINEAR,,,,360,110.33766233766247,7893.2091630591585
+LINEAR,googlemerchandisestore.com,referral,(referral),130,76.621139971139968,5496.4500360750362
+LINEAR,google,cpc,<other>,100,51.004004329004374,3718.3603174603177
+LINEAR,<other>,organic,(organic),89,34.932575757575755,2420.4482683982687
+LINEAR,shop.googlemerchandisestore.com,organic,(organic),68,20.911111111111119,1797.9543650793648
+LINEAR,sites.google.com,referral,(referral),36,25.451190476190476,1588.5011904761905
+LINEAR,moma.corp.google.com,referral,(referral),38,17.057142857142846,1069.5761904761898
+LINEAR,mail.google.com,referral,(referral),31,16.834523809523809,1016.5059523809523
+LINEAR,(direct),organic,(organic),13,11.833333333333332,938.66666666666674
+LINEAR,newsletter_november_2020,email,blackfriday_v2,15,7.3111111111111109,667.24444444444441
+LINEAR,perksatwork.com,referral,(referral),11,9.25,601.25
+LINEAR,bing,organic,(organic),9,7.833333333333333,552.16666666666674
+LINEAR,newsletter_december_2020,email,holiday_v1,3,2.2,334.8
+LINEAR,support.google.com,referral,(referral),18,7.7182539682539675,255.25793650793653
+LINEAR,yahoo,organic,(organic),4,2.5,225.83333333333331
+LINEAR,9to5google.com,referral,(referral),4,4.0,160.0
+LINEAR,newsletter_december_2020,email,holiday_v2,10,3.1416666666666671,151.78333333333333
+LINEAR,<other>,(data deleted),(data deleted),6,1.7261904761904761,144.83333333333331
+LINEAR,,organic,(organic),7,1.4670995670995668,88.288095238095238
+LINEAR,(data deleted),(data deleted),<other>,5,1.3333333333333335,87.166666666666657
+LINEAR,(data deleted),organic,(organic),6,1.7595238095238095,86.6547619047619
+LINEAR,newsletter_january_2021,email,newyear_v2,1,1.0,78.0
+LINEAR,newsletter_november_2020,email,blackfriday_v1,1,1.0,76.0
+LINEAR,partners,affiliate,data share promo,2,1.3333333333333333,71.0
+LINEAR,creatoracademy.youtube.com,referral,(referral),3,2.5,49.5
+LINEAR,groups.google.com,referral,(referral),4,0.78333333333333333,44.716666666666669
+LINEAR,1424467d6c37d1542424bfa36cc525cd.safeframe.googlesyndication.com,referral,(referral),1,0.2,38.6
+LINEAR,youtube.com,referral,(referral),1,0.5,17.0
+LINEAR,l.facebook.com,referral,(referral),1,1.0,16.0
+LINEAR,,referral,(referral),1,0.33333333333333331,13.0
+LINEAR,l.messenger.com,referral,(referral),1,0.25,9.5
+TIME_DECAY,google,organic,(organic),2335,1550.8068792810041,101123.42224508262
+TIME_DECAY,shop.googlemerchandisestore.com,referral,(referral),1803,1026.8178400950553,75629.8856887334
+TIME_DECAY,<other>,referral,(referral),1427,930.65852528585469,65661.619558217557
+TIME_DECAY,(direct),(none),(direct),610,271.80175470601841,19701.925217302145
+TIME_DECAY,<other>,<other>,<other>,331,138.78825291109774,9278.8876483358545
+TIME_DECAY,(data deleted),(data deleted),(data deleted),380,134.37196384353652,8531.9919054857346
+TIME_DECAY,,,,360,88.599817750230756,6330.8209401293516
+TIME_DECAY,googlemerchandisestore.com,referral,(referral),130,78.81535949211171,5503.568014924228
+TIME_DECAY,google,cpc,<other>,100,48.460680710250195,3524.9737398627772
+TIME_DECAY,<other>,organic,(organic),89,30.288642591873753,2106.8209716311881
+TIME_DECAY,shop.googlemerchandisestore.com,organic,(organic),68,21.620420459595653,1928.2192958909552
+TIME_DECAY,sites.google.com,referral,(referral),36,24.374462406249364,1509.45087308965
+TIME_DECAY,mail.google.com,referral,(referral),31,17.826324084157989,1087.8353593129036
+TIME_DECAY,moma.corp.google.com,referral,(referral),38,15.520602201167065,964.04869952336583
+TIME_DECAY,(direct),organic,(organic),13,11.821241763068144,938.08992748002379
+TIME_DECAY,newsletter_november_2020,email,blackfriday_v2,15,7.9872104926058993,752.28730258210271
+TIME_DECAY,perksatwork.com,referral,(referral),11,9.4502306702116652,611.84385487623479
+TIME_DECAY,bing,organic,(organic),9,7.9887484932747537,557.06665269337293
+TIME_DECAY,newsletter_december_2020,email,holiday_v1,3,2.2395913830199223,343.470512881363
+TIME_DECAY,newsletter_december_2020,email,holiday_v2,10,5.4291197730320695,263.87992154222962
+TIME_DECAY,yahoo,organic,(organic),4,2.5287486774735344,232.26329267800867
+TIME_DECAY,support.google.com,referral,(referral),18,5.50240540829374,180.42727663384264
+TIME_DECAY,<other>,(data deleted),(data deleted),6,2.051730307282007,175.29513042497882
+TIME_DECAY,9to5google.com,referral,(referral),4,4.0,160.0
+TIME_DECAY,(data deleted),(data deleted),<other>,5,1.9407699687008935,146.77413479346689
+TIME_DECAY,partners,affiliate,data share promo,2,1.7201275877340585,126.69837263370442
+TIME_DECAY,(data deleted),organic,(organic),6,2.3866170854480377,114.67360314583229
+TIME_DECAY,newsletter_january_2021,email,newyear_v2,1,1.0,78.0
+TIME_DECAY,newsletter_november_2020,email,blackfriday_v1,1,1.0,76.0
+TIME_DECAY,,organic,(organic),7,1.0872486259116529,67.669961556548856
+TIME_DECAY,creatoracademy.youtube.com,referral,(referral),3,2.4785465903750277,48.834944301625853
+TIME_DECAY,1424467d6c37d1542424bfa36cc525cd.safeframe.googlesyndication.com,referral,(referral),1,0.17072589271913582,32.950097294793217
+TIME_DECAY,groups.google.com,referral,(referral),4,0.619119162561723,32.173530778094651
+TIME_DECAY,youtube.com,referral,(referral),1,0.52132185196201464,17.724942966708497
+TIME_DECAY,l.facebook.com,referral,(referral),1,1.0,16.0
+TIME_DECAY,l.messenger.com,referral,(referral),1,0.26746426126543471,10.16364192808652
+TIME_DECAY,,referral,(referral),1,0.057506186856693182,2.2427412874110342

@@ -1,0 +1,37 @@
+table_catalog,table_schema,table_name,creation_time,ddl
+customer-360-mta,customer_360_curated,identity_resolved_sessions,2026-11-10 19:42:21.102000 UTC,"CREATE TABLE `customer-360-mta.customer_360_curated.identity_resolved_sessions`
+(
+  user_pseudo_id STRING,
+  ga_session_id STRING,
+  session_event_date DATE,
+  session_first_event_timestamp_utc STRING,
+  events_in_session INT64,
+  purchase_events INT64,
+  observed_event_source STRING,
+  observed_event_medium STRING,
+  observed_event_campaign STRING,
+  first_user_source STRING,
+  first_user_medium STRING,
+  first_user_campaign STRING,
+  synthetic_user_id STRING,
+  customer_id STRING,
+  match_method STRING,
+  mapping_is_synthetic BOOL,
+  ga4_purchase_events_at_export INT64,
+  ga4_first_seen_date DATE,
+  first_name STRING,
+  last_name STRING,
+  email STRING,
+  gender STRING,
+  city STRING,
+  country STRING,
+  registration_date DATE,
+  customer_status STRING,
+  loyalty_tier STRING,
+  crm_data_origin STRING,
+  identity_resolution_status STRING
+)
+OPTIONS(
+  expiration_timestamp=TIMESTAMP ""2027-01-09T19:42:21.102Z"",
+  description=""Customer 360 identity resolution table combining GA4 sessions, synthetic identity mappings, and CRM customer profiles.""
+);"

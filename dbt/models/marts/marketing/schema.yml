@@ -1,0 +1,111 @@
+version: 2
+
+models:
+
+  - name: fct_ad_spend_performance
+    description: >
+      Daily campaign-level advertising performance metrics derived
+      from synthetic advertising spend data.
+
+    columns:
+      - name: campaign_id
+        description: Unique identifier of the advertising campaign.
+        data_tests:
+          - not_null
+
+      - name: campaign_date
+        description: Date of the advertising performance record.
+        data_tests:
+          - not_null
+
+      - name: impressions
+        description: Total advertising impressions for the campaign date.
+        data_tests:
+          - not_null
+
+      - name: clicks
+        description: Total advertising clicks for the campaign date.
+        data_tests:
+          - not_null
+
+      - name: simulated_conversions
+        description: Simulated conversions from the synthetic advertising dataset.
+        data_tests:
+          - not_null
+
+      - name: ad_spend
+        description: Advertising expenditure for the campaign date.
+        data_tests:
+          - not_null
+
+  - name: fct_campaign_performance_summary
+    description: >
+      Aggregated advertising performance metrics at campaign level.
+
+    columns:
+      - name: campaign_id
+        description: Unique advertising campaign identifier.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: campaign_name
+        description: Name of the advertising campaign.
+        data_tests:
+          - not_null
+
+      - name: total_ad_spend
+        description: Total campaign advertising expenditure.
+        data_tests:
+          - not_null
+
+  - name: fct_channel_performance_summary
+    description: >
+      Aggregated advertising performance metrics by marketing channel.
+
+    columns:
+      - name: channel
+        description: Advertising channel.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: total_ad_spend
+        description: Total advertising expenditure for the channel.
+        data_tests:
+          - not_null
+
+  - name: fct_marketing_performance_reporting
+    description: >
+      Consolidated reporting model containing independent synthetic
+      advertising performance and GA4 attribution performance records.
+      Advertising expenditure is not directly joined to GA4 revenue
+      because reliable campaign-level mapping has not been established.
+
+    columns:
+      - name: reporting_category
+        description: Identifies the reporting record as advertising performance or GA4 attribution performance.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - ADVERTISING_PERFORMANCE
+                  - GA4_ATTRIBUTION_PERFORMANCE
+
+      - name: data_source
+        description: Identifies the underlying source dataset.
+        data_tests:
+          - not_null
+
+      - name: attribution_model
+        description: Attribution methodology used for GA4 revenue allocation.
+
+      - name: campaign_id
+        description: Synthetic advertising campaign identifier.
+
+      - name: total_ad_spend
+        description: Advertising expenditure, populated only for advertising records.
+
+      - name: total_attributed_revenue
+        description: GA4 revenue allocated to touchpoints under the specified attribution model.

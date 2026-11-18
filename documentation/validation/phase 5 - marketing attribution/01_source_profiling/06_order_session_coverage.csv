@@ -1,0 +1,2 @@
+total_orders,distinct_transactions,orders_with_session_key,orders_without_session_key,orders_with_customer_id,orders_without_customer_id,orders_with_null_revenue,total_order_revenue_usd,revenue_with_session_key,revenue_without_session_key
+4452,4452,4452,0,2504,1948,0,307868.0,307868.0,0.0

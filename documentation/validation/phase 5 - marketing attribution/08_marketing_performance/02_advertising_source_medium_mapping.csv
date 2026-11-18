@@ -1,0 +1,8 @@
+source,medium,channel,campaign_type
+affiliate,referral,Affiliate,partner
+email,email,Email,owned
+facebook,paid_social,Paid Social,paid
+google,cpc,Paid Search,paid
+google,display,Display,paid
+instagram,paid_social,Paid Social,paid
+youtube,paid_video,Paid Video,paid

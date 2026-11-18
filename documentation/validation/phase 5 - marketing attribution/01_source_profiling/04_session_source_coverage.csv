@@ -1,0 +1,2 @@
+total_sessions,distinct_sessions,distinct_customers,sessions_without_customer,sessions_with_observed_source,sessions_with_observed_medium,sessions_with_observed_campaign,sessions_with_first_user_source
+360129,360129,3500,349883,264811,265575,265559,360129

@@ -1,0 +1,2 @@
+total_sessions,non_null_timestamps,successfully_converted_timestamps,failed_timestamp_conversions,earliest_session_timestamp,latest_session_timestamp
+360129,360129,360129,0,2020-11-01 00:00:04.579566 UTC,2021-01-31 23:59:51.044846 UTC

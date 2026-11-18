@@ -1,0 +1,8 @@
+advertising_source,advertising_medium,attribution_source,attribution_medium,mapping_status
+google,cpc,google,cpc,MATCH
+affiliate,referral,,,NO MATCH
+email,email,,,NO MATCH
+facebook,paid_social,,,NO MATCH
+google,display,,,NO MATCH
+instagram,paid_social,,,NO MATCH
+youtube,paid_video,,,NO MATCH

@@ -1,0 +1,9 @@
+campaign_id,campaign_name,campaign_type,channel,source,medium,currency,daily_records,active_days,first_campaign_date,last_campaign_date,total_impressions,total_clicks,simulated_conversions,total_ad_spend
+CMP002,Google Search - Generic,paid,Paid Search,google,cpc,USD,92,92,2020-11-01,2021-01-31,1161507,31692,894,42150.590000000004
+CMP001,Google Search - Brand,paid,Paid Search,google,cpc,USD,92,92,2020-11-01,2021-01-31,802620,35241,1769,29405.4
+CMP003,Facebook Prospecting,paid,Paid Social,facebook,paid_social,USD,92,92,2020-11-01,2021-01-31,1468011,27175,570,20705.350000000017
+CMP004,Instagram Retargeting,paid,Paid Social,instagram,paid_social,USD,92,92,2020-11-01,2021-01-31,647090,17692,744,11285.27
+CMP007,Display Retargeting,paid,Display,google,display,USD,92,92,2020-11-01,2021-01-31,1837509,14971,218,7208.2800000000007
+CMP005,YouTube Awareness,paid,Paid Video,youtube,paid_video,USD,92,92,2020-11-01,2021-01-31,2086045,21551,232,6385.6499999999987
+CMP008,Affiliate Referral,partner,Affiliate,affiliate,referral,USD,92,92,2020-11-01,2021-01-31,731137,9588,302,5920.67
+CMP006,Email Newsletter,owned,Email,email,email,USD,92,92,2020-11-01,2021-01-31,512353,28796,1502,3491.0200000000013

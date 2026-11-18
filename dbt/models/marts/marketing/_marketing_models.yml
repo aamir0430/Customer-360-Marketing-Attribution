@@ -275,3 +275,285 @@ models:
                 values:
                   - PURCHASER
                   - NO_PURCHASE
+          
+  - name: fct_marketing_touchpoints
+    description: >
+      Session-level marketing touchpoints used for customer journey
+      reconstruction and marketing attribution.
+
+    columns:
+
+      - name: session_key
+        description: Unique session identifier.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: user_pseudo_id
+        description: GA4 anonymous user identifier.
+        data_tests:
+          - not_null
+
+      - name: journey_id
+        description: Unified CRM or GA4 journey identifier.
+        data_tests:
+          - not_null
+
+      - name: identity_type
+        description: Customer identity classification.
+        data_tests:
+          - not_null
+
+      - name: touchpoint_source_status
+        description: Availability of observed session source.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - AVAILABLE
+                  - UNKNOWN
+
+      - name: has_purchase
+        description: Whether the session contains a purchase event.
+        data_tests:
+          - not_null
+
+  - name: fct_conversion_journeys
+    description: >
+      Conversion-level marketing journey model linking eligible
+      session touchpoints to purchase transactions within a
+      30-day attribution lookback window.
+
+    columns:
+
+      - name: transaction_id
+        description: Purchase transaction identifier.
+        data_tests:
+          - not_null
+
+      - name: journey_id
+        description: Unified CRM or GA4 journey identifier.
+        data_tests:
+          - not_null
+
+      - name: conversion_timestamp
+        description: Purchase event timestamp in UTC.
+        data_tests:
+          - not_null
+
+      - name: touchpoint_session_key
+        description: Session associated with the marketing touchpoint.
+        data_tests:
+          - not_null
+
+      - name: touchpoint_timestamp
+        description: UTC timestamp of the marketing touchpoint.
+        data_tests:
+          - not_null
+
+      - name: eligible_touchpoint_count
+        description: Number of eligible touchpoints for the transaction.
+        data_tests:
+          - not_null
+
+      - name: first_touch_rank
+        description: Chronological first-touch ranking.
+        data_tests:
+          - not_null
+
+      - name: last_touch_rank
+        description: Reverse chronological last-touch ranking.
+        data_tests:
+          - not_null
+
+  - name: fct_first_last_touch_attribution
+    description: >
+      First-touch and last-touch marketing attribution.
+      Each conversion receives 100 percent attribution
+      credit under each model.
+
+    columns:
+
+      - name: transaction_id
+        data_tests:
+          - not_null
+
+      - name: journey_id
+        data_tests:
+          - not_null
+
+      - name: attribution_model
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - FIRST_TOUCH
+                  - LAST_TOUCH
+
+      - name: attribution_credit
+        data_tests:
+          - not_null
+
+      - name: attributed_revenue
+        data_tests:
+          - not_null
+
+      - name: touchpoint_session_key
+        data_tests:
+          - not_null
+
+  - name: fct_linear_attribution
+    description: >
+      Linear marketing attribution model distributing
+      conversion credit equally across all eligible
+      touchpoints within the 30-day lookback window.
+
+    columns:
+
+      - name: transaction_id
+        description: Purchase transaction identifier.
+        data_tests:
+          - not_null
+
+      - name: journey_id
+        description: Unified customer journey identifier.
+        data_tests:
+          - not_null
+
+      - name: attribution_model
+        description: Attribution methodology.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - LINEAR
+
+      - name: attribution_credit
+        description: Equal fractional credit assigned to the touchpoint.
+        data_tests:
+          - not_null
+
+      - name: attributed_revenue
+        description: Revenue credited to the touchpoint.
+        data_tests:
+          - not_null
+
+      - name: eligible_touchpoint_count
+        description: Number of eligible touchpoints in the conversion journey.
+        data_tests:
+          - not_null
+
+      - name: touchpoint_session_key
+        description: Marketing touchpoint session identifier.
+        data_tests:
+          - not_null
+
+  - name: fct_time_decay_attribution
+    description: >
+      Time-decay attribution model using an exponential
+      decay function with a seven-day half-life.
+      More recent marketing touchpoints receive greater
+      attribution credit.
+
+    columns:
+
+      - name: transaction_id
+        description: Purchase transaction identifier.
+        data_tests:
+          - not_null
+
+      - name: journey_id
+        description: Unified customer journey identifier.
+        data_tests:
+          - not_null
+
+      - name: attribution_model
+        description: Attribution methodology.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - TIME_DECAY
+
+      - name: attribution_credit
+        description: Normalized time-decay attribution credit.
+        data_tests:
+          - not_null
+
+      - name: attributed_revenue
+        description: Revenue attributed to the touchpoint.
+        data_tests:
+          - not_null
+
+      - name: initial_decay_weight
+        description: Initial exponential decay weight.
+        data_tests:
+          - not_null
+
+      - name: total_decay_weight
+        description: Sum of initial weights per transaction.
+        data_tests:
+          - not_null
+
+      - name: decay_half_life_days
+        description: Time-decay half-life in days.
+        data_tests:
+          - not_null
+
+      - name: touchpoint_session_key
+        description: Marketing touchpoint session identifier.
+        data_tests:
+          - not_null
+
+  - name: fct_attribution_comparison
+    description: >
+      Consolidated marketing attribution model combining
+      first-touch, last-touch, linear and time-decay
+      attribution methods.
+
+    columns:
+
+      - name: transaction_id
+        description: Purchase transaction identifier.
+        data_tests:
+          - not_null
+
+      - name: journey_id
+        description: Customer journey identifier.
+        data_tests:
+          - not_null
+
+      - name: attribution_model
+        description: Attribution methodology.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - FIRST_TOUCH
+                  - LAST_TOUCH
+                  - LINEAR
+                  - TIME_DECAY
+
+      - name: attribution_credit
+        description: Fractional credit assigned to the touchpoint.
+        data_tests:
+          - not_null
+
+      - name: attributed_revenue
+        description: Revenue attributed to the touchpoint.
+        data_tests:
+          - not_null
+
+      - name: touchpoint_session_key
+        description: Marketing touchpoint session identifier.
+        data_tests:
+          - not_null
+
+      - name: eligible_touchpoint_count
+        description: Eligible touchpoints in the conversion journey.
+        data_tests:
+          - not_null

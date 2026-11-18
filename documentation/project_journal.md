@@ -1,45 +1,43 @@
 # Project Journal
 ## Customer 360 & Marketing Attribution Programme
 
----
-
-## Phase 1 – Data Source Setup and Dataset Generation
-
-**Status:** Completed
-
-### Work completed
-
-- Selected Google's public GA4 ecommerce sample in BigQuery: `bigquery-public-data.ga4_obfuscated_sample_ecommerce`.
-- Inspected GA4 event data, identifiers, session information, traffic sources, and ecommerce purchase information.
-- Generated `synthetic_crm_customers.csv`.
-- Generated `synthetic_ad_spend.csv`.
-- Generated `identity_mapping.csv`.
-- Organized the synthetic source files under `data/raw/`.
-
-**Phase 1 status: Completed.**
+This journal records the implementation progress, major technical activities, decisions, and outcomes of the project.
 
 ---
 
-## Phase 2 – Build an Identity Resolution Step That Links Sessions and Customers
+## Phase 1 – Data Source Setup and Synthetic Dataset Generation
 
-**Status:** Completed
+**Status: Completed**
 
-### Objective
+### Activities
 
-Build a BigQuery dataset that links GA4 sessions to CRM customer profiles wherever a corresponding synthetic identity mapping exists.
+- Selected Google's public GA4 ecommerce sample.
+- Generated synthetic CRM customer records.
+- Generated synthetic advertising spend records.
+- Generated synthetic identity mapping records.
+- Prepared source datasets for BigQuery ingestion.
 
-### Work completed
+### Outcome
 
-1. Prepared and loaded GA4 sessions, CRM customers, and identity mapping into `customer_360_raw`.
-2. Verified source table presence and row counts.
-3. Inspected the synthetic identity mapping and relevant identifiers.
-4. Previewed joins between sessions, mapping records, and CRM customers.
-5. Used LEFT JOIN logic to preserve the full GA4 session population.
-6. Created `customer_360_curated.identity_resolved_sessions`.
-7. Added `identity_resolution_status` to distinguish identified and unidentified sessions.
-8. Executed final validation queries.
+The project established its initial source-data foundation using public GA4 data and synthetic supporting datasets.
 
-### Recorded validation results
+---
+
+## Phase 2 – BigQuery Ingestion and Identity Resolution
+
+**Status: Completed**
+
+### Activities
+
+- Loaded prepared GA4 session data into BigQuery.
+- Loaded synthetic CRM customer records.
+- Loaded synthetic identity mapping records.
+- Inspected source identifiers.
+- Tested joins between GA4 sessions, identity mapping, and CRM.
+- Created `customer_360_curated.identity_resolved_sessions`.
+- Validated population preservation and mapping consistency.
+
+### Final validation
 
 | Measure | Result |
 |---|---:|
@@ -47,111 +45,266 @@ Build a BigQuery dataset that links GA4 sessions to CRM customer profiles wherev
 | Unique sessions | 360,129 |
 | Identified sessions | 10,246 |
 | Unidentified sessions | 349,883 |
-| CRM customers represented among identified sessions | 3,500 |
+| CRM customers represented | 3,500 |
 | Missing CRM customer records | 0 |
 | Mismatched synthetic IDs | 0 |
 
-All source sessions were retained. The identified and unidentified counts reconcile to 360,129.
+### Outcome
 
-### Limitation
+Identity resolution was implemented successfully.
 
-The identity mapping is synthetic. The checks establish consistency against the generated mappings, not real-world identity accuracy.
-
-**Phase 2 status: Completed.**
+The synthetic identity mapping was used to validate the technical workflow. It does not establish real-world identity accuracy.
 
 ---
 
-## Phase 3 – dbt Data Modelling: Sessions, Orders, and Customer Profiles
+## Phase 3 – dbt Data Modelling
 
-**Status:** Completed
+**Status: Completed**
 
-### Objective
+### Activities
 
-Build a dbt transformation layer on top of the BigQuery raw and curated data, producing reusable session, order, and customer-profile models for downstream analytics.
-
-### Step 3.1 – Configure the dbt Environment
-
-- Set up the dbt project named `customer_360`.
-- Configure the BigQuery connection and development target.
-- Resolve a local Python package compatibility issue encountered during dbt diagnostics.
-- Re-run `dbt debug` and confirm that all checks passed.
-
-### Step 3.2 – Validate the dbt Project
-
-- Run `dbt parse` successfully.
-- Review project configuration warnings.
-- Inspect the available BigQuery datasets and tables before defining sources and models.
-
-### Step 3.3 – Configure dbt Sources
-
-Configure the upstream sources required by the modelling workflow:
-
-- `ga4_sessions`
-- `ga4_events`
-- `crm_customers`
-- `identity_mapping`
-- `identity_resolved_sessions`
-
-These sources span the existing raw and curated BigQuery layers.
-
-### Step 3.4 – Build the Staging Layer
-
-Create the following staging models:
-
-- `stg_ga4_sessions.sql`
-- `stg_ga4_events.sql`
-- `stg_crm_customers.sql`
-- `stg_identity_mapping.sql`
-- `stg_identity_resolved_sessions.sql`
-
-The staging layer standardizes source data for downstream transformations. GA4 event staging retains nested ecommerce and item structures required for purchase-related modelling. Staging models are configured as views.
-
-### Step 3.5 – Build Core Analytical Models
-
-Create the three core marts:
-
-- `fct_sessions.sql`
-- `fct_orders.sql`
-- `dim_customer_profile.sql`
-
-The models provide session-level, order-level, and consolidated customer-profile outputs. Intermediate reusable transformations are configured as ephemeral models where appropriate.
-
-### Step 3.6 – Configure Model Metadata
-
-Maintain dbt source/model YAML metadata and documentation for the source declarations, staging models, and core models.
-
-### Step 3.7 – Build and Validate BigQuery Outputs
-
-- Build dbt outputs in the development target dataset `customer_360_dbt_dev`.
-- Validate the `fct_sessions` output.
-- Validate the `fct_orders` output.
-- Validate the `dim_customer_profile` output.
-
-The project owner confirmed that all three core mart validations were successful.
-
-### Step 3.8 – Generate dbt Documentation
-
-- Run `dbt docs generate` successfully.
-- Generate the catalog at `dbt/target/catalog.json`.
-- Note that non-fatal `agate` `table_owner` warnings appeared during generation; catalog generation completed.
-
-### Phase 3 Deliverables
-
-- Configured dbt project `customer_360`.
-- Configured five upstream BigQuery sources.
+- Configured the dbt Core project.
+- Configured the BigQuery adapter.
+- Resolved local Python package compatibility issues.
+- Configured BigQuery sources.
 - Created five staging models.
-- Created `fct_sessions`, `fct_orders`, and `dim_customer_profile`.
-- Configured staging views and ephemeral intermediate transformations where appropriate.
-- Created and validated the three core mart outputs in `customer_360_dbt_dev`.
-- Completed dbt diagnostics and project parsing.
-- Generated dbt documentation and catalog.
+- Created core session, order, and customer-profile models.
+- Validated the core model outputs.
+- Generated dbt documentation.
 
-**Evidence note:** Exact final automated test/build totals and individual mart row counts are not included because those numerical outputs are not available in the completion record. They should be added only from saved command output or query evidence.
+### Core models
 
-**Phase 3 status: Completed.**
+- `fct_sessions`
+- `fct_orders`
+- `dim_customer_profile`
+
+### Outcome
+
+The dbt transformation layer was established successfully and the core analytical marts were validated.
 
 ---
 
-## Next Phase – Customer Analytics
+## Phase 4 – RFM Analysis, Customer Segmentation, and Historical CLV
 
-Phase 4 will use the completed dbt models to develop customer analytics, including RFM segmentation and historical Customer Lifetime Value (CLV). Marketing attribution, campaign ROI/CPA analysis, and Tableau dashboards remain later phases.
+**Status: Completed**
+
+### Activities
+
+- Developed customer RFM metrics.
+- Created RFM scoring logic.
+- Created customer segmentation.
+- Calculated historical CLV.
+- Developed the unified Customer 360 analytical model.
+- Executed final model validation.
+- Reviewed segment and value distributions.
+
+### Models
+
+- `fct_customer_rfm`
+- `fct_customer_rfm_scores`
+- `dim_customer_segments`
+- `fct_customer_clv`
+- `dim_customer_360_analytics`
+
+### Final results
+
+| Measure | Result |
+|---|---:|
+| CRM customers | 5,000 |
+| Purchasers | 2,091 |
+| Non-purchasers | 2,909 |
+| Identified customer orders | 2,504 |
+| Identified customer revenue | $169,649 |
+| Historical CLV revenue | $169,649 |
+| Frequency mismatches | 0 |
+| Revenue mismatches | 0 |
+| Missing segments | 0 |
+| Missing CLV records | 0 |
+
+### Important findings
+
+- The unified Customer 360 model contains one row per CRM customer.
+- RFM and historical CLV totals reconcile.
+- 1,948 orders worth $138,219 do not have a resolved CRM customer ID.
+- Unresolved orders were not assigned to customers without evidence.
+- Historical CLV is descriptive, not predictive.
+
+### Outcome
+
+Phase 4 completed with successful final unified-model validation.
+
+---
+
+## Phase 5 – Marketing Attribution and Advertising Performance
+
+**Status: Completed**
+
+### Step 5.1 – Source Profiling
+
+- Inspected the available GA4 and advertising source data.
+- Reviewed source fields and campaign attributes.
+- Identified the available traffic-source information.
+- Investigated advertising data structure and campaign identifiers.
+
+### Step 5.2 – Marketing Touchpoints
+
+- Developed the marketing touchpoint model.
+- Connected session-level traffic information with the attribution workflow.
+- Validated the resulting touchpoint data.
+
+### Step 5.3 – Conversion Journey Modelling
+
+Created:
+
+`fct_conversion_journeys`
+
+The model connects purchase transactions with eligible preceding touchpoints.
+
+Recorded validation:
+
+- 4,452 transactions.
+- 11,496 journey-touchpoint records.
+- 9,144 distinct touchpoint sessions.
+
+### Step 5.4 – First-Touch and Last-Touch Attribution
+
+Created:
+
+`fct_first_last_touch_attribution`
+
+Both attribution models reconciled to:
+
+- 4,452 transactions.
+- $307,868 purchase revenue.
+- 4,452 total attribution credit.
+
+### Step 5.5 – Linear Attribution
+
+Created:
+
+`fct_linear_attribution`
+
+Validation confirmed:
+
+- 11,496 rows.
+- 4,452 distinct transactions.
+- 9,144 distinct touchpoint sessions.
+- 4,452 total attribution credit.
+- $307,868 attributed revenue.
+
+### Step 5.6 – Time-Decay Attribution
+
+Created:
+
+`fct_time_decay_attribution`
+
+Implemented a seven-day half-life weighting assumption.
+
+Weights were normalized per transaction.
+
+Validation confirmed transaction-level attribution reconciliation.
+
+### Step 5.7 – Attribution Comparison
+
+Created:
+
+`fct_attribution_comparison`
+
+Consolidated all four attribution models.
+
+Final validation confirmed:
+
+- 4,452 transactions per model.
+- $307,868 attributed revenue per model.
+- 4,452 total attribution credit per model.
+- No transaction-level credit exceptions.
+
+### Step 5.8 – Advertising Performance and Consolidated Reporting
+
+Created:
+
+- `fct_ad_spend_performance`
+- `fct_campaign_performance_summary`
+- `fct_channel_performance_summary`
+- `fct_marketing_performance_reporting`
+
+Advertising dataset summary:
+
+| Metric | Result |
+|---|---:|
+| Campaigns | 8 |
+| Campaign-date records | 736 |
+| Dates | 92 |
+| Impressions | 9,246,272 |
+| Clicks | 186,706 |
+| Simulated conversions | 6,231 |
+| Spend | $126,552.23 |
+
+The consolidated reporting model contains 148 rows:
+
+- 8 synthetic advertising performance rows.
+- 140 GA4 attribution performance rows.
+
+### Testing
+
+- Marketing schema tests: 21 passed, 0 warnings, 0 errors.
+- Dedicated singular tests: 5 passed, 0 warnings, 0 errors.
+- Reporting-model data-quality validation returned zero exception rows.
+- dbt documentation generation and lineage checks completed successfully.
+
+The five singular tests were also included in the model-selected test run. They are five unique tests, not ten separate tests.
+
+### Important limitation discovered
+
+Synthetic advertising campaign IDs could not be reliably mapped to GA4 purchase revenue.
+
+The source/medium comparison produced only one exact match, and it did not establish campaign-level identity.
+
+Consequently:
+
+- Synthetic cost per simulated conversion is available.
+- Actual GA4-based campaign CPA remains unverified.
+- Campaign ROAS and ROI cannot yet be calculated defensibly.
+- Advertising spend and GA4 purchase revenue remain separate in the reporting model.
+
+### Outcome
+
+The four attribution models and advertising performance foundations were completed and validated.
+
+---
+
+## Next – Phase 6: Campaign ROI, CPA, and Marketing Efficiency
+
+**Status: Planned**
+
+### Objectives
+
+- Investigate campaign-level mapping between synthetic advertising data and GA4 purchase conversions.
+- Determine whether actual campaign CPA can be calculated.
+- Determine whether campaign ROI and ROAS can be calculated.
+- Validate spend and conversion relationships.
+- Document any limitations where reliable mapping is unavailable.
+
+---
+
+## Phase 7 – Tableau Dashboards
+
+**Status: Planned**
+
+- Connect validated analytical models to Tableau.
+- Build customer analytics dashboards.
+- Build marketing attribution dashboards.
+- Build campaign performance dashboards.
+- Present actionable marketing recommendations.
+
+---
+
+## Phase 8 – Final Testing and Project Completion
+
+**Status: Planned**
+
+- Perform end-to-end validation.
+- Verify dashboard metrics.
+- Review technical documentation.
+- Finalize the project README.
+- Prepare final project demonstration and presentation.
