@@ -1,0 +1,11 @@
+source,medium,channel,attribution_model,campaigns_included,total_ad_spend,attributed_transactions,attribution_credit,attributed_revenue,attributed_cpa,roas,roi_percentage,mapping_status,source_campaign_count,spend_reconciliation_difference,validation_status
+affiliate,referral,Affiliate,,1,5920.6699999999983,,,,,,,NO_VERIFIED_MAPPING,1,0.0,PASS - UNMAPPED
+email,email,Email,,1,3491.0200000000009,,,,,,,NO_VERIFIED_MAPPING,1,0.0,PASS - UNMAPPED
+facebook,paid_social,Paid Social,,1,20705.350000000002,,,,,,,NO_VERIFIED_MAPPING,1,0.0,PASS - UNMAPPED
+google,cpc,Paid Search,FIRST_TOUCH,2,71555.989999999991,68,68.0,5087.0,1052.29,0.0711,-92.89,SOURCE_MEDIUM_MATCH,2,0.0,PASS
+google,cpc,Paid Search,LAST_TOUCH,2,71555.989999999991,43,43.0,2960.0,1664.09,0.0414,-95.86,SOURCE_MEDIUM_MATCH,2,0.0,PASS
+google,cpc,Paid Search,LINEAR,2,71555.989999999991,100,51.004004329004374,3718.3603174603177,1402.95,0.052,-94.8,SOURCE_MEDIUM_MATCH,2,0.0,PASS
+google,cpc,Paid Search,TIME_DECAY,2,71555.989999999991,100,48.460680710250195,3524.9737398627772,1476.58,0.0493,-95.07,SOURCE_MEDIUM_MATCH,2,0.0,PASS
+google,display,Display,,1,7208.2799999999988,,,,,,,NO_VERIFIED_MAPPING,1,0.0,PASS - UNMAPPED
+instagram,paid_social,Paid Social,,1,11285.269999999997,,,,,,,NO_VERIFIED_MAPPING,1,0.0,PASS - UNMAPPED
+youtube,paid_video,Paid Video,,1,6385.6499999999978,,,,,,,NO_VERIFIED_MAPPING,1,0.0,PASS - UNMAPPED

@@ -141,3 +141,33 @@ Future validation will cover:
 ## 10. Test Evidence
 
 Retain executable SQL, dbt model files, YAML tests, command logs, and validation query outputs in the repository. This document records reported results; it does not replace the underlying executable evidence.
+
+## Phase 6 – Campaign and Channel Efficiency Validation
+
+### Campaign Efficiency Validation
+
+| Validation | Result | Status |
+|---|---:|---|
+| Campaign records | 8 | PASS |
+| Distinct campaigns | 8 | PASS |
+| Advertising spend difference | $0.00 | PASS |
+| Simulated conversion difference | 0 | PASS |
+| Correctly flagged campaigns | 8 | PASS |
+
+### Channel ROI Validation
+
+| Validation | Result | Status |
+|---|---:|---|
+| Channel ROI records | 10 | PASS |
+| Google CPC attribution model records | 4 | PASS |
+| Unmapped source/medium records | 6 | PASS - UNMAPPED |
+| Spend reconciliation differences | $0.00 | PASS |
+| Failed validation records | 0 | PASS |
+
+### Conclusion
+
+All Phase 6 validation checks passed.
+
+Advertising expenditure reconciles with the existing campaign summary, and the Google CPC channel has successfully produced attribution-based CPA, ROAS and revenue-based return metrics.
+
+Unmapped channels remain explicitly identified rather than receiving unsupported revenue allocations.

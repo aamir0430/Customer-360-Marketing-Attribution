@@ -331,3 +331,60 @@ Final validation will cover:
 - Advertising performance reconciliation.
 - Dashboard metric accuracy.
 - Documentation completeness.
+
+## Campaign and Channel Marketing Efficiency Methodology
+
+### Campaign-Level Metrics
+
+CTR:
+
+Clicks / Impressions × 100
+
+CPC:
+
+Advertising Spend / Clicks
+
+Simulated Conversion Rate:
+
+Simulated Conversions / Clicks × 100
+
+Cost per Simulated Conversion:
+
+Advertising Spend / Simulated Conversions
+
+### Channel-Level Attribution Metrics
+
+Attributed CPA:
+
+Advertising Spend / Attribution Credit
+
+ROAS:
+
+Attributed Revenue / Advertising Spend
+
+Revenue-Based Attributed Return:
+
+((Attributed Revenue - Advertising Spend) / Advertising Spend) × 100
+
+### Attribution Models
+
+Calculations are maintained separately for:
+
+- First Touch
+- Last Touch
+- Linear
+- Time Decay
+
+Alternative attribution models represent different allocations of the same purchase revenue. Their revenue figures must not be added together.
+
+### Mapping Methodology
+
+Advertising expenditure is aggregated by source and medium before joining with GA4 attribution results.
+
+This prevents advertising expenditure from being duplicated when multiple campaigns share the same source and medium.
+
+### Limitations
+
+The available data does not establish verified campaign-level mappings for all advertising campaigns.
+
+The revenue-based attributed return is not equivalent to profit-based ROI or experimentally measured incremental marketing ROI.

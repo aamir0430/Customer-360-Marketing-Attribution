@@ -1,0 +1,15 @@
+campaign_id,campaign_name,ad_source,ad_medium,ad_channel,currency,total_ad_spend,ga4_source,ga4_medium,ga4_campaign,attribution_model,attributed_transactions,attributed_revenue,total_attribution_credit,mapping_status
+CMP001,Google Search - Brand,google,cpc,Paid Search,USD,29405.4,google,cpc,<other>,FIRST_TOUCH,68,5087.0,68.0,SOURCE_MEDIUM_MATCH_ONLY
+CMP001,Google Search - Brand,google,cpc,Paid Search,USD,29405.4,google,cpc,<other>,LAST_TOUCH,43,2960.0,43.0,SOURCE_MEDIUM_MATCH_ONLY
+CMP001,Google Search - Brand,google,cpc,Paid Search,USD,29405.4,google,cpc,<other>,LINEAR,100,3718.36,51.004,SOURCE_MEDIUM_MATCH_ONLY
+CMP001,Google Search - Brand,google,cpc,Paid Search,USD,29405.4,google,cpc,<other>,TIME_DECAY,100,3524.97,48.4607,SOURCE_MEDIUM_MATCH_ONLY
+CMP002,Google Search - Generic,google,cpc,Paid Search,USD,42150.589999999982,google,cpc,<other>,FIRST_TOUCH,68,5087.0,68.0,SOURCE_MEDIUM_MATCH_ONLY
+CMP002,Google Search - Generic,google,cpc,Paid Search,USD,42150.589999999982,google,cpc,<other>,LAST_TOUCH,43,2960.0,43.0,SOURCE_MEDIUM_MATCH_ONLY
+CMP002,Google Search - Generic,google,cpc,Paid Search,USD,42150.589999999982,google,cpc,<other>,LINEAR,100,3718.36,51.004,SOURCE_MEDIUM_MATCH_ONLY
+CMP002,Google Search - Generic,google,cpc,Paid Search,USD,42150.589999999982,google,cpc,<other>,TIME_DECAY,100,3524.97,48.4607,SOURCE_MEDIUM_MATCH_ONLY
+CMP003,Facebook Prospecting,facebook,paid_social,Paid Social,USD,20705.350000000002,,,,,,,,NO_VERIFIED_MAPPING
+CMP004,Instagram Retargeting,instagram,paid_social,Paid Social,USD,11285.269999999997,,,,,,,,NO_VERIFIED_MAPPING
+CMP005,YouTube Awareness,youtube,paid_video,Paid Video,USD,6385.6499999999978,,,,,,,,NO_VERIFIED_MAPPING
+CMP006,Email Newsletter,email,email,Email,USD,3491.0200000000009,,,,,,,,NO_VERIFIED_MAPPING
+CMP007,Display Retargeting,google,display,Display,USD,7208.2799999999988,,,,,,,,NO_VERIFIED_MAPPING
+CMP008,Affiliate Referral,affiliate,referral,Affiliate,USD,5920.6699999999983,,,,,,,,NO_VERIFIED_MAPPING

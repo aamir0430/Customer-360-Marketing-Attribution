@@ -287,3 +287,57 @@ This is the focus of Phase 6.
 The completed work establishes a validated Customer 360 data foundation, customer segmentation and historical value analysis, four alternative marketing attribution models, and a separate synthetic advertising performance layer.
 
 The remaining work is to investigate whether campaign expenditure can be defensibly connected to GA4 purchase conversions, followed by Tableau visualization and final project validation.
+
+## Phase 6 – Campaign Efficiency, CPA and ROAS
+
+### Implementation
+
+Created two dbt models:
+
+1. `fct_campaign_efficiency`
+2. `fct_channel_roi`
+
+The campaign efficiency model reports advertising expenditure, impressions, clicks, simulated conversions, CTR, CPC and cost per simulated conversion.
+
+The channel ROI model combines advertising expenditure by source and medium with GA4 attributed revenue across four attribution models.
+
+### Campaign Efficiency Results
+
+| Metric | Result |
+|---|---:|
+| Campaigns | 8 |
+| Impressions | 9,246,272 |
+| Clicks | 186,706 |
+| Simulated conversions | 6,231 |
+| Advertising spend | $126,552.23 |
+| Cost per simulated conversion | $20.31 |
+
+### Google Paid Search Results
+
+| Attribution Model | Attributed Revenue | Attributed CPA | ROAS | Revenue-based Return |
+|---|---:|---:|---:|---:|
+| First Touch | $5,087.00 | $1,052.29 | 0.0711x | -92.89% |
+| Last Touch | $2,960.00 | $1,664.09 | 0.0414x | -95.86% |
+| Linear | $3,718.36 | $1,402.95 | 0.0520x | -94.80% |
+| Time Decay | $3,524.97 | $1,476.58 | 0.0493x | -95.07% |
+
+The channel-level CPA uses weighted attribution credit, including fractional credit for Linear and Time Decay.
+
+### Key Findings
+
+- Eight advertising campaigns were included in the efficiency model.
+- Two Google CPC campaigns were aggregated into one Paid Search expenditure group.
+- GA4 attributed revenue was available for the Google CPC source/medium combination.
+- Six other advertising source/medium combinations had no verified GA4 mapping.
+- Total advertising expenditure reconciled to $126,552.23.
+- Overall cost per simulated conversion was $20.31.
+
+### Measurement Limitations
+
+Campaign-level revenue could not be reliably assigned to individual campaign IDs.
+
+The calculated revenue-based return is an attributed-revenue efficiency proxy, not verified incremental profit ROI.
+
+Actual individual campaign CPA and ROAS remain unavailable for campaigns without a verified mapping.
+
+Synthetic advertising conversions are not treated as GA4 purchases.

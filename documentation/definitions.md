@@ -220,3 +220,97 @@ Examples:
 6. Campaign ROI and actual CPA must not be calculated from unrelated spend and revenue datasets.
 7. Unidentified orders must not be assigned to CRM customers without evidence.
 8. Synthetic identity mapping validates implementation consistency, not real-world identity accuracy.
+
+# Phase 6 – Marketing Efficiency Definitions
+
+### Advertising Metrics
+
+**Click-Through Rate (CTR)**
+
+Percentage of advertising impressions that resulted in clicks.
+
+Formula:
+
+Clicks / Impressions × 100
+
+**Cost Per Click (CPC)**
+
+Average advertising expenditure per click.
+
+Formula:
+
+Advertising Spend / Clicks
+
+**Simulated Conversion Rate**
+
+Percentage of advertising clicks that resulted in simulated conversions.
+
+Formula:
+
+Simulated Conversions / Clicks × 100
+
+**Cost Per Simulated Conversion**
+
+Average advertising expenditure per simulated conversion.
+
+Formula:
+
+Advertising Spend / Simulated Conversions
+
+### Attribution-Based Metrics
+
+**Attributed Revenue**
+
+Revenue allocated to a marketing touchpoint or channel by an attribution model.
+
+**Attribution Credit**
+
+The fractional or full conversion credit assigned to a marketing touchpoint under an attribution model.
+
+**Attributed Cost Per Acquisition (CPA)**
+
+Advertising expenditure divided by attributed conversion credit.
+
+Formula:
+
+Advertising Spend / Attribution Credit
+
+This project uses attribution credit for Linear and Time Decay calculations, so CPA can be based on fractional conversion credit.
+
+**Return on Advertising Spend (ROAS)**
+
+Ratio of attributed revenue to advertising expenditure.
+
+Formula:
+
+Attributed Revenue / Advertising Spend
+
+**Revenue-Based Attributed Return**
+
+Percentage difference between attributed revenue and advertising expenditure, relative to advertising expenditure.
+
+Formula:
+
+((Attributed Revenue - Advertising Spend) / Advertising Spend) × 100
+
+This is a revenue-based efficiency measure, not verified profit-based ROI.
+
+### Attribution Models
+
+**First-Touch Attribution:** Assigns conversion credit to the first marketing touchpoint.
+
+**Last-Touch Attribution:** Assigns conversion credit to the final marketing touchpoint.
+
+**Linear Attribution:** Distributes conversion credit equally across eligible touchpoints.
+
+**Time-Decay Attribution:** Assigns greater conversion credit to more recent touchpoints according to the configured seven-day half-life assumption.
+
+### Mapping and Measurement Terms
+
+**Campaign-Level Mapping:** A verified relationship connecting an advertising campaign identifier to GA4 campaign-level attributed revenue.
+
+**Channel-Level Mapping:** A relationship connecting advertising expenditure and GA4 attributed revenue using matching source and medium values.
+
+**Simulated Conversion:** A conversion generated within the synthetic advertising dataset. It is not necessarily an actual GA4 purchase.
+
+**Incremental ROI:** Return attributable to marketing activity beyond what would have happened without that activity. Establishing it generally requires an appropriate incremental measurement design.

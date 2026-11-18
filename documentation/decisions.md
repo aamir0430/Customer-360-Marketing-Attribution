@@ -210,3 +210,62 @@ Phases 1–3 established the synthetic data foundation, BigQuery identity-resolu
 **Reasoning:** Joining unrelated synthetic advertising metrics and GA4 purchase revenue would produce misleading business results.
 
 **Next step:** Investigate campaign mapping during Phase 6. If mapping remains unavailable, report the limitation explicitly and retain synthetic advertising efficiency metrics separately.
+
+# Phase 6 – Campaign ROI and CPA Decisions
+
+## Decision 1: Reuse Existing Campaign Performance Models
+
+**Decision:** Reuse the Phase 5 `fct_campaign_performance_summary` model as the advertising performance source for Phase 6.
+
+**Reason:** Avoid duplicating existing advertising aggregation and calculation logic.
+
+## Decision 2: Separate Campaign and Channel Efficiency
+
+**Decision:** Maintain two separate dbt models:
+
+- `fct_campaign_efficiency`
+- `fct_channel_roi`
+
+**Reason:** Campaign-level advertising metrics and channel-level attributed revenue have different levels of measurement reliability.
+
+## Decision 3: Aggregate Advertising Spend by Source and Medium
+
+**Decision:** Aggregate campaign expenditure by source and medium before joining with GA4 attribution.
+
+**Reason:** Multiple advertising campaigns can share the same source and medium. Aggregating expenditure prevents duplicated advertising costs when joining attribution results.
+
+## Decision 4: Preserve Attribution Models Separately
+
+**Decision:** Maintain First Touch, Last Touch, Linear and Time Decay as separate attribution results.
+
+**Reason:** These models represent alternative allocations of the same conversion revenue. Their revenue values must not be combined.
+
+## Decision 5: Do Not Force Unverified Campaign Mappings
+
+**Decision:** Do not assign GA4 attributed revenue to individual advertising campaign IDs without a verified relationship.
+
+**Reason:** Only Google CPC had an identified source/medium match. GA4 did not provide verified campaign-level distinctions between the two Google CPC advertising campaigns.
+
+## Decision 6: Separate Simulated and Actual Conversions
+
+**Decision:** Keep synthetic advertising conversions separate from GA4 purchase transactions.
+
+**Reason:** Simulated conversions cannot be assumed to represent actual purchases.
+
+## Decision 7: Distinguish Revenue-Based Return from Profit-Based ROI
+
+**Decision:** Label the calculated return as revenue-based attributed return.
+
+**Reason:** The available data does not establish incremental revenue, profit margin or actual campaign profitability. Therefore, the calculation should not be presented as verified profit-based ROI.
+
+## Decision 8: Retain Unmapped Channel Limitations
+
+**Decision:** Keep unmatched advertising source/medium combinations in the campaign efficiency model and explicitly identify their attribution mapping status.
+
+**Reason:** Excluding unmatched campaigns would hide advertising expenditure and produce an incomplete view of campaign performance.
+
+## Final Decision
+
+Phase 6 provides campaign-level advertising efficiency and mapped channel-level attribution-based marketing efficiency.
+
+Individual campaign profitability and true incremental ROI remain outside the verified measurement scope until reliable campaign-level revenue and incremental performance data become available.
