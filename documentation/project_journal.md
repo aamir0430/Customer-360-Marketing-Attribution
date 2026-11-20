@@ -1,310 +1,105 @@
 # Project Journal
-## Customer 360 & Marketing Attribution Programme
 
-This journal records the implementation progress, major technical activities, decisions, and outcomes of the project.
+## Project: Customer 360 & Marketing Attribution
 
----
+This journal summarizes the major implementation milestones completed during the project.
 
-## Phase 1 – Data Source Setup and Synthetic Dataset Generation
+## Phase 1 – Data Source Preparation
 
-**Status: Completed**
+- Identified the GA4 public sample e-commerce dataset.
+- Prepared synthetic CRM customer records.
+- Prepared synthetic identity mapping records.
+- Prepared synthetic advertising campaign data.
+- Established the initial project data structure.
 
-### Activities
+## Phase 2 – Customer 360 and Identity Resolution
 
-- Selected Google's public GA4 ecommerce sample.
-- Generated synthetic CRM customer records.
-- Generated synthetic advertising spend records.
-- Generated synthetic identity mapping records.
-- Prepared source datasets for BigQuery ingestion.
+- Created the BigQuery project environment.
+- Organized raw and curated datasets.
+- Loaded GA4 and synthetic customer inputs.
+- Implemented identity resolution using the supplied mapping.
+- Preserved unmatched records.
+- Validated identified and unidentified customer activity.
 
-### Outcome
+Recorded results:
 
-The project established its initial source-data foundation using public GA4 data and synthetic supporting datasets.
-
----
-
-## Phase 2 – BigQuery Ingestion and Identity Resolution
-
-**Status: Completed**
-
-### Activities
-
-- Loaded prepared GA4 session data into BigQuery.
-- Loaded synthetic CRM customer records.
-- Loaded synthetic identity mapping records.
-- Inspected source identifiers.
-- Tested joins between GA4 sessions, identity mapping, and CRM.
-- Created `customer_360_curated.identity_resolved_sessions`.
-- Validated population preservation and mapping consistency.
-
-### Final validation
-
-| Measure | Result |
-|---|---:|
-| Total sessions | 360,129 |
-| Unique sessions | 360,129 |
-| Identified sessions | 10,246 |
-| Unidentified sessions | 349,883 |
-| CRM customers represented | 3,500 |
-| Missing CRM customer records | 0 |
-| Mismatched synthetic IDs | 0 |
-
-### Outcome
-
-Identity resolution was implemented successfully.
-
-The synthetic identity mapping was used to validate the technical workflow. It does not establish real-world identity accuracy.
-
----
+- 360,129 GA4 sessions.
+- 10,246 identified customers.
+- 349,883 unidentified sessions.
 
 ## Phase 3 – dbt Data Modelling
 
-**Status: Completed**
-
-### Activities
-
-- Configured the dbt Core project.
+- Configured Python and dbt Core.
 - Configured the BigQuery adapter.
-- Resolved local Python package compatibility issues.
-- Configured BigQuery sources.
-- Created five staging models.
-- Created core session, order, and customer-profile models.
-- Validated the core model outputs.
+- Created the `customer_360` dbt project.
+- Developed staging models.
+- Developed intermediate transformation logic.
+- Developed fact sessions and fact orders models.
+- Developed the customer profile dimension.
 - Generated dbt documentation.
 
-### Core models
+## Phase 4 – Customer Analytics
 
-- `fct_sessions`
-- `fct_orders`
-- `dim_customer_profile`
+- Developed customer-level analytical models.
+- Implemented RFM analysis.
+- Developed customer segmentation.
+- Worked on customer lifetime value analysis.
+- Validated customer analytics outputs.
 
-### Outcome
+## Phase 5 – Marketing Attribution
 
-The dbt transformation layer was established successfully and the core analytical marts were validated.
-
----
-
-## Phase 4 – RFM Analysis, Customer Segmentation, and Historical CLV
-
-**Status: Completed**
-
-### Activities
-
-- Developed customer RFM metrics.
-- Created RFM scoring logic.
-- Created customer segmentation.
-- Calculated historical CLV.
-- Developed the unified Customer 360 analytical model.
-- Executed final model validation.
-- Reviewed segment and value distributions.
-
-### Models
-
-- `fct_customer_rfm`
-- `fct_customer_rfm_scores`
-- `dim_customer_segments`
-- `fct_customer_clv`
-- `dim_customer_360_analytics`
-
-### Final results
-
-| Measure | Result |
-|---|---:|
-| CRM customers | 5,000 |
-| Purchasers | 2,091 |
-| Non-purchasers | 2,909 |
-| Identified customer orders | 2,504 |
-| Identified customer revenue | $169,649 |
-| Historical CLV revenue | $169,649 |
-| Frequency mismatches | 0 |
-| Revenue mismatches | 0 |
-| Missing segments | 0 |
-| Missing CLV records | 0 |
-
-### Important findings
-
-- The unified Customer 360 model contains one row per CRM customer.
-- RFM and historical CLV totals reconcile.
-- 1,948 orders worth $138,219 do not have a resolved CRM customer ID.
-- Unresolved orders were not assigned to customers without evidence.
-- Historical CLV is descriptive, not predictive.
-
-### Outcome
-
-Phase 4 completed with successful final unified-model validation.
-
----
-
-## Phase 5 – Marketing Attribution and Advertising Performance
-
-**Status: Completed**
-
-### Step 5.1 – Source Profiling
-
-- Inspected the available GA4 and advertising source data.
-- Reviewed source fields and campaign attributes.
-- Identified the available traffic-source information.
-- Investigated advertising data structure and campaign identifiers.
-
-### Step 5.2 – Marketing Touchpoints
-
-- Developed the marketing touchpoint model.
-- Connected session-level traffic information with the attribution workflow.
-- Validated the resulting touchpoint data.
-
-### Step 5.3 – Conversion Journey Modelling
-
-Created:
-
-`fct_conversion_journeys`
-
-The model connects purchase transactions with eligible preceding touchpoints.
+- Developed First-Touch attribution.
+- Developed Last-Touch attribution.
+- Developed Linear attribution.
+- Developed Time-Decay attribution.
+- Created attribution comparison outputs.
+- Performed attribution reconciliation.
 
 Recorded validation:
 
-- 4,452 transactions.
-- 11,496 journey-touchpoint records.
-- 9,144 distinct touchpoint sessions.
+- 4,452 attribution credits/records.
+- $307,868 attributed revenue per attribution model.
 
-### Step 5.4 – First-Touch and Last-Touch Attribution
+## Phase 6 – Campaign Efficiency and CPA
 
-Created:
+- Prepared campaign-level advertising analysis.
+- Developed `fct_campaign_efficiency`.
+- Developed `fct_channel_roi`.
+- Calculated advertising efficiency metrics.
+- Investigated campaign mapping coverage.
+- Performed channel ROI validation.
+- Documented incomplete campaign mapping.
 
-`fct_first_last_touch_attribution`
+Recorded validation:
 
-Both attribution models reconciled to:
+- 8 campaigns.
+- 736 advertising records.
+- 6,231 simulated conversions.
+- $126,552.23 advertising spend.
+- 10 validation checks passed.
+- $0.00 spend reconciliation difference.
 
-- 4,452 transactions.
-- $307,868 purchase revenue.
-- 4,452 total attribution credit.
+## Phase 7 – Tableau Visualization and Recommendations
 
-### Step 5.5 – Linear Attribution
+- Developed the Customer 360 Executive Overview.
+- Developed Marketing Attribution & Conversion Insights.
+- Developed Campaign Performance.
+- Developed Marketing Efficiency & Budget Recommendations.
+- Incorporated analytical findings into business-facing dashboards.
+- Documented campaign mapping limitations and recommendation boundaries.
 
-Created:
+## Final Submission
 
-`fct_linear_attribution`
+- Prepared the system architecture diagram.
+- Prepared data documentation.
+- Updated technical documentation.
+- Prepared the working demonstration.
+- Prepared the final internship presentation.
+- Completed individual reflection.
+- Organized final deliverables for GitHub and Google Drive.
 
-Validation confirmed:
+## Project Status
 
-- 11,496 rows.
-- 4,452 distinct transactions.
-- 9,144 distinct touchpoint sessions.
-- 4,452 total attribution credit.
-- $307,868 attributed revenue.
+**Completed – Final Submission Stage**
 
-### Step 5.6 – Time-Decay Attribution
-
-Created:
-
-`fct_time_decay_attribution`
-
-Implemented a seven-day half-life weighting assumption.
-
-Weights were normalized per transaction.
-
-Validation confirmed transaction-level attribution reconciliation.
-
-### Step 5.7 – Attribution Comparison
-
-Created:
-
-`fct_attribution_comparison`
-
-Consolidated all four attribution models.
-
-Final validation confirmed:
-
-- 4,452 transactions per model.
-- $307,868 attributed revenue per model.
-- 4,452 total attribution credit per model.
-- No transaction-level credit exceptions.
-
-### Step 5.8 – Advertising Performance and Consolidated Reporting
-
-Created:
-
-- `fct_ad_spend_performance`
-- `fct_campaign_performance_summary`
-- `fct_channel_performance_summary`
-- `fct_marketing_performance_reporting`
-
-Advertising dataset summary:
-
-| Metric | Result |
-|---|---:|
-| Campaigns | 8 |
-| Campaign-date records | 736 |
-| Dates | 92 |
-| Impressions | 9,246,272 |
-| Clicks | 186,706 |
-| Simulated conversions | 6,231 |
-| Spend | $126,552.23 |
-
-The consolidated reporting model contains 148 rows:
-
-- 8 synthetic advertising performance rows.
-- 140 GA4 attribution performance rows.
-
-### Testing
-
-- Marketing schema tests: 21 passed, 0 warnings, 0 errors.
-- Dedicated singular tests: 5 passed, 0 warnings, 0 errors.
-- Reporting-model data-quality validation returned zero exception rows.
-- dbt documentation generation and lineage checks completed successfully.
-
-The five singular tests were also included in the model-selected test run. They are five unique tests, not ten separate tests.
-
-### Important limitation discovered
-
-Synthetic advertising campaign IDs could not be reliably mapped to GA4 purchase revenue.
-
-The source/medium comparison produced only one exact match, and it did not establish campaign-level identity.
-
-Consequently:
-
-- Synthetic cost per simulated conversion is available.
-- Actual GA4-based campaign CPA remains unverified.
-- Campaign ROAS and ROI cannot yet be calculated defensibly.
-- Advertising spend and GA4 purchase revenue remain separate in the reporting model.
-
-### Outcome
-
-The four attribution models and advertising performance foundations were completed and validated.
-
----
-
-## Next – Phase 6: Campaign ROI, CPA, and Marketing Efficiency
-
-**Status: Planned**
-
-### Objectives
-
-- Investigate campaign-level mapping between synthetic advertising data and GA4 purchase conversions.
-- Determine whether actual campaign CPA can be calculated.
-- Determine whether campaign ROI and ROAS can be calculated.
-- Validate spend and conversion relationships.
-- Document any limitations where reliable mapping is unavailable.
-
----
-
-## Phase 7 – Tableau Dashboards
-
-**Status: Planned**
-
-- Connect validated analytical models to Tableau.
-- Build customer analytics dashboards.
-- Build marketing attribution dashboards.
-- Build campaign performance dashboards.
-- Present actionable marketing recommendations.
-
----
-
-## Phase 8 – Final Testing and Project Completion
-
-**Status: Planned**
-
-- Perform end-to-end validation.
-- Verify dashboard metrics.
-- Review technical documentation.
-- Finalize the project README.
-- Prepare final project demonstration and presentation.
+The project establishes an integrated customer analytics and marketing attribution solution using public sample data and synthetic business inputs.

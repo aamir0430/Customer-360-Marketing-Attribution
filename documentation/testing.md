@@ -1,173 +1,112 @@
-# Testing and Validation
-## Customer 360 & Marketing Attribution Programme
+# Testing and Validation Documentation
 
 ## 1. Overview
 
-This document records completed validation activities and the testing strategy for future project phases.
+Testing was performed throughout the Customer 360 & Marketing Attribution implementation to validate data quality, identity resolution, transformation logic, attribution outputs and campaign efficiency calculations.
 
-## 2. Testing Objectives
+## 2. dbt Testing
 
-- Verify generated datasets and BigQuery ingestion.
-- Identify missing and duplicate records.
-- Validate customer identity matching and referential consistency.
-- Verify dbt transformations and analytical model outputs.
-- Validate RFM, CLV, and attribution calculations when implemented.
-- Verify Tableau dashboard metrics when implemented.
+The project uses dbt schema tests and singular tests.
 
-## 3. Source Dataset Validation
+Recorded results:
 
-| Dataset | Validation focus |
-|---|---|
-| GA4 session data | Schema, session identifiers, and session coverage |
-| Synthetic CRM customers | Required fields, identifiers, and record consistency |
-| Synthetic advertising spend | Campaign attributes, spend values, and date consistency |
-| Synthetic identity mapping | Identifier completeness, mapping consistency, and duplicate mappings |
+| Test Category | Passed |
+|---|---:|
+| Schema Tests | 21 |
+| Singular Tests | 5 |
 
-Phase 2 BigQuery source tables:
+## 3. Data Quality Validation
 
-- `customer_360_raw.ga4_sessions`
-- `customer_360_raw.crm_customers`
-- `customer_360_raw.identity_mapping`
+The final recorded data-quality validation query returned zero exception rows.
 
-## 4. Python Testing
+This indicates that the records checked by that query satisfied its defined validation conditions.
 
-Python data-generation scripts should be checked for successful execution, expected output files, data structures, data types, duplicate handling, and identity-mapping behaviour. Automated pytest coverage should be recorded when implemented and executed.
+## 4. Identity Resolution Testing
 
-## 5. SQL Testing
+Identity resolution was validated using the available website identifiers and synthetic CRM mapping records.
 
-SQL validation includes schema checks, null and duplicate detection, referential integrity, join validation, aggregation checks, and calculation verification.
+Recorded outputs:
 
-## 6. Phase 2 – Identity Resolution Validation
+- 360,129 GA4 sessions.
+- 10,246 identified customers.
+- 349,883 unidentified sessions.
 
-**Status: Completed.**
+The implementation retains unmatched sessions.
 
-Final output: `customer_360_curated.identity_resolved_sessions`.
+## 5. Attribution Testing
 
-### 6.1 Session Population and Uniqueness
+The project validates four attribution approaches:
+
+- First-Touch.
+- Last-Touch.
+- Linear.
+- Time-Decay.
+
+Recorded reconciliation:
+
+- 4,452 attribution credits/records.
+- $307,868 attributed revenue per attribution model.
+
+The attribution models are alternative credit-allocation methods applied to the same underlying conversion/revenue scope.
+
+## 6. Campaign Efficiency Testing
+
+The project uses:
+
+`fct_campaign_efficiency`
+
+and
+
+`fct_channel_roi`
+
+Recorded input scope:
+
+| Metric | Result |
+|---|---:|
+| Campaigns | 8 |
+| Advertising Records | 736 |
+| Advertising Spend | $126,552.23 |
+| Simulated Conversions | 6,231 |
+
+## 7. Channel ROI Validation
+
+The channel ROI implementation was tested using 10 validation records.
 
 | Check | Result |
 |---|---:|
-| Total output sessions | 360,129 |
-| Unique sessions | 360,129 |
-| Identified sessions | 10,246 |
-| Unidentified sessions | 349,883 |
+| Total Validation Records | 10 |
+| Passed | 10 |
+| Failed | 0 |
+| Advertising Spend Difference | $0.00 |
 
-**Outcome:** Every source session was retained, and the total reconciles with the identified and unidentified counts.
+The spend reconciliation difference was zero.
 
-### 6.2 CRM and Mapping Consistency
+This validates the tested spend reconciliation logic within the supplied dataset. It does not independently verify advertising conversion accuracy or live campaign ROI.
 
-| Check | Result |
-|---|---:|
-| CRM customers represented among identified sessions | 3,500 |
-| Identified records with missing CRM customer records | 0 |
-| Mismatched synthetic IDs | 0 |
+## 8. Tableau Validation
 
-**Outcome:** The recorded final validation checks reported no missing CRM customer records among identified output records and no mismatched synthetic identifiers.
+The four completed dashboards were reviewed for:
 
-**Limitation:** The mapping dataset is synthetic. These checks validate implementation consistency against generated mapping data; they do not establish real-world identity accuracy.
+- Data availability.
+- KPI presentation.
+- Visual consistency.
+- Dashboard filtering.
+- Attribution comparison.
+- Campaign performance reporting.
+- Marketing efficiency reporting.
 
-## 7. Phase 3 – dbt Project and Model Validation
+## 9. Known Testing Limitations
 
-**Status: Completed.**
+The following limitations remain:
 
-### 7.1 dbt Environment and Project Checks
+1. Advertising conversion inputs are simulated.
+2. Six source/medium combinations remain unmapped.
+3. Google Brand and Generic campaign performance cannot be reliably separated.
+4. Complete campaign-level ROAS and CPA are unavailable.
+5. Profit-based and incremental ROI are not established.
 
-| Check | Result |
-|---|---|
-| `dbt debug` | Passed – all checks passed |
-| `dbt parse` | Completed successfully |
-| `dbt docs generate` | Completed; catalog generated |
-| Generated catalog | `dbt/target/catalog.json` |
+## 10. Final Testing Conclusion
 
-A local Python package compatibility issue was resolved before the successful diagnostics. Non-blocking project warnings appeared during parsing. Non-fatal `agate` `table_owner` warnings appeared during documentation generation.
+The recorded dbt and analytical validation results support the implementation of the project's analytical workflow.
 
-### 7.2 Core dbt Models
-
-| Model | Role | Validation status |
-|---|---|---|
-| `fct_sessions` | Session fact | Confirmed validated |
-| `fct_orders` | Order fact | Confirmed validated |
-| `dim_customer_profile` | Customer profile dimension | Confirmed validated |
-
-The three model outputs were created in the BigQuery development target dataset `customer_360_dbt_dev`. The project owner confirmed that all three mart validations were successful.
-
-### 7.3 Evidence Boundary
-
-The available completion record confirms successful dbt diagnostics, parsing, documentation generation, and validation of the three core marts. It does not include exact final `dbt build` or `dbt test` pass/fail totals, nor individual model row counts. Do not infer or fabricate these values.
-
-When command logs or saved query results are available, add the exact test names, pass/fail/skip totals, and mart row counts.
-
-### 7.4 Recommended dbt Test Coverage
-
-Use tests appropriate to each model's declared grain and business rules:
-
-- `not_null` for required keys and mandatory fields.
-- `unique` for identifiers that should be unique at the model grain.
-- `accepted_values` for controlled status fields.
-- `relationships` for expected foreign-key relationships.
-- Custom tests for session/order business rules and reconciliation.
-
-Only tests actually configured and executed should be reported as passed.
-
-## 8. Further Analytical Testing
-
-Future validation will cover:
-
-- RFM recency, frequency, and monetary calculations.
-- Customer Lifetime Value calculations.
-- Attribution credit allocation and reconciliation.
-- Advertising spend, attributed revenue, ROAS, and acquisition-cost calculations.
-- Tableau KPI accuracy, filters, and aggregations.
-
-## 9. Test Execution Status
-
-| Component | Status |
-|---|---|
-| Synthetic CRM dataset generation | Completed |
-| Synthetic advertising dataset generation | Completed |
-| Synthetic identity mapping dataset generation | Completed |
-| BigQuery raw source loading and verification | Completed |
-| Identity mapping inspection and validation | Completed |
-| Identity-resolution join preview and output validation | Completed |
-| Curated identity-resolved table creation | Completed |
-| Final identity-resolution validation | Completed |
-| dbt project diagnostics and parsing | Completed |
-| dbt core mart output validation | Completed – three core marts confirmed |
-| Exact automated dbt test/build totals | Not recorded in this document |
-| RFM and CLV validation | Pending |
-| Marketing attribution validation | Pending |
-| Tableau dashboard testing | Pending |
-
-## 10. Test Evidence
-
-Retain executable SQL, dbt model files, YAML tests, command logs, and validation query outputs in the repository. This document records reported results; it does not replace the underlying executable evidence.
-
-## Phase 6 – Campaign and Channel Efficiency Validation
-
-### Campaign Efficiency Validation
-
-| Validation | Result | Status |
-|---|---:|---|
-| Campaign records | 8 | PASS |
-| Distinct campaigns | 8 | PASS |
-| Advertising spend difference | $0.00 | PASS |
-| Simulated conversion difference | 0 | PASS |
-| Correctly flagged campaigns | 8 | PASS |
-
-### Channel ROI Validation
-
-| Validation | Result | Status |
-|---|---:|---|
-| Channel ROI records | 10 | PASS |
-| Google CPC attribution model records | 4 | PASS |
-| Unmapped source/medium records | 6 | PASS - UNMAPPED |
-| Spend reconciliation differences | $0.00 | PASS |
-| Failed validation records | 0 | PASS |
-
-### Conclusion
-
-All Phase 6 validation checks passed.
-
-Advertising expenditure reconciles with the existing campaign summary, and the Google CPC channel has successfully produced attribution-based CPA, ROAS and revenue-based return metrics.
-
-Unmapped channels remain explicitly identified rather than receiving unsupported revenue allocations.
+However, the results must be interpreted within the scope of the public GA4 sample data, synthetic CRM and advertising inputs, and incomplete campaign mapping.
